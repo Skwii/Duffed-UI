@@ -9,11 +9,8 @@ local function LoadSkin()
 		"PVPColorPickerButton2",
 		"PVPColorPickerButton3",
 		"PVPBannerFrameAcceptButton",
+		"PVPHonorFrameWarGameButton",
 	}
-	
-	--[[if not T.IsPTRVersion() then
-		tinsert(buttons, "PVPHonorFrameWarGameButton")
-	end]]--
 	
 	for i = 1, #buttons do
 		_G[buttons[i]]:StripTextures()
