@@ -95,6 +95,7 @@ C["actionbar"] = {
 	["shapeshiftborder"] = true,						-- Create a Border around the shapeshift buttons
 	["shapeshiftmouseover"] = false,					-- Shapeshiftbar on mouseover
 	["macrotext"] = false,								-- display macro text on buttons
+	["macro"] = true,									-- Enable Buttonhighlightning like Blizzstandard for procs
 	["petbaralwaysvisible"] = true,						-- Always show petbar even if rightbarsmouseover = true
 	["petbarhorizontal"] = false,						-- Petbar horizontal on top of Bar1/2
 	["button2"] = false,								-- TukuiBar2Button Show / Hide

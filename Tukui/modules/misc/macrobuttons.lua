@@ -1,3 +1,6 @@
+local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
+if not C["actionbar"].macro == true then return end
+
 local ActionButton_ShowOverlayGlow = ActionButton_ShowOverlayGlow
 local ActionButton_HideOverlayGlow =ActionButton_HideOverlayGlow
 local ActionButton_UpdateOverlayGlow = ActionButton_UpdateOverlayGlow

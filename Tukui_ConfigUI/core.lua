@@ -91,9 +91,10 @@ local function Local(o)
 	if o == "TukuiConfigUIactionbarshapeshiftborder"  then o = "Display Border around Shapeshiftbar" end
 	if o == "TukuiConfigUIactionbarshapeshiftmouseover"  then o = "Shapeshiftbar on mouseover" end
 	if o == "TukuiConfigUIactionbarmacrotext"  then o = "Display Macrotext" end
+	if o == "TukuiConfigUIactionbarmacro" then o ="Enable Buttonhighlightning like Blizzstandard for Procs" end
 	if o == "TukuiConfigUIactionbarpetbaralwaysvisible"  then o = "Always show Petbar even if rightbarsmouseover = true" end
 	if o == "TukuiConfigUIactionbarpetbarhorizontal"  then o = "Petbar horizontal on top of Bar2/1" end
-	if o == "TukuiConfigUIactionbarbutton2" then o = "Show or Hide the Button between the bottom Datatextpanel" end
+	if o == "TukuiConfigUIactionbarbutton2" then o = "Show or Hide the +/-Button at the bottom Datatextpanel" end
 	
 	if o == "TukuiConfigUIpvpdrinkannouncement"  then o = "Announce 'drinking' in  Arena" end
 	if o == "TukuiConfigUIpvpccannouncement"  then o = "Announce CC/Buffs/Debuffs" end
@@ -198,7 +199,8 @@ local function Local(o)
 	if o == "TukuiConfigUIdatatextcurrency" then o = TukuiL.option_datatext_currency end
 	if o == "TukuiConfigUIdatatextmicromenu" then o = TukuiL.option_datatext_micromenu end
 	if o == "TukuiConfigUIdatatexthit" then o = TukuiL.option_datatext_hit end	
-	if o == "TukuiConfigUIdatatextmastery" then o = TukuiL.option_datatext_mastery end	
+	if o == "TukuiConfigUIdatatextmastery" then o = TukuiL.option_datatext_mastery end
+	if o == "TukuiConfigUIdatatextregen" then o = "Manaregeneration Position" end
 
 	-- unit frames
 	if o == "TukuiConfigUIunitframes" then o = TukuiL.option_unitframes_unitframes end
