@@ -1,5 +1,4 @@
 local T, C, L = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
-if not C["bskins"].misc == true then return end
 
 local function LoadSkin()
 	-- Blizzard frame we want to reskin

@@ -271,9 +271,13 @@ oUF:Factory(function(self)
 		"showSolo", C.unitframes.gridsolo
 	)
 	if ChatBG1 then
-		raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 30)
+		if C["ses"].enable == true then
+			raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 30)
+		else
+			raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 6)
+		end
 	else
-		raid:Point("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 2, 45)
+		raid:Point("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 2, 21)
 	end
 	
 	if C.unitframes.gridpets and not C.unitframes.gridvertical then

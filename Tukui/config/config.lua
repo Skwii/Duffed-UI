@@ -97,6 +97,7 @@ C["actionbar"] = {
 	["macrotext"] = false,								-- display macro text on buttons
 	["petbaralwaysvisible"] = true,						-- Always show petbar even if rightbarsmouseover = true
 	["petbarhorizontal"] = false,						-- Petbar horizontal on top of Bar1/2
+	["button2"] = false,								-- TukuiBar2Button Show / Hide
 
 	["enable"] = true,                                  -- enable tukui action bars
 	["hotkey"] = false,                                 -- enable hotkey display because it was a lot requested
@@ -134,58 +135,7 @@ C["skins"] = {
 	["DXE"] = true,										-- Enable DXE Skin
 	["TinyDPS"] = true,									-- Enable TinyDPS Skin
 	["Quartz"] = true,									-- Enable Quartz Skin
-}
-
-C["bskins"] = {
-	["achievmentframe"] = true,							-- Enable Skin Achievmentframe
-	["achievment_popup"] = true,						-- Enable Skin Achievment Popup
-	["archaeology"] = true,								-- Enable Skin Archaeolog 
-	["ah"] = true,										-- Enable Skin Auctionhouse
-	["barber"] = true,									-- Enable Skin Barbershop
-	["bgscore"] = true,									-- Enable Skin BG-Score
-	["binding"] = true,									-- Enable Skin Keybindings
-	["bnviewfriends"] = true,							-- Enable Skin BN view Friends
-	["calendar"] = true,								-- Enable Skin Calendar
-	["character"] = true,								-- Enable Skin Character
-	["chatconfig"] = true,								-- Enable Skin Chatconfig
-	["debuger"] = true,									-- Enable Skin Debuggertools
-	["dressingroom"] = true,							-- Enable Skin Dressingroom
-	--["encounterjournal"] = true,						-- Enable Skin Encounterjournal
-	["friends"] = true,									-- Enable Skin Friends
-	["gbank"] = true,									-- Enable Skin Guildbank
-	["glyph"] = true,									-- Enable Skin Glyphs
-	["gossip"] = true,									-- Enable Skin Gossip
-	["greeting"] = true,								-- Enable Skin Greeting
-	["guild"] = true,									-- Enable Skin Guild
-	["gc"] = true,										-- Enable Skin Guildcontrol
-	["gr"] = true,										-- Enable Skin Guildregistrar
-	["help"] = true,									-- Enable Skin Help
-	["inspect"] = true,									-- Enable Skin Inspect
-	["ifo"] = true,										-- Enable Skin Interface Options
-	["lfd"] = true,										-- Enable Skin LFD
-	["lfguild"] = true,									-- Enable Skin LFGuild
-	["lfr"] = true,										-- Enable Skin LFR
-	["macro"] = true,									-- Enable Skin Macro
-	["mail"] = true,									-- Enable Skin Mail
-	["merchant"] = true,								-- Enable Skin Merchant
-	["misc"] = true,									-- Enable Skin Blizzardstuff on default TukUI
-	["nr"] = true,										-- Enable Skin Nonraid
-	["petition"] = true,								-- Enable Skin Petition
-	["pvp"] = true,										-- Enable Skin PvP
-	["quest"] = true,									-- Enable Skin Quest
-	["raid"] = true,									-- Enable Skin Raid
-	["reforge"] = true,									-- Enable Skin Reforge
-	["socket"] = true,									-- Enable Skin Socket
-	["spellbook"] = true,								-- Enable Skin Spellbook
-	["tabard"] = true,									-- Enable Skin Tabard
-	["talent"] = true,									-- Enable Skin Talents
-	["taxi"] = true,									-- Enable Skin Taxi
-	["tm"] = true,										-- Enable Skin Timermanager
-	["trade"] = true,									-- Enable Skin Trade
-	["tradeskill"] = true,								-- Enable Skin Tradeskill
-	["trainer"] = true,									-- Enable Skin Trainer
-	["worldmap"] = true,								-- Enable Skin Worldmap
-	["colorpicker"] = true,								-- Enable Skin Colorpicker
+	["bskins"] = true,									-- Enable the Skinning for Blizzardframes
 }
 
 C["sCombo"] = {

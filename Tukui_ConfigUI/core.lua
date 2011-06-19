@@ -24,7 +24,6 @@ local ALLOWED_GROUPS = {
 	["castbar"]=1,
 	["classtimer"]=1,
 	["skins"]=1,
-	["bskins"]=1,
 	["sCombo"]=1,
 	["auras"]=1,
 	["swingtimer"]=1,
@@ -94,6 +93,7 @@ local function Local(o)
 	if o == "TukuiConfigUIactionbarmacrotext"  then o = "Display Macrotext" end
 	if o == "TukuiConfigUIactionbarpetbaralwaysvisible"  then o = "Always show Petbar even if rightbarsmouseover = true" end
 	if o == "TukuiConfigUIactionbarpetbarhorizontal"  then o = "Petbar horizontal on top of Bar2/1" end
+	if o == "TukuiConfigUIactionbarbutton2" then o = "Show or Hide the Button between the bottom Datatextpanel" end
 	
 	if o == "TukuiConfigUIpvpdrinkannouncement"  then o = "Announce 'drinking' in  Arena" end
 	if o == "TukuiConfigUIpvpccannouncement"  then o = "Announce CC/Buffs/Debuffs" end
@@ -123,57 +123,7 @@ local function Local(o)
 	if o == "TukuiConfigUIskinsKLE" then o = "Enable KLE Skin" end
 	if o == "TukuiConfigUIskinsTinyDPS" then o = "Enable TinyDPS Skin" end
 	if o == "TukuiConfigUIskinsQuartz" then o = "Enable Quartz Skin" end
-	
-	if o == "TukuiConfigUIbskins" then o = "Blizzardframe Skins" end
-	if o == "TukuiConfigUIbskinsachievmentframe" then o = "Enable Skin for Achievmentframe" end
-	if o == "TukuiConfigUIbskinsachievment_popup" then o = "Enable Skin for Achievment Popup" end
-	if o == "TukuiConfigUIbskinsarchaeology" then o = "Enable Skin for Archaelogyframe" end
-	if o == "TukuiConfigUIbskinsah" then o = "Enable Skin for Auctionhouse" end
-	if o == "TukuiConfigUIbskinsbarber" then o = "Enable Skin for Barbershop" end
-	if o == "TukuiConfigUIbskinsbgscore" then o = "Enable Skin for BG-Score" end
-	if o == "TukuiConfigUIbskinsbinding" then o = "Enable Skin for Keybindings" end
-	if o == "TukuiConfigUIbskinsbnviewfriends" then o = "Enable Skin for BN view Friendsframe" end
-	if o == "TukuiConfigUIbskinscalendar" then o = "Enable Skin for Calendarframe" end
-	if o == "TukuiConfigUIbskinscharacter" then o = "Enable Skin for Characterframe" end
-	if o == "TukuiConfigUIbskinschatconfig" then o = "Enable Skin for Chatconfigframe" end
-	if o == "TukuiConfigUIbskinsdebuger" then o = "Enable Skin for Debugertools" end
-	if o == "TukuiConfigUIbskinsdressingroom" then o = "Enable Skin for Dressingroom" end
-	--if o == "TukuiConfigUIbskinsencounterjournal" then o = "Enable Skin for Encounter Journal" end
-	if o == "TukuiConfigUIbskinsfriends" then o = "Enable Skin for Friendsframe" end
-	if o == "TukuiConfigUIbskinsgbank" then o = "Enable Skin for Guildbank" end
-	if o == "TukuiConfigUIbskinsglyph" then o = "Enable Skin for Glyphframe" end
-	if o == "TukuiConfigUIbskinsgossip" then o = "Enable Skin for Gossipframe" end
-	if o == "TukuiConfigUIbskinsgreeting" then o = "Enable Skin for Greetingframe" end
-	if o == "TukuiConfigUIbskinsguild" then o = "Enable Skin for Guildframe" end
-	if o == "TukuiConfigUIbskinsgc" then o = "Enable Skin for Guildcontrol" end
-	if o == "TukuiConfigUIbskinsgr" then o = "Enable Skin for Guildregistrar" end
-	if o == "TukuiConfigUIbskinshelp" then o = "Enable Skin for Helpframe" end
-	if o == "TukuiConfigUIbskinsinspect" then o = "Enable Skin for Inspectframe" end
-	if o == "TukuiConfigUIbskinsifo" then o = "Enable Skin for Interface Options" end
-	if o == "TukuiConfigUIbskinslfd" then o = "Enable Skin for LFD-Frame" end
-	if o == "TukuiConfigUIbskinslfguild" then o = "Enable Skin for LFGuild-Frame" end
-	if o == "TukuiConfigUIbskinslfr" then o = "Enable Skin for LFR-Frame" end
-	if o == "TukuiConfigUIbskinsmacro" then o = "Enable Skin for Macroframe" end
-	if o == "TukuiConfigUIbskinsmail" then o = "Enable Skin for Mailframe" end
-	if o == "TukuiConfigUIbskinsmerchant" then o = "Enable Skin for Merchantframe" end
-	if o == "TukuiConfigUIbskinsmisc" then o = "Enable Skin for Blizzard Stuff on default e.g. Game Menu etc." end
-	if o == "TukuiConfigUIbskinsnr" then o = "Enable Skin for Nonraidframe" end
-	if o == "TukuiConfigUIbskinspetition" then o = "Enable Skin for Petitionframe" end
-	if o == "TukuiConfigUIbskinspvp" then o = "Enable Skin for PVP-Frame" end
-	if o == "TukuiConfigUIbskinsquest" then o = "Enable Skin for Questframe" end
-	if o == "TukuiConfigUIbskinsraid" then o = "Enable Skin for Raidgroupframe" end
-	if o == "TukuiConfigUIbskinsreforge" then o = "Enable Skin for Reforgeframe" end
-	if o == "TukuiConfigUIbskinssocket" then o = "Enable Skin for Socketframe" end
-	if o == "TukuiConfigUIbskinsspellbook" then o = "Enable Skin for Spellbook" end
-	if o == "TukuiConfigUIbskinstabard" then o = "Enable Skin for Tabardframe" end
-	if o == "TukuiConfigUIbskinstaxi" then o = "Enable Skin for Taxiframe" end
-	if o == "TukuiConfigUIbskinstalent" then o = "Enable Skin for Talentsframe" end
-	if o == "TukuiConfigUIbskinstm" then o = "Enable Skin for Timemanager" end
-	if o == "TukuiConfigUIbskinstrade" then o = "Enable Skin for Tradeframe" end
-	if o == "TukuiConfigUIbskinstradeskill" then o = "Enable Skin for Tradeskillframe" end
-	if o == "TukuiConfigUIbskinstrainer" then o = "Enable Skin for Trainerframe" end
-	if o == "TukuiConfigUIbskinsworldmap" then o = "Enable Skin for Worldmap" end
-	if o == "TukuiConfigUIbskinscolorpicker" then o = "Enable Skin for Colorpicker" end
+	if o == "TukuiConfigUIskinsbskins" then o = "Enable Skinning for Blizzardframes" end
 	
 	if o == "TukuiConfigUItooltipshowspellid" then o = "Show SpellID on Tooltip" end
 	

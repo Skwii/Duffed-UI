@@ -1,6 +1,6 @@
 local T, C, L, DB = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
 
-if not IsAddOnLoaded("DXE") then return end
+if not IsAddOnLoaded("DXE") or not C.skins.DXE then return end
 
 local DXE = DXE
 local _G = getfenv(0)

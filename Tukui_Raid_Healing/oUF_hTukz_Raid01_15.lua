@@ -210,9 +210,13 @@ oUF:Factory(function(self)
 	'initial-height', T.Scale(32*T.raidscale),	
 	"showParty", true, "showPlayer", C["unitframes"].showplayerinparty, "showRaid", true, "groupFilter", "1,2,3,4,5,6,7,8", "groupingOrder", "1,2,3,4,5,6,7,8", "groupBy", "GROUP", "yOffset", T.Scale(-8))
 	if ChatBG1 then
-		raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 30)
+		if C["ses"].enable == true then
+			raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 30)
+		else
+			raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 6)
+		end
 	else
-		raid:Point("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 2, 45)
+		raid:Point("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 2, 21)
 	end
 	
 	local pets = {} 
