@@ -80,7 +80,7 @@ local TRINKET_FILTER = {
 		CreateSpellEntry( 91322 ), -- Jar of Ancient Remedies Normal
 		CreateSpellEntry( 92331 ), -- Jar of Ancient Remedies Heroic
 		CreateSpellEntry( 91007 ), -- Bell of Enraging Reasonance
-		CreateSpellEntry( 91816 ), -- Heart of Rage
+		CreateSpellEntry( 91816 ), CreateSpellEntry( 92345 ), -- Heart of Rage
 		CreateSpellEntry( 92235 ), -- Symbiotic Worm
 		
 		--The Bastion of Twilight
@@ -476,7 +476,7 @@ local CLASS_FILTERS = {
 				CreateSpellEntry( 30823 ), -- Shamanistic Rage
 				CreateSpellEntry( 55198 ), -- Tidal Force
 				CreateSpellEntry( 61295 ), -- Riptide
- 
+				CreateSpellEntry( 51562 ), CreateSpellEntry( 51563 ), CreateSpellEntry( 51564 ), -- Tidal Waves Rank 1/2/3
 			},
 			procs = {
 				CreateSpellEntry( 53817 ), -- Maelstrom Weapon
