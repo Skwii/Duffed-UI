@@ -146,6 +146,8 @@ local menuList = {
 	end},
 	{text = ACHIEVEMENT_BUTTON,
 	func = function() ToggleAchievementFrame() end},
+	{text = ENCOUNTER_JOURNAL,
+	add func = function() ToggleFrame(EncounterJournal) end},
 	{text = QUESTLOG_BUTTON,
 	func = function() ToggleFrame(QuestLogFrame) end},
 	{text = SOCIAL_BUTTON,
