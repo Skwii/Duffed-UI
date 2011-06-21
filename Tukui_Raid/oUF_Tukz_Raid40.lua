@@ -81,6 +81,13 @@ local function Shared(self, unit)
 		self:RegisterEvent('UNIT_THREAT_SITUATION_UPDATE', T.UpdateThreat)
     end
 	
+	local LFDRole = health:CreateTexture(nil, "OVERLAY")
+    LFDRole:Height(6*T.raidscale)
+    LFDRole:Width(6*T.raidscale)
+	LFDRole:Point("TOPLEFT", 2, -2)
+	LFDRole:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp")
+	self.LFDRole = LFDRole
+	
 	local ReadyCheck = health:CreateTexture(nil, "OVERLAY")
 	ReadyCheck:Height(12*T.raidscale)
 	ReadyCheck:Width(12*T.raidscale)

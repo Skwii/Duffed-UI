@@ -141,6 +141,13 @@ local function Shared(self, unit)
 		self.RaidIcon = RaidIcon
 	end
 	
+	local LFDRole = health:CreateTexture(nil, "OVERLAY")
+    LFDRole:Height(6*T.raidscale)
+    LFDRole:Width(6*T.raidscale)
+	LFDRole:Point("TOPRIGHT", -2, -2)
+	LFDRole:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp")
+	self.LFDRole = LFDRole
+	
 	local ReadyCheck = power:CreateTexture(nil, "OVERLAY")
 	ReadyCheck:Height(12*C["unitframes"].gridscale*T.raidscale)
 	ReadyCheck:Width(12*C["unitframes"].gridscale*T.raidscale)
