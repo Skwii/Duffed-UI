@@ -112,7 +112,6 @@
 	<Script file="modules\actionbars\functions.lua"/>
 	<Script file="modules\misc\ses.lua"/>
 	<Script file="modules\misc\macrobuttons.lua"/>
-	<Script file="modules\misc\sml.lua"/>
 	<Script file="modules\misc\mail.lua"/>
 	
 	<Script file="modules\chat\chatframes.lua"/>

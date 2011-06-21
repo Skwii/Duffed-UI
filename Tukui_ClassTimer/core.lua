@@ -80,7 +80,7 @@ local TRINKET_FILTER = {
 		CreateSpellEntry( 91322 ), -- Jar of Ancient Remedies Normal
 		CreateSpellEntry( 92331 ), -- Jar of Ancient Remedies Heroic
 		CreateSpellEntry( 91007 ), -- Bell of Enraging Reasonance
-		CreateSpellEntry( 91816 ), CreateSpellEntry( 92345 ), -- Heart of Rage
+		CreateSpellEntry( 91816 ), CreateSpellEntry( 92345 ), -- Heart of Rage -- Heart of Rage
 		CreateSpellEntry( 92235 ), -- Symbiotic Worm
 		
 		--The Bastion of Twilight
@@ -250,20 +250,16 @@ local CLASS_FILTERS = {
 				CreateSpellEntry( 33763 ), -- Lifebloom
 				CreateSpellEntry( 467 ), -- Thorns
 				CreateSpellEntry( 80951 ), -- Pulverize
+				CreateSpellEntry( 16870 ), -- Clearcasting
 			},
 			procs = {
-				CreateSpellEntry( 16870 ), -- Clearcasting
 				CreateSpellEntry( 48518 ), -- Eclipse Lunar
 				CreateSpellEntry( 48517 ), -- Eclipse Solar
 				CreateSpellEntry( 69369 ), -- Predator's Swiftness
 				CreateSpellEntry( 93400 ), -- Shooting Stars
 				CreateSpellEntry( 81006 ), CreateSpellEntry( 81191 ), CreateSpellEntry( 81192 ), -- Lunar Shower Rank 1/2/3
 				CreateSpellEntry( 16880 ), CreateSpellEntry( 61345 ), CreateSpellEntry( 61346 ), -- Nature's Grace Rank 1/2/3
- 
 			},
-			procs = {		
-
-			}
 		},
 		HUNTER = { 
 			target = {
