@@ -44,7 +44,7 @@
 	<Script file="tabard.lua"/>
 	<Script file="guildregistrar.lua"/>
 	<Script file="timemanager.lua"/>	
-	<!-- <Script file="encounterjournal.lua"/> -->
+	<Script file="encounterjournal.lua"/>
 	<Script file="xmerchant.lua"/>
 	<Script file="chatconfig.lua"/>
 	<Script file="bnviewfriends.lua"/>
