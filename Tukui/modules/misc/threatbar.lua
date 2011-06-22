@@ -7,11 +7,19 @@ local aggroColors = {
 	[3] = {163/255,  24/255,  24/255},
 }
 
-local TukuiThreatBar = CreateFrame("StatusBar", "TukuiThreatBar", ChatBG2Tabs)
-TukuiThreatBar:Point("TOPLEFT", 2, -2)
-TukuiThreatBar:Point("BOTTOMRIGHT", -2, 2)
-TukuiThreatBar:SetFrameStrata("MEDIUM")
-TukuiThreatBar:SetFrameLevel(2)
+if C["tb"].chattab == false or C["chat"].rightchatbackground == false then
+	local TukuiThreatBar = CreateFrame("StatusBar", "TukuiThreatBar", TukuiInfoRight)
+	TukuiThreatBar:Point("TOPLEFT", 2, -2)
+	TukuiThreatBar:Point("BOTTOMRIGHT", -2, 2)
+	TukuiThreatBar:SetFrameStrata("MEDIUM")
+	TukuiThreatBar:SetFrameLevel(2)
+else
+	local TukuiThreatBar = CreateFrame("StatusBar", "TukuiThreatBar", ChatBG2Tabs)
+	TukuiThreatBar:Point("TOPLEFT", 2, -2)
+	TukuiThreatBar:Point("BOTTOMRIGHT", -2, 2)
+	TukuiThreatBar:SetFrameStrata("MEDIUM")
+	TukuiThreatBar:SetFrameLevel(2)
+end
 
 TukuiThreatBar:SetStatusBarTexture(C.media.normTex)
 TukuiThreatBar:GetStatusBarTexture():SetHorizTile(false)

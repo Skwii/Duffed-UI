@@ -40,6 +40,11 @@ end
 local spec = CreateFrame("Button", "Spec", ChatBG1)
 spec:CreatePanel("Default", 125, 20, "BOTTOMLEFT", ChatBG1, "TOPLEFT", 0, 3)
 
+	if C["chat"].leftchatbackground == false then
+		spec:SetPoint("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 0, 23)
+		spec:SetScale(C["general"].uiscale)
+	end
+	
 	-- Text
 	spec.t = spec:CreateFontString(spec, "OVERLAY")
 	spec.t:SetPoint("CENTER")

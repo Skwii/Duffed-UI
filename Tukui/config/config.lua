@@ -182,6 +182,10 @@ C["cooldown"] = {
 	["treshold"] = 8,                                   -- show decimal under X seconds and text turn red
 }
 
+C["tb"] = {
+	["chattab"] = true,									-- Set Threatbarpoint to TukuiInfoRight
+}
+
 C["datatext"] = {
 	["classcolored"] = false,							-- classcolored datatext
 		["color"] = { 0.4, 0.4, 0.4 },				-- datatext color (if classcolored = false) -- 0.15, 0.49, 0.69

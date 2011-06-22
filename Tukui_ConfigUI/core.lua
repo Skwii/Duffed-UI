@@ -28,6 +28,7 @@ local ALLOWED_GROUPS = {
 	["auras"]=1,
 	["swingtimer"]=1,
 	["ses"]=1,
+	["tb"]=1,
 }
 
 --List of "Table Names" that we do not want to show in the config
@@ -145,6 +146,9 @@ local function Local(o)
 	-- Specswitcher
 	if o == "TukuiConfigUIses" then o = "Specswitcher" end
 	if o == "TukuiConfigUIsesenable" then o = "Enable Specswitcher" end
+	-- Threatbar
+	if o == "TukuiConfigUItb" then o = "Threatbar" end
+	if o == "TukuiConfigUItbchattab" then o = "Set Threatbarpoint to ChatBG2Tab" end
 
 	-- general
 	if o == "TukuiConfigUIgeneral" then o = TukuiL.option_general end
