@@ -77,51 +77,74 @@ local TRINKET_FILTER = {
 		CreateSpellEntry( 89091 ), -- Volcano
 		
 		-- Blackwing Descent
-		CreateSpellEntry( 91322 ), -- Jar of Ancient Remedies Normal
-		CreateSpellEntry( 92331 ), -- Jar of Ancient Remedies Heroic
-		CreateSpellEntry( 91007 ), -- Bell of Enraging Reasonance
-		CreateSpellEntry( 91816 ), CreateSpellEntry( 92345 ), -- Heart of Rage -- Heart of Rage
-		CreateSpellEntry( 92235 ), -- Symbiotic Worm
+		CreateSpellEntry( 91322 ), CreateSpellEntry( 92331 ), -- Jar of Ancient Remedies Normal
+		CreateSpellEntry( 91007 ), CreateSpellEntry( 92318 ), -- Bell of Enraging Reasonance
+		CreateSpellEntry( 91816 ), CreateSpellEntry( 92345 ), -- Heart of Rage
+		CreateSpellEntry( 92235 ), CreateSpellEntry( 92355 ), -- Symbiotic Worm
 		
 		--The Bastion of Twilight
-		CreateSpellEntry( 92126 ), -- Essence of the Cyclone Normal
-		CreateSpellEntry( 92351 ), -- Essence of the Cyclone Heroic
-		CreateSpellEntry( 91184 ), -- Fall of mortality
-		CreateSpellEntry( 92213 ), -- Vial of Stolen Memories
-		CreateSpellEntry( 91024 ), -- Theralion's Mirror
-		CreateSpellEntry( 91821 ), -- Crushing Weight
-		CreateSpellEntry( 91027 ), -- Heart of Ignacious Stacks
-		CreateSpellEntry( 91041 ), -- Heart of Ignacious on use
+		CreateSpellEntry( 92126 ), CreateSpellEntry( 92351 ), -- Essence of the Cyclone Normal
+		CreateSpellEntry( 91184 ), CreateSpellEntry( 92332 ), -- Fall of mortality
+		CreateSpellEntry( 92213 ), CreateSpellEntry( 92357 ), -- Vial of Stolen Memories
+		CreateSpellEntry( 91024 ), CreateSpellEntry( 92320 ), -- Theralion's Mirror
+		CreateSpellEntry( 91821 ), CreateSpellEntry( 92342 ), -- Crushing Weight
+		CreateSpellEntry( 91027 ), CreateSpellEntry( 92236 ), -- Heart of Ignacious Stacks
+		CreateSpellEntry( 91041 ), CreateSpellEntry( 92328 ), -- Heart of Ignacious on use
 		
-		--Throne of the Four Winds
+		--Firelands
+		CreateSpellEntry( 96908 ), CreateSpellEntry( 97121 ), -- Jaws of Defeat
+		CreateSpellEntry( 96976 ), CreateSpellEntry( 97138 ), -- Matrix Restabilizer
+		CreateSpellEntry( 96962 ), CreateSpellEntry( 97131 ), -- Necromantic Focus
+		CreateSpellEntry( 96945 ), CreateSpellEntry( 97129 ), -- Spidersilk Spindle
+		CreateSpellEntry( 96911 ), CreateSpellEntry( 97125 ), -- The Hungerer
+		CreateSpellEntry( 96887 ), CreateSpellEntry( 97119 ), -- Variable Pulse Lightning Capacitor [Needs Buff-SpellID]
+		CreateSpellEntry( 96980 ), CreateSpellEntry( 97142 ), -- Vessel of Acceleration
 		
+		---------------
+		--T-Set Procs--
+		---------------
 		
-		--T11 set procs
 		--DeathKnight
-		CreateSpellEntry( 90507 ), -- DPS set
+		CreateSpellEntry( 90507 ), -- DPS set T11
+		CreateSpellEntry( 98957 ), -- Burning Blood Tank T12
 		
 		--Druid
-		CreateSpellEntry( 90159 ), -- Resto
-		CreateSpellEntry( 90163 ), -- Moonkin
-		CreateSpellEntry( 90165 ), -- Feral
+		CreateSpellEntry( 90159 ), -- Resto T11
+		CreateSpellEntry( 90163 ), -- Moonkin T11
+		CreateSpellEntry( 90165 ), -- Feral T11
+		
+		--Hunter
+		CreateSpellEntry( 99058 ), -- Flaming Arrow T12
+		
+		--Mage
+		CreateSpellEntry( 99063), -- Mirror Image T12
 		
 		--Paladin
-		CreateSpellEntry( 90311 ), -- Holy
+		CreateSpellEntry( 90311 ), -- Holy T11
+		CreateSpellEntry( 99069 ), -- Holy T12
 		
 		--Priest
-		CreateSpellEntry( 89911 ), -- Holy/Disc
+		CreateSpellEntry( 89911 ), -- Holy/Disc T11
+		CreateSpellEntry( 99132 ), -- Holy Disc Divine Fire T12
+		CreateSpellEntry( 99136 ), -- Holy Disc Cauterizing Flame T12
+		CreateSpellEntry( 99157 ), -- Shadow Dark Flames T12
 		
 		--Rogue
-		CreateSpellEntry( 90472 ),
+		CreateSpellEntry( 90472 ), -- T11
+		CreateSpellEntry( 99175 ), -- T12
 		
 		--Shaman
-		CreateSpellEntry( 90498 ), -- Resto
+		CreateSpellEntry( 90498 ), -- Resto T11
+		CreateSpellEntry( 99189 ), -- Resto T11
 		
 		--Warlock
-		CreateSpellEntry( 89937 ),
+		CreateSpellEntry( 89937 ), -- T11
+		CreateSpellEntry( 99221 ), -- Fiery Imp T12
+		CreateSpellEntry( 99232 ), -- Apocalypse T12
 		
 		--Warrior
-		CreateSpellEntry( 90294 ), --DPS
+		CreateSpellEntry( 90294 ), -- DPS T11
+		CreateSpellEntry( 99233 ), -- DPS Burning Rage T12
 	};
 	
 --[[ Class specific filters
@@ -193,7 +216,8 @@ local CLASS_FILTERS = {
 				CreateSpellEntry( 64856 ), -- Blade barrier
 				CreateSpellEntry( 70657 ), -- Advantage
 				CreateSpellEntry( 81340 ), -- Sudden Doom
-			}		},
+			}		
+		},
 		DRUID = { 
 			target = { 
 				CreateSpellEntry( 48438 ), -- Wild Growth

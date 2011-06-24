@@ -146,6 +146,7 @@ local function Local(o)
 	-- Specswitcher
 	if o == "TukuiConfigUIses" then o = "Specswitcher" end
 	if o == "TukuiConfigUIsesenable" then o = "Enable Specswitcher" end
+	
 	-- Threatbar
 	if o == "TukuiConfigUItb" then o = "Threatbar" end
 	if o == "TukuiConfigUItbchattab" then o = "Set Threatbarpoint to ChatBG2Tab" end
