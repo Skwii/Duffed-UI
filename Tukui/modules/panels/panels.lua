@@ -1,5 +1,4 @@
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
-local tdpsVisibility = 1
 
 local TukuiBar1 = CreateFrame("Frame", "TukuiBar1", UIParent, "SecureHandlerStateTemplate") -- Mainbar (24)
 TukuiBar1:CreatePanel("Default", 1, 1, "BOTTOM", UIParent, "BOTTOM", 0, 27)
@@ -194,59 +193,3 @@ BNToastFrame:CreateShadow("Default")
 
 WorldStateAlwaysUpFrame:ClearAllPoints();
 WorldStateAlwaysUpFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 50, 0);
-
--- TinyDPS-Button
---[[if tdpsFrame then
-	local tdpsb = CreateFrame("Frame", "TinyDPSButton", UIParent)
-	tdpsb:CreatePanel(nil, 19, 19, "BOTTOMRIGHT", ChatBG1, "BOTTOMRIGHT", -4, 4)
-	local cm = "|cff319f1b-|r" -- +
-	local cp = "|cff9a1212+|r" -- -
-	tdpsb:EnableMouse(true)
-	tdpsb.f = tdpsb:CreateFontString(nil, overlay)
-	tdpsb.f:SetPoint("CENTER")
-	tdpsb.f:SetFont(C["media"].uffont, C.datatext.fontsize)
-	tdpsb.f:SetText(cm)
-	
-	local DataReg = CreateFrame("Frame")
-	DataReg:RegisterEvent("ADDON_LOADED")
-	DataReg:RegisterEvent("PLAYER_LOGOUT")
-	function DataReg:OnEvent(event)
-		if event == "ADDON_LOADED" then
-			if tdpsState == nil then
-				tdpsVisibility = 1
-				tdpsState = 1
-				tdpsb.f:SetText(cm)
-			end
-			if tdpsState then
-				tdpsVisibility = tdpsState
-			else
-				tdpsVisibility = 2
-				self.f:SetText(cp)
-			end
-		elseif event == "PLAYER_LOGOUT" then
-			tdpsState = tdpsVisibility
-		end
-	end
-	DataReg:SetScript("OnEvent", DataReg.OnEvent)
-
-	tdpsb:SetScript("OnMouseDown", function(self)
-		ToggleFrame(tdpsFrame)
-		if tdpsFrame:IsShown() then
-			tdpsb.f:SetText(cm)
-			tdpsVisibility = 1
-		else
-			self.f:SetText(cp)
-			tdpsVisibility = 2
-		end
-	end)
-	
-	local tdpsSaver = CreateFrame("Frame")
-	tdpsSaver:RegisterEvent("ADDON_LOADED")
-	tdpsSaver:HookScript("OnEvent", function(self, event)
-		if event == "ADDON_LOADED" then
-			if tdpsVisibility == 2 then
-				tdpsFrame:Hide()
-			end
-		end
-	end)
-end]]--
