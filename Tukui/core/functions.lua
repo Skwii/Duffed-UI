@@ -1,4 +1,5 @@
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
+local COMBAT_TEXT_LOCATIONS = COMBAT_TEXT_LOCATIONS
 
 -- ptr
 T.IsPTRVersion = function()
