@@ -215,7 +215,9 @@ C["datatext"] = {
 	["hit"] = 0,										-- show your current hit rating on panels.
 	["mastery"] = 0,									-- show your current mastery rating on panels.
 	["micromenu"] = 0,									-- Micromenu on panels (toggle the same menu as on minimap).
-	["regen"] = 0,
+	["regen"] = 0,										-- show your manaregen
+	["calltoarms"] = 0,									-- show Call to Arms
+	["profession"] = 0,									-- show Professions
 
 	["battleground"] = true,                            -- enable 3 stats in battleground only that replace stat1,stat2,stat3.
 	["time24"] = true,                                  -- set time to 24h format.

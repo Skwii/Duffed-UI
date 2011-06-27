@@ -94,6 +94,8 @@
 	<Script file="modules\datatext\mastery.lua"/>
 	<Script file="modules\datatext\misc.lua"/>
 	<Script file="modules\datatext\regen.lua"/>
+	<Script file="modules\datatext\cta.lua"/>
+	<Script file="modules\datatext\profession.lua"/>
 	
 	<Script file="modules\actionbars\Bind.lua"/>
 	<Script file="modules\actionbars\Hide.lua"/>
