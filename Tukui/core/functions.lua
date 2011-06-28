@@ -1195,6 +1195,29 @@ if C["unitframes"].raidunitdebuffwatch == true then
 			SpellName(87856), -- Squall Line
 			
 			-- SpellName(6788), --test
+		--Firelands
+			--Beth'tilac
+			SpellName(99506), -- Widows Kiss
+  
+			--Alysrazor
+			SpellName(101296), -- Fiero Blast
+			SpellName(100723), -- Gushing Wound
+  
+			--Shannox
+			SpellName(99837), -- Crystal Prison
+			SpellName(99937), -- Jagged Tear
+  
+			--Baleroc
+			SpellName(99403), -- Tormented
+  
+			--Lord Rhyolith
+			--<< NONE KNOWN YET >>
+  
+			--Majordomo Staghelm
+			--<< NONE KNOWN YET >>
+  
+			--Ragnaros
+			--<< NONE KNOWN YET >>
 		}
 
 		T.ReverseTimer = {
