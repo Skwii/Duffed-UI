@@ -115,6 +115,7 @@ local function Local(o)
 	if o == "TukuiConfigUIchatrightchatbackground" then o = "Show Background for the right Chat (ChatFrame4)" end
 	if o == "TukuiConfigUIchatrightchatnumber" then o = "(For Rightchat-Background) Chat Number X" end
 	if o == "TukuiConfigUIchatfading" then o = "Enable fading" end
+	if o == "TukuiConfigUIchatrightchatalign" then o = "Set align of right chat to left or right" end
 	
 	if o == "TukuiConfigUIskins" then o = "Skins" end
 	if o == "TukuiConfigUIskinsbackground" then o = "Create Panel that looks exactly like the left chat (by default) at the BOTTOMRIGHT" end

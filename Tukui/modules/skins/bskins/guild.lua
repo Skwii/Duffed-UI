@@ -166,6 +166,8 @@ local function LoadSkin()
 	GuildMemberOfficerNoteBackground:SetTemplate("Default")
 	GuildMemberRankDropdown:SetFrameLevel(GuildMemberRankDropdown:GetFrameLevel() + 5)
 	T.SkinDropDownBox(GuildMemberRankDropdown, 175)
+	GuildMemberRemoveButton:ClearAllPoints()
+	GuildMemberRemoveButton:SetPoint("BOTTOMLEFT", 10, 5)
 
 	--News
 	GuildNewsFrame:StripTextures()

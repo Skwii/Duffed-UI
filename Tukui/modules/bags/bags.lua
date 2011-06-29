@@ -409,6 +409,10 @@ function Stuffing:CreateBagFrame(w)
 		end
 	end
 	
+	-- moveable
+	f:SetScript("OnMouseDown", function() f:ClearAllPoints() f:StartMoving() end)
+	f:SetScript("OnMouseUp", function() f:StopMovingOrSizing() end)
+	
 	-- close button
 	f.b_close = CreateFrame("Button", "Stuffing_CloseButton" .. w, f, "UIPanelCloseButton")
 	f.b_close:Width(32)

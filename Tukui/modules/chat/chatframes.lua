@@ -211,8 +211,14 @@ local function SetupChatPosAndFont(self)
 		end
 				
 		--Check if chat exists in the bottomright corner
-		if i == C.chat.rightchatnumber then
-			chat:SetJustifyH("RIGHT") 
+		if C["chat"].rightchatalign == true then
+			if i == C.chat.rightchatnumber then
+				chat:SetJustifyH("RIGHT") 
+			end
+		else
+			if i == C.chat.rightchatnumber and not ChatBG2 then
+				chat:SetJustifyH("RIGHT") 
+			end
 		end
 	end
 			

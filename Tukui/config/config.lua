@@ -9,8 +9,8 @@ C["general"] = {
 	["bordercolor"] = { .15, .15, .15 },				-- border color of tukui panels
 	["backdropcolor"] = { .05,.05,.05 },				-- background color of tukui panels
 
-	["autoscale"] = false,                               -- mainly enabled for users that don't want to mess with the config file
-	["uiscale"] = 0.66,                                 -- set your value (between 0.64 and 1) of your uiscale if autoscale is off
+	["autoscale"] = true,                               -- mainly enabled for users that don't want to mess with the config file
+	["uiscale"] = 0.73,                                 -- set your value (between 0.64 and 1) of your uiscale if autoscale is off
 	["overridelowtohigh"] = false,                      -- EXPERIMENTAL ONLY! override lower version to higher version on a lower reso.
 	["multisampleprotect"] = true,                      -- i don't recommend this because of shitty border but, voila!
 }
@@ -230,6 +230,7 @@ C["chat"] = {
 	["leftchatbackground"] = true,						-- attached to ChatFrame1
 	["rightchatbackground"] = true,						-- attached to ChatFrameX
 		["rightchatnumber"] = 4,						-- Rightchat-background is attached to ChatFrameX ..X = value
+		["rightchatalign"] = true,						-- Set align of right chatframe to left or right
 	["fading"] = true,									-- Enable Fading
 	
 	["enable"] = true,                                  -- blah
