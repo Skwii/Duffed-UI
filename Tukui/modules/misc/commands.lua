@@ -73,6 +73,25 @@ SlashCmdList["LEAVEPARTY"] = function()
 end
 SLASH_LEAVEPARTY1 = '/leaveparty'
 
+-- Farm mode
+local farm = false
+local minisize = 144
+local farmsize = 300
+function SlashCmdList.FARMMODE(msg, editbox)
+    if farm == false then
+        TukuiMinimap:SetSize(farmsize, farmsize)
+		Minimap:SetSize(farmsize, farmsize)
+        farm = true
+        print("Farm Mode : On")
+    else
+        TukuiMinimap:SetSize(minisize, minisize)
+		Minimap:SetSize(minisize, minisize)
+        farm = false
+        print("Farm Mode : Off")
+    end
+end
+SLASH_FARMMODE1 = '/farmmode'
+
 -- dunno where to place this
 COPPER_AMOUNT = "%d|cFF954F28"..COPPER_AMOUNT_SYMBOL.."|r"
 SILVER_AMOUNT = "%d|cFFC0C0C0"..SILVER_AMOUNT_SYMBOL.."|r"
