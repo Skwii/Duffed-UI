@@ -218,6 +218,9 @@ C["datatext"] = {
 	["regen"] = 0,										-- show your manaregen
 	["calltoarms"] = 0,									-- show Call to Arms
 	["profession"] = 0,									-- show Professions
+	["block"] = 0,										-- show Block %
+	["parry"] = 0,										-- show Parry Chance
+	["dodge"] = 0,										-- show Dodge Chance
 
 	["battleground"] = true,                            -- enable 3 stats in battleground only that replace stat1,stat2,stat3.
 	["time24"] = true,                                  -- set time to 24h format.

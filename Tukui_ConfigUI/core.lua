@@ -209,6 +209,9 @@ local function Local(o)
 	if o == "TukuiConfigUIdatatextregen" then o = "Manaregeneration Position" end
 	if o == "TukuiConfigUIdatatextcalltoarms" then o = "Call to Arms Position" end
 	if o == "TukuiConfigUIdatatextprofession" then o = "Profession Position" end
+	if o == "TukuiConfigUIdatatextblock" then o = "Block Position" end
+	if o == "TukuiConfigUIdatatextdodge" then o = "Dodge Position" end
+	if o == "TukuiConfigUIdatatextparry" then o = "Parry Position" end
 
 	-- unit frames
 	if o == "TukuiConfigUIunitframes" then o = TukuiL.option_unitframes_unitframes end

@@ -3,8 +3,8 @@
 ## Project Collaborators: Elv22, Nightcracker
 ## Credits to: Caith, Caellian, Shestak, Haste, Tekkub, Alza, Roth, P3lim, Tulla, Hungtar, hankthetank, Ishtara and others...
 ## Special Thanks to: Admins, Moderator and VIP's from tukui.org
-## Version: 13.22 (Duffed UI v5.57)
-## Build: 132001
+## Version: 13.24 (Duffed UI v5.58)
+## Build: 132401
 ## Title: |cffC495DDTukui|r
 ## Notes: UI of awesomeness!
 ## SavedVariables: TukuiData
