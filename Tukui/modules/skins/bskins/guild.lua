@@ -60,6 +60,9 @@ local function LoadSkin()
 		"GuildRecruitmentDeclineButton",
 	}
 	
+	GuildPerksToggleButton:StripTextures()
+	GuildPerksToggleButton:SetTemplate("Default")
+	
 	for i, button in pairs(buttons) do
 		if i == 1 then
 			T.SkinButton(_G[button])
