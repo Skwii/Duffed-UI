@@ -157,7 +157,8 @@ local function LoadSkin()
 	T.SkinDropDownBox(GuildRosterViewDropdown, 200)
 	
 	for i=1, 14 do
-		T.SkinButton(_G["GuildRosterContainerButton"..i.."HeaderButton"], true)
+		_G["GuildRosterContainerButton"..i.."HeaderButton"]:StripTextures()
+		_G["GuildRosterContainerButton"..i.."HeaderButton"]:SetTemplate("Default")
 	end
 	
 	--Detail Frame

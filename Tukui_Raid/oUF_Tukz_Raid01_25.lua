@@ -163,16 +163,8 @@ oUF:Factory(function(self)
 		"point", "BOTTOM"
 	)
 	if ChatBG1 then
-		if C["ses"].enable == true then
-			raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 30)
-		else
-			raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 6)
-		end
+		raid:Point("BOTTOMLEFT", ChatBG1, "TOPLEFT", 2, 6)
 	else
-		if C["ses"].enable == true then
-			raid:Point("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 2, 49)
-		else
-			raid:Point("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 2, 23)
-		end
+		raid:Point("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 2, 23)
 	end
 end)
