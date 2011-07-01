@@ -144,7 +144,7 @@
 	<Script file="modules\skins\addons\Omen.lua"/>
 	<Script file="modules\skins\addons\Recount.lua"/>
 	<Script file="modules\skins\addons\KLE.lua"/>
-	<Script file="modules\skins\addons\dxe.lua"/>
+	<Script file="modules\skins\addons\DXE.lua"/>
 	<Script file="modules\skins\addons\TinyDPS.lua"/>
 	<Script file="modules\skins\addons\Quartz.lua"/>
 	

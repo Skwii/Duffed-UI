@@ -128,11 +128,11 @@ if not DXEDB then DXEDB = {} end
 if not DXEDB["profiles"] then DXEDB["profiles"] = {} end
 if not DXEDB["profiles"][T.myname.." - "..GetRealmName()] then DXEDB["profiles"][T.myname.." - "..T.myrealm] = {} end
 if not DXEDB["profiles"][T.myname.." - "..GetRealmName()]["Globals"] then DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"] = {} end
-DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["BackgroundTexture"] = "ElvUI Blank"
-DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["BarTexture"] = "ElvUI Norm"
+DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["BackgroundTexture"] = "Tukui Blank"
+DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["BarTexture"] = "Tukui Statusbar"
 DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["Border"] = "None"
-DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["Font"] = "ElvUI Font"
-DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["TimerFont"] = "ElvUI Font"
+DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["Font"] = "Tukui Normal Font"
+DXEDB["profiles"][T.myname.." - "..T.myrealm]["Globals"]["TimerFont"] = "Tukui Normal Font"
 
 local function PositionDXEAnchor()
 	if not DXEAlertsTopStackAnchor then return end
