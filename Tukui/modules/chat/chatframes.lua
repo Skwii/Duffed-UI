@@ -87,7 +87,7 @@ local function SetChatStyle(frame)
 	-- move the chat edit box
 	_G[chat.."EditBox"]:ClearAllPoints()
 	_G[chat.."EditBox"]:Point("TOPLEFT", ChatBG1Tabs or TukuiInfoLeft, 2, -2)
-	_G[chat.."EditBox"]:Point("BOTTOMRIGHT", ChatBG1Tabs or TukuiInfoLeft, -2, 2)	
+	_G[chat.."EditBox"]:Point("BOTTOMRIGHT", ChatBG1Tabs or TukuiInfoLeft, -2, 0)	
 	
 	-- Hide textures
 	for j = 1, #CHAT_FRAME_TEXTURES do
