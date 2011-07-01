@@ -150,7 +150,7 @@ end
 local function UpdateBNTable(total)
 	BNTotalOnline = 0
 	local presenceID, givenName, surname, toonName, toonID, client, isOnline, isAFK, isDND, noteText
-	local realmName, faction, race, class, zoneName, level
+	local _, realmName, faction, race, class, zoneName, level
 	for i = 1, #BNTable do
 		-- get guild roster information
 		presenceID, givenName, surname, toonName, toonID, client, isOnline, _, isAFK, isDND, _, noteText = BNGetFriendInfo(i)
