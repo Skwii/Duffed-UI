@@ -29,7 +29,7 @@ if C["datatext"].dur and C["datatext"].dur > 0 then
 		table.sort(L.Slots, function(a, b) return a[3] < b[3] end)
 		
 		if Total > 0 then
-			Text:SetText(T.panelcolor..floor(L.Slots[1][3]*100).."%|r "..L.datatext_armor)
+			Text:SetText(floor(L.Slots[1][3]*100).."% "..T.panelcolor..L.datatext_armor)
 		else
 			Text:SetText("100%|r "..T.panelcolor..L.datatext_armor)
 		end

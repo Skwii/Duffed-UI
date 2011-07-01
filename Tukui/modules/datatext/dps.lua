@@ -61,17 +61,9 @@ if C["datatext"].dps_text and C["datatext"].dps_text > 0 then
 		   
 		if id == player_id or id == pet_id then
 			if select(2, ...) == "SWING_DAMAGE" then
-				if T.toc < 40200 then
-					last_dmg_amount = select(10, ...)
-				else
-					last_dmg_amount = select(12, ...)
-				end
+				last_dmg_amount = select(12, ...)
 			else
-				if T.toc < 40200 then
-					last_dmg_amount = select(13, ...)
-				else
-					last_dmg_amount = select(15, ...)
-				end
+				last_dmg_amount = select(15, ...)
 			end
 			dmg_total = dmg_total + last_dmg_amount
 		end       
