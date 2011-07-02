@@ -1221,6 +1221,43 @@ else
 	end
 end
 
+if C.unitframes.layout ~= 4 then
+	if C.unitframes.largefocus then
+		playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
+	else
+		if TukuiFocus:IsShown() then
+			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, yOffset + TukuiFocus:GetHeight() +6)
+		else
+			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
+		end
+		TukuiFocus:HookScript("OnShow", function()
+			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, yOffset + TukuiFocus:GetHeight() +6)
+		end)
+		TukuiFocus:HookScript("OnHide", function()
+			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
+		end)	
+	end
+	playerFrame:Point( "BOTTOMRIGHT", TukuiPlayer, "TOPRIGHT", 0, yOffset )
+else
+	playerFrame:Point("BOTTOMLEFT", ShardBarBorder or RuneBarBorder or TotemBarBorder or TukuiPlayer, "TOPLEFT", 2, 5)
+	playerFrame:Point("BOTTOMRIGHT", ShardBarBorder or RuneBarBorder or TotemBarBorder or TukuiPlayer, "TOPRIGHT", -2, 5)
+	
+	if T.myclass == "DRUID" then
+		if EclipseBarBorder:IsShown() then
+			playerFrame:Point("BOTTOMLEFT", EclipseBarBorder, "TOPLEFT", 2, 5)
+			playerFrame:Point("BOTTOMRIGHT", EclipseBarBorder, "TOPRIGHT", -2, 5)
+		end
+		EclipseBarBorder:HookScript("OnShow", function(self)
+			playerFrame:Point("BOTTOMLEFT", self, "TOPLEFT", 2, 5)
+			playerFrame:Point("BOTTOMRIGHT", self, "TOPRIGHT", -2, 5)
+		end)
+		EclipseBarBorder:HookScript("OnHide", function(self)
+			playerFrame:Point("BOTTOMLEFT", TukuiPlayer, "TOPLEFT", 2, 5)
+			playerFrame:Point("BOTTOMRIGHT", TukuiPlayer, "TOPRIGHT", -2, 5)
+		end)
+	end
+end
+
 local trinketFrame = CreateAuraBarFrame( trinketDataSource, TukuiPlayer )
 trinketFrame:SetHiddenHeight( -yOffset )
 trinketFrame:Point( "BOTTOMLEFT", playerFrame, "TOPLEFT", 0, yOffset )
