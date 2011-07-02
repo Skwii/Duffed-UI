@@ -190,6 +190,3 @@ TukuiBar2:CreateShadow("Default")
 TukuiBar3:CreateShadow("Default")
 petbg:CreateShadow("Default")
 BNToastFrame:CreateShadow("Default")
-
-WorldStateAlwaysUpFrame:ClearAllPoints();
-WorldStateAlwaysUpFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 50, 0);
