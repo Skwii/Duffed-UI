@@ -57,26 +57,27 @@ end
 -----------
 local spec = CreateFrame("Button", "Spec", UIParent)
 spec:CreatePanel("Default", 1, 20, "TOPRIGHT", UIParent, "TOPRIGHT", -32, -212)
+spec:CreateShadow("Default")
 
 	-- Positioning
 	if TukuiMinimap then
-		spec:SetPoint("TOPLEFT", TukuiMinimap, "BOTTOMLEFT", 0, -3)
-		spec:SetPoint("TOPRIGHT", TukuiMinimap, "BOTTOMRIGHT", -23, -3)
+		spec:SetPoint("TOPLEFT", TukuiMinimap, "BOTTOMLEFT", 0, -2)
+		spec:SetPoint("TOPRIGHT", TukuiMinimap, "BOTTOMRIGHT", -22, -2)
 	end
 	if TukuiMinimapStatsLeft and TukuiMinimapStatsRight then
-		spec:SetPoint("TOPLEFT", TukuiMinimapStatsLeft, "BOTTOMLEFT", 0, -3)
-		spec:SetPoint("TOPRIGHT", TukuiMinimapStatsRight, "BOTTOMRIGHT", -23, -3)
+		spec:SetPoint("TOPLEFT", TukuiMinimapStatsLeft, "BOTTOMLEFT", 0, -2)
+		spec:SetPoint("TOPRIGHT", TukuiMinimapStatsRight, "BOTTOMRIGHT", -22, -2)
 	end
 	if RaidBuffReminder then
-		spec:SetPoint("TOPLEFT", RaidBuffReminder, "BOTTOMLEFT", 0, -3)
-		spec:SetPoint("TOPRIGHT", RaidBuffReminder, "BOTTOMRIGHT", -23, -3)
-	end	
+		spec:SetPoint("TOPLEFT", RaidBuffReminder, "BOTTOMLEFT", 0, -2)
+		spec:SetPoint("TOPRIGHT", RaidBuffReminder, "BOTTOMRIGHT", -22, -2)
+	end
+	
 	-- Text
 	spec.t = spec:CreateFontString(spec, "OVERLAY")
 	spec.t:SetPoint("CENTER")
 	spec.t:SetFont(C["media"].uffont, C.datatext.fontsize)
-	spec:CreateShadow("Default")
-
+	
 	local int = 1
 	local function Update(self, t)
 	int = int - t
@@ -127,7 +128,7 @@ spec:CreatePanel("Default", 1, 20, "TOPRIGHT", UIParent, "TOPRIGHT", -32, -212)
 --Toggle Button
 ----------------
 local toggle = CreateFrame("Button", "Toggle", Spec)
-toggle:CreatePanel("Default", 20, 20, "TOPLEFT", Spec, "TOPRIGHT", 3, 0)
+toggle:CreatePanel("Default", 20, 20, "TOPLEFT", Spec, "TOPRIGHT", 2, 0)
 
 	if C.general.ali == true then
 	toggle:SetBackdropColor(unpack(C.general.color))
@@ -159,7 +160,7 @@ toggle:CreatePanel("Default", 20, 20, "TOPLEFT", Spec, "TOPRIGHT", 3, 0)
 -- DPS layout
 --------------
 local dps = CreateFrame("Button", "DPS", Toggle, "SecureActionButtonTemplate")
-dps:CreatePanel("Default", 28, 19, "TOPRIGHT", Toggle, "BOTTOMRIGHT", 0, -3)
+dps:CreatePanel("Default", 28, 19, "TOPRIGHT", Toggle, "BOTTOMRIGHT", 0, -2)
 dps:Hide()		
 dps.t = dps:CreateFontString(nil, "OVERLAY")
 dps.t:SetPoint("CENTER")
@@ -179,7 +180,7 @@ dps:SetAttribute("macrotext", "/dps")
 -- Heal layout
 ---------------
 local heal = CreateFrame("Button", "HEAL", DPS, "SecureActionButtonTemplate")
-heal:CreatePanel("Default", 29, 19, "RIGHT", DPS, "LEFT", -3, 0)
+heal:CreatePanel("Default", 32, 19, "RIGHT", DPS, "LEFT", -2, 0)
 		
 heal.t = heal:CreateFontString(nil, "OVERLAY")
 heal.t:SetPoint("CENTER")
@@ -199,7 +200,7 @@ heal:SetAttribute("macrotext", "/heal")
 --Key Binds
 ------------
 local binds = CreateFrame("Button", "Binds", HEAL, "SecureActionButtonTemplate")
-binds:CreatePanel("Default", 30, 19, "RIGHT", HEAL, "LEFT", -3, 0)
+binds:CreatePanel("Default", 30, 19, "RIGHT", HEAL, "LEFT", -2, 0)
 
 binds.t = binds:CreateFontString(nil, "OVERLAY")
 binds.t:SetPoint("CENTER")
@@ -219,7 +220,7 @@ binds:SetAttribute("macrotext", "/bindkey")
 --Move UI
 ------------
 local mui = CreateFrame("Button", "MoveUI", Binds, "SecureActionButtonTemplate")
-mui:CreatePanel("Default", 48, 19, "RIGHT", Binds, "LEFT", -3, 0)
+mui:CreatePanel("Default", 48, 19, "RIGHT", Binds, "LEFT", -2, 0)
 		
 mui.t = mui:CreateFontString(nil, "OVERLAY")
 mui.t:SetPoint("CENTER")
@@ -246,9 +247,9 @@ for i = 1, 10 do
 		gearSets[i]:CreateShadow("Default")
 
 		if i == 1 then
-			gearSets[i]:Point("TOPRIGHT", DPS, "BOTTOMRIGHT", 0, -3)
+			gearSets[i]:Point("TOPRIGHT", DPS, "BOTTOMRIGHT", 0, -2)
 		else
-			gearSets[i]:SetPoint("BOTTOMRIGHT", gearSets[i-1], "BOTTOMLEFT", -3, 0)
+			gearSets[i]:SetPoint("BOTTOMRIGHT", gearSets[i-1], "BOTTOMLEFT", -2, 0)
 		end
 		gearSets[i].texture = gearSets[i]:CreateTexture(nil, "BORDER")
 		gearSets[i].texture:SetTexCoord(0.08, 0.92, 0.08, 0.92)

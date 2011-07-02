@@ -74,7 +74,7 @@ local function Local(o)
 	if o == "TukuiConfigUIunitframesbuffrows" then o = "Buff-rows above Target" end
 	if o == "TukuiConfigUIunitframesdebuffrows" then o = "Debuff-rows above Target" end
 	if o == "TukuiConfigUIunitframesportraitstyle" then o = "Portrait Style: ICON or MODEL (Layout 2 only)" end
-	if o == "TukuiConfigUIunitframeslayout" then o = "Layout (1 or 2)" end
+	if o == "TukuiConfigUIunitframeslayout" then o = "Layout [1,2,3 or 4 (Layout 3&4 have no Outline for textelements)]" end
 	if o == "TukuiConfigUIunitframesColorGradient" then o = "Add Color-Gradient to healthbar (from red to healthbarcolor u set in config)" end
 	if o == "TukuiConfigUIunitframespowerClasscolored" then o = "Powerbar in class-color instead of power-color" end
 	
