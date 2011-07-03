@@ -1221,7 +1221,7 @@ else
 	end
 end
 
-if C.unitframes.layout == 4 then
+if C.unitframes.layout ~= 4 then
 	if C.unitframes.largefocus then
 		playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
 	else
