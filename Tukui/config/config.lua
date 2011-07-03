@@ -166,6 +166,7 @@ C["auras"] = {
 C["bags"] = {
 	["enable"] = true,                                  -- enable an all in one bag mod that fit tukui perfectly
 	["moveable"] = true,								-- enable to move your bags
+	["transparent"] = false,							-- enable transparent for bags
 }
 
 C["map"] = {

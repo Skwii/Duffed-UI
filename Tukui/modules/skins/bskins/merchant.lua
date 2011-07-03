@@ -83,8 +83,16 @@ local function LoadSkin()
 	-- Skin misc frames
 	MerchantFrame:Width(360)
 	T.SkinCloseButton(MerchantFrameCloseButton, MerchantFrame.backdrop)
-	T.SkinNextPrevButton(MerchantNextPageButton)
-	T.SkinNextPrevButton(MerchantPrevPageButton)
+	
+	MerchantPrevPageButton:StripTextures()
+	MerchantPrevPageButton:FontString("text", C.datatext.font, 18)
+	MerchantPrevPageButton.text:SetText("<")
+	MerchantPrevPageButton.text:SetPoint("CENTER", 0, 0)
+	
+	MerchantNextPageButton:StripTextures()
+	MerchantNextPageButton:FontString("text", C.datatext.font, 18)
+	MerchantNextPageButton.text:SetText(">")
+	MerchantNextPageButton.text:SetPoint("CENTER", 0, 0)
 end
 
 tinsert(T.SkinFuncs["Tukui"], LoadSkin)

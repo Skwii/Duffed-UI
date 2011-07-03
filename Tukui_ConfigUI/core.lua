@@ -179,7 +179,8 @@ local function Local(o)
 	-- bags
 	if o == "TukuiConfigUIbags" then o = TukuiL.option_bags end
 	if o == "TukuiConfigUIbagsenable" then o = TukuiL.option_bags_enable end
-	if o == "TukUIConfigUIbagsmoveable" then o = "Enable to move your bags" end
+	if o == "TukuiConfigUIbagsmoveable" then o = "Enable to move your bags" end
+	if o == "TukuiConfigUIbagstransparent" then o = "Enable Transparent for bags" end
 	
 	-- datatext
 	if o == "TukuiConfigUIdatatext" then o = TukuiL.option_datatext end

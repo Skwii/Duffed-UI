@@ -607,7 +607,9 @@ function Stuffing:Layout(lb)
 	})
 	f:SetBackdropColor(unpack(C["media"].backdropcolor))
 	f:SetBackdropBorderColor(unpack(C["media"].bordercolor))
-
+	if C["bags"].transparent == true then
+		f:SetTemplate("Transparent")
+	end
 
 	-- bag frame stuff
 	local fb = f.bags_frame
@@ -621,6 +623,9 @@ function Stuffing:Layout(lb)
 		})
 		fb:SetBackdropColor(unpack(C["media"].backdropcolor))
 		fb:SetBackdropBorderColor(unpack(C["media"].bordercolor))
+		if C["bags"].transparent == true then
+			fb:SetTemplate("Transparent")
+		end
 
 		local bsize = 30
 		if lb then bsize = 37 end

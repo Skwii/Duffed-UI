@@ -177,7 +177,7 @@ TukuiBar3Button2.text:SetText(cm..">|r")
 
 -- exit vehicle button on right side of bottom action bar
 local exitvehicle = CreateFrame("Button", "TukuiExitVehicleButton", UIParent, "SecureHandlerClickTemplate")
-exitvehicle:CreatePanel("Default", T.buttonsize, T.buttonsize, "RIGHT", TukuiBar1, "LEFT", -5, 0)
+exitvehicle:CreatePanel("Default", T.buttonsize, T.buttonsize, "LEFT", TukuiBar1, "RIGHT", 5, 0)
 exitvehicle:RegisterForClicks("AnyUp")
 exitvehicle:SetScript("OnClick", function() VehicleExit() end)
 exitvehicle:CreateShadow("Default")
@@ -185,6 +185,16 @@ exitvehicle.text = T.SetFontString(exitvehicle, C.media.font, 19)
 exitvehicle.text:Point("CENTER", 1, 1)
 exitvehicle.text:SetText(cm.."v|r")
 RegisterStateDriver(exitvehicle, "visibility", "[target=vehicle,exists] show;hide")
+
+local exitvehicle2 = CreateFrame("Button", "TukuiExitVehicleButton2", UIParent, "SecureHandlerClickTemplate")
+exitvehicle2:CreatePanel("Default", T.buttonsize, T.buttonsize, "RIGHT", TukuiBar1, "LEFT", -5, 0)
+exitvehicle2:RegisterForClicks("AnyUp")
+exitvehicle2:SetScript("OnClick", function() VehicleExit() end)
+exitvehicle2:CreateShadow("Default")
+exitvehicle2.text = T.SetFontString(exitvehicle2, C.media.font, 19)
+exitvehicle2.text:Point("CENTER", 1, 1)
+exitvehicle2.text:SetText(cm.."v|r")
+RegisterStateDriver(exitvehicle2, "visibility", "[target=vehicle,exists] show;hide")
 
 --------------------------------------------------------------
 -- DrPepper taste is really good with Vodka. 
