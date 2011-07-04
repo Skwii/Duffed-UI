@@ -101,6 +101,7 @@ C["actionbar"] = {
 	["button2"] = false,								-- TukuiBar2Button Show / Hide
 
 	["enable"] = true,                                  -- enable tukui action bars
+	["layout"] = 1,										-- layout testingstuff
 	["hotkey"] = false,                                 -- enable hotkey display because it was a lot requested
 	["hideshapeshift"] = false,                         -- hide shapeshift or totembar because it was a lot requested.
 	["showgrid"] = true,                                -- show grid on empty button
@@ -136,6 +137,7 @@ C["skins"] = {
 	["DXE"] = true,										-- Enable DXE Skin
 	["TinyDPS"] = true,									-- Enable TinyDPS Skin
 	["Quartz"] = true,									-- Enable Quartz Skin
+	["DBM"] = true,										-- Enable DBM Skin
 	["bskins"] = true,									-- Enable the Skinning for Blizzardframes
 }
 

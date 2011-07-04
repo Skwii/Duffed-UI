@@ -1209,6 +1209,8 @@ if C["unitframes"].raidunitdebuffwatch == true then
   
 			--Baleroc
 			SpellName(99403), -- Tormented
+			SpellName(99256), -- Qual / Torment
+			SpellName(99252), -- Flammeneifer (Tank Debuff)
   
 			--Lord Rhyolith
 			--<< NONE KNOWN YET >>

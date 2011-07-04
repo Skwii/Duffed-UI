@@ -96,6 +96,7 @@ local function Local(o)
 	if o == "TukuiConfigUIactionbarpetbaralwaysvisible"  then o = "Always show Petbar even if rightbarsmouseover = true" end
 	if o == "TukuiConfigUIactionbarpetbarhorizontal"  then o = "Petbar horizontal on top of Bar2/1" end
 	if o == "TukuiConfigUIactionbarbutton2" then o = "Show or Hide the +/-Button at the bottom Datatextpanel" end
+	if o == "TukuiConfigUIactionbarlayout" then o = "Set Actionbarlayout" end
 	
 	if o == "TukuiConfigUIpvpdrinkannouncement"  then o = "Announce 'drinking' in  Arena" end
 	if o == "TukuiConfigUIpvpccannouncement"  then o = "Announce CC/Buffs/Debuffs" end
@@ -126,6 +127,7 @@ local function Local(o)
 	if o == "TukuiConfigUIskinsKLE" then o = "Enable KLE Skin" end
 	if o == "TukuiConfigUIskinsTinyDPS" then o = "Enable TinyDPS Skin" end
 	if o == "TukuiConfigUIskinsQuartz" then o = "Enable Quartz Skin" end
+	if o == "TukuiConfigUIskinsDBM" then o = "Enable DBM Skin" end
 	if o == "TukuiConfigUIskinsbskins" then o = "Enable Skinning for Blizzardframes" end
 	
 	if o == "TukuiConfigUItooltipshowspellid" then o = "Show SpellID on Tooltip" end
