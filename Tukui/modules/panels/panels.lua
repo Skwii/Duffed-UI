@@ -67,6 +67,16 @@ if C["actionbar"].layout == 1 then
 	TukuiBar2:CreateShadow("Default")
 	TukuiBar3:CreateShadow("Default")
 	BNToastFrame:CreateShadow("Default")
+	
+	--BATTLEGROUND STATS FRAME
+	if C["datatext"].battleground == true then
+		local bgframe = CreateFrame("Frame", "TukuiInfoLeftBattleGround", UIParent)
+		bgframe:CreatePanel("Default", 0, 0, "TOPLEFT", UIParent, "BOTTOMLEFT", 0, 0)
+		bgframe:SetAllPoints(ileft)
+		bgframe:SetFrameStrata("LOW")
+		bgframe:SetFrameLevel(3)
+		bgframe:EnableMouse(true)
+	end
 end
 
 if C["actionbar"].layout == 2 then
@@ -127,6 +137,16 @@ if C["actionbar"].layout == 2 then
 	TukuiBar3Right:CreateShadow("Default")
 	TukuiBar4:CreateShadow("Default")
 	BNToastFrame:CreateShadow("Default")
+	
+	--BATTLEGROUND STATS FRAME
+	if C["datatext"].battleground == true then
+		local bgframe = CreateFrame("Frame", "TukuiInfoLeftBattleGround", UIParent)
+		bgframe:CreatePanel("Default", 0, 0, "TOPLEFT", UIParent, "BOTTOMLEFT", 0, 0)
+		bgframe:SetAllPoints(ileft)
+		bgframe:SetFrameStrata("LOW")
+		bgframe:SetFrameLevel(3)
+		bgframe:EnableMouse(true)
+	end
 end
 
 local petbg = CreateFrame("Frame", "TukuiPetBar", UIParent, "SecureHandlerStateTemplate")
