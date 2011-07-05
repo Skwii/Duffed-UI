@@ -355,11 +355,11 @@ if C["actionbar"].layout == 2 then
 	end)
 	if T.lowversion then
 		TukuiBar2Button:Size(TukuiInfoLeft:GetHeight())
-		TukuiBar2Button:Point("BOTTOMLEFT", ChatBG1, "BOTTOMRIGHT", 3, 0)
+		TukuiBar2Button:Point("BOTTOMLEFT", TukuiInfoLeft, "BOTTOMRIGHT", 2, 0)
 		TukuiBar2Button.text:Point("CENTER", 0, 0)
 	else
 		TukuiBar2Button:Size(TukuiInfoLeft:GetHeight())
-		TukuiBar2Button:Point("BOTTOMLEFT", ChatBG1, "BOTTOMRIGHT", 3, 0)
+		TukuiBar2Button:Point("BOTTOMLEFT", TukuiInfoLeft, "BOTTOMRIGHT", 2, 0)
 		TukuiBar2Button.text:Point("CENTER", 0, 0)
 	end
 	if C["actionbar"].button2 == true then

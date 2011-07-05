@@ -30,9 +30,11 @@ local function chatsetup()
 				if i == 1 then
 					frame:ClearAllPoints()
 					frame:Point("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 9, 9)
+					if C["actionbar"].layout == 2 then frame:Point("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 9, 31) end
 				elseif i == 4 and chatName == LOOT.."/"..L.chat_trade then
 					frame:ClearAllPoints()
 					frame:Point("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -9, 9)
+					if C["actionbar"].layout == 2 then frame:Point("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -9, 31) end
 				end
 			else
 				frame:Size(350, 93)
