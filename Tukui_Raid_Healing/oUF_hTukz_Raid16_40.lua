@@ -12,6 +12,10 @@ local font2 = C["media"].uffont
 local font1 = C["media"].font
 local normTex = C["media"].normTex
 local fontsize = C["unitframes"].fontsize
+local backdrop = {
+	bgFile = C["media"].blank,
+	insets = {top = -T.mult, left = -T.mult, bottom = -T.mult, right = -T.mult},
+	}
 
 local function Shared(self, unit)
 	self.colors = T.oUF_colors
@@ -204,6 +208,18 @@ local function Shared(self, unit)
 			otherBar = ohpb,
 			maxOverflow = 1,
 		}
+	end
+	
+	if T.myclass == "PRIEST" and C["unitframes"].weakenedsoulbar then
+		local ws = CreateFrame("StatusBar", self:GetName().."_WeakenedSoul", power)
+		ws:SetAllPoints(power)
+		ws:SetStatusBarTexture(C.media.normTex)
+		ws:GetStatusBarTexture():SetHorizTile(false)
+		ws:SetBackdrop(backdrop)
+		ws:SetBackdropColor(unpack(C.media.backdropcolor))
+		ws:SetStatusBarColor(191/255, 10/255, 10/255)
+    
+		self.WeakenedSoul = ws
 	end
 	
 	if C["unitframes"].raidunitdebuffwatch == true then

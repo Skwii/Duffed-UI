@@ -7,9 +7,7 @@ local cm = "|cff9a1212" -- -
 if C["actionbar"].layout == 1 then
 	local function ShowOrHideBar(bar, button)
 		local db = TukuiDataPerChar
-	
 		if bar:IsShown() then
-
 			if bar == TukuiBar2 then
 				if button == TukuiBar2Button then
 					bar:Hide()
@@ -43,12 +41,7 @@ if C["actionbar"].layout == 1 then
 
 			if bar == TukuiBar3 then
 				if button == TukuiBar3Button then
-
-
-
-
 					bar:SetWidth((T.buttonsize * 1) + (T.buttonspacing * 2))
-
 					MultiBarRight:Hide()
 					db.rightbars = 1
 					if C["actionbar"].petbarhorizontal ~= true then TukuiLineToPetActionBarBackground:Show() end
@@ -68,10 +61,6 @@ if C["actionbar"].layout == 1 then
 				button.text:SetText(cm.."-|r")
 			else
 				button.text:SetText(cp.."+|r")
-
-
-
-
 			end
 		end
 
@@ -102,10 +91,6 @@ if C["actionbar"].layout == 1 then
 				TukuiBar3Button:Point("RIGHT", UIParent, "RIGHT", 1, -14)
 				if C["actionbar"].petbarhorizontal ~= true then TukuiPetBar:Point("RIGHT", UIParent, "RIGHT", -14, -14) end
 			end
-
-
-
-
 		end
 	end
 
@@ -114,7 +99,6 @@ if C["actionbar"].layout == 1 then
 		if InCombatLockdown() then print(ERR_NOT_IN_COMBAT) return end
 	
 		local button = self
-	
 		ShowOrHideBar(bar, button)
 		MoveButtonBar(button, bar)
 	end
@@ -129,12 +113,6 @@ if C["actionbar"].layout == 1 then
 		if btn == "RightButton" then
 			if TukuiInfoLeftBattleGround and UnitInBattleground("player") then
 				ToggleFrame(TukuiInfoLeftBattleGround)
-
-
-
-
-
-
 			end
 		else
 			DrPepper(self, TukuiBar2)
@@ -258,20 +236,23 @@ end
 if C["actionbar"].layout == 2 then
 	local function ShowOrHideBar(bar, button)
 		local db = TukuiDataPerChar
-	
-
-
 
 		if bar:IsShown() then
-			if bar == TukuiBar2 then
+			if bar == TukuiBar3Left then
 				if button == TukuiBar2Button then
 					bar:Hide()
 					db.hidebar2 = true
 				end
 			end
-			if bar == TukuiBar4 then
-				if button == TukuiBar4Button then
-					if C["actionbar"].petbarhorizontal ~= true then TukuiLineToPetActionBarBackground:Show() end
+			if bar == TukuiBar3Right then
+				if button == TukuiBar2Button then
+					bar:Hide()
+					db.hidebar2 = true
+				end
+			end
+			if bar == TukuiBar3 then
+				if button == TukuiBar3Button then
+					if C["actionbar"].petbarhorizontal ~= true then end
 					if db.rightbars == 1 then
 						MultiBarRight:Show()
 						db.rightbars = 2
@@ -281,69 +262,53 @@ if C["actionbar"].layout == 2 then
 						db.rightbars = 1
 						bar:SetWidth((T.buttonsize * 1) + (T.buttonspacing * 2))
 					end
-				elseif button == TukuiBar4Button2 then
-					if C["actionbar"].petbarhorizontal ~= true then TukuiLineToPetActionBarBackground:Hide() end
+				elseif button == TukuiBar3Button2 then
+					if C["actionbar"].petbarhorizontal ~= true then end
 					db.rightbars = 0
 					bar:Hide()
 				end
 			end
-
 		else
 			bar:Show()
-			if bar == TukuiBar2 then
+			if bar == TukuiBar3Left then
 				db.hidebar2 = false
 			end
-			if bar == TukuiBar4 then
-				if button == TukuiBar4Button then
+			if bar == TukuiBar3Right then
+				db.hidebar2 = false
+			end
+			if bar == TukuiBar3 then
+				if button == TukuiBar3Button then
 					bar:SetWidth((T.buttonsize * 1) + (T.buttonspacing * 2))
 					MultiBarRight:Hide()
 					db.rightbars = 1
-					if C["actionbar"].petbarhorizontal ~= true then TukuiLineToPetActionBarBackground:Show() end
+					if C["actionbar"].petbarhorizontal ~= true then end
 				end
 			end
-
 		end
 	end
 
 	local function MoveButtonBar(button, bar)
 		local db = TukuiDataPerChar
-	
 		if button == TukuiBar2Button then
 			T.petBarPosition()
 			T.cbPosition()
 			if bar:IsShown() then
-
-
 				button.text:SetText(cm.."-|r")
 			else
-
-
-
-
-
-
-
-
-
-
 				button.text:SetText(cp.."+|r")
-
 			end
-
 		end
 
 		if button == TukuiBar4Button then
 			if bar:IsShown() then
 				if db.rightbars == 2 and button == TukuiBar4Button then
 					button.text:SetText(cm..">|r")
-
 					TukuiBar4Button2:Hide()
 					button:Height(130)
 					button:ClearAllPoints()
 					button:Point("RIGHT", UIParent, "RIGHT", 1, -14)
 					if C["actionbar"].petbarhorizontal ~= true then TukuiPetBar:Point("RIGHT", UIParent, "RIGHT", -23 -((T.buttonsize * 2) + (T.buttonspacing * 3)), -14) end
 				elseif db.rightbars == 1 then
-
 					TukuiBar4Button2:Show()
 					button:Height(130/2)
 					button:ClearAllPoints()
@@ -364,65 +329,66 @@ if C["actionbar"].layout == 2 then
 		end
 	end
 
-
 	local function DrPepper(self, bar) -- guess what! :P
 		-- yep, you cannot drink DrPepper while in combat. :(
 		if InCombatLockdown() then print(ERR_NOT_IN_COMBAT) return end
 	
 		local button = self
-	
 		ShowOrHideBar(bar, button)
 		MoveButtonBar(button, bar)
 	end
 
+	-- +/-
+	local TukuiBar2Button = CreateFrame("Button", "TukuiBar2Button", UIParent)
+	TukuiBar2Button:SetTemplate("Default")
+	TukuiBar2Button:CreateShadow("Default")
+	TukuiBar2Button:RegisterForClicks("AnyUp")
+	TukuiBar2Button.text = T.SetFontString(TukuiBar2Button, C.datatext.font, C.datatext.fontsize)
+	TukuiBar2Button:SetScript("OnClick", function(self, btn)
+		if btn == "RightButton" then
+			if TukuiInfoLeftBattleGround and UnitInBattleground("player") then
+				ToggleFrame(TukuiInfoLeftBattleGround)
+			end
+		else
+			DrPepper(self, TukuiBar3Left, TukuiBar3Right)
+		end
+	end)
+	if T.lowversion then
+		TukuiBar2Button:Size(TukuiInfoLeft:GetHeight())
+		TukuiBar2Button:Point("BOTTOMLEFT", ChatBG1, "BOTTOMRIGHT", 3, 0)
+		TukuiBar2Button.text:Point("CENTER", 0, 0)
+	else
+		TukuiBar2Button:Size(TukuiInfoLeft:GetHeight())
+		TukuiBar2Button:Point("BOTTOMLEFT", ChatBG1, "BOTTOMRIGHT", 3, 0)
+		TukuiBar2Button.text:Point("CENTER", 0, 0)
+	end
+	if C["actionbar"].button2 == true then
+		TukuiBar2Button:SetAlpha(0)
+	else
+		TukuiBar2Button:SetAlpha(1)
+	end
+	TukuiBar2Button:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(unpack(C.datatext.color)) end)
+	TukuiBar2Button:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(unpack(C.media.bordercolor)) end)
+	TukuiBar2Button.text:SetText(cm.."-|r")
 	
 	-- >/< 1
-
-
-
-
-
 	local TukuiBar4Button = CreateFrame("Button", "TukuiBar4Button", UIParent)
 	TukuiBar4Button:Width(12)
 	TukuiBar4Button:Height(130)
 	TukuiBar4Button:Point("RIGHT", UIParent, "RIGHT", 1, -14)
 	TukuiBar4Button:SetTemplate("Default")
-
-
 	TukuiBar4Button:RegisterForClicks("AnyUp")
 	TukuiBar4Button:SetAlpha(0)
-
 	TukuiBar4Button:SetScript("OnClick", function(self) DrPepper(self, TukuiBar4) end)
 	if C["actionbar"].rightbarsmouseover == true then
 		TukuiBar4Button:SetScript("OnEnter", function(self) TukuiRightBarsMouseover(1) end)
 		TukuiBar4Button:SetScript("OnLeave", function(self) TukuiRightBarsMouseover(0) end)
-
-
-
-
 	else
 		TukuiBar4Button:SetScript("OnEnter", function(self) self:SetAlpha(1) TukuiBar4Button2:SetAlpha(1) end)
 		TukuiBar4Button:SetScript("OnLeave", function(self) self:SetAlpha(0) TukuiBar4Button2:SetAlpha(0) end)
-
 	end
 	TukuiBar4Button.text = T.SetFontString(TukuiBar4Button, C.media.font, 14)
-
-
-
-
-
-
-
-
 	TukuiBar4Button.text:Point("CENTER", 0, 0)
-
-
-
-
-
-
-
-
 	TukuiBar4Button.text:SetText(cm..">|r")
 
 	-- >/< 2
@@ -430,34 +396,10 @@ if C["actionbar"].layout == 2 then
 	TukuiBar4Button2:Width(TukuiBar4Button:GetWidth())
 	TukuiBar4Button2:Height((TukuiBar4Button:GetHeight()/2)+1)
 	TukuiBar4Button2:Point("TOP", TukuiBar4Button, "BOTTOM", 0, 1)
-
-
-
 	TukuiBar4Button2:SetTemplate("Default")
 	TukuiBar4Button2:RegisterForClicks("AnyUp")
-
-
-
-
-
-
-
 	TukuiBar4Button2:SetAlpha(0)
-
-
-
-
-
 	TukuiBar4Button2:Hide()
-
-
-
-
-
-
-
-
-
 	TukuiBar4Button2:SetScript("OnClick", function(self) DrPepper(self, TukuiBar4) end)
 	if C["actionbar"].rightbarsmouseover == true then
 		TukuiBar4Button2:SetScript("OnEnter", function(self) TukuiRightBarsMouseover(1) end)

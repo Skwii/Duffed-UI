@@ -115,7 +115,7 @@ if C["actionbar"].layout == 2 then
 
 	-- INFO LEFT (FOR STATS)
 	local ileft = CreateFrame("Frame", "TukuiInfoLeft", TukuiBar1)
-	ileft:CreatePanel("Default", T.InfoLeftRightWidth, 19, "BOTTOMRIGHT", UIParent, "BOTTOM", -1, 4)
+	ileft:CreatePanel("Default", T.InfoLeftRightWidth, 19, "BOTTOM", UIParent, "BOTTOM", 0, 5)
 	ileft:SetFrameLevel(2)
 	if T.lowversion then 
 		ileft:ClearAllPoints() 
@@ -124,7 +124,7 @@ if C["actionbar"].layout == 2 then
 
 	-- INFO RIGHT (FOR STATS)
 	local iright = CreateFrame("Frame", "TukuiInfoRight", TukuiBar1)
-	iright:CreatePanel("Default", T.InfoLeftRightWidth, 19, "BOTTOMLEFT", UIParent, "BOTTOM", 1, 4)
+	iright:CreatePanel("Default", T.InfoLeftRightWidth, 19, "BOTTOM", UIParent, "BOTTOM", 0, 95)
 	iright:SetFrameLevel(2)
 	if T.lowversion then
 		iright:ClearAllPoints()
@@ -252,16 +252,6 @@ if TukuiMinimap then
 	
 	minimapstatsleft:CreateShadow("Default")
 	minimapstatsright:CreateShadow("Default")
-end
-
---BATTLEGROUND STATS FRAME
-if C["datatext"].battleground == true then
-	local bgframe = CreateFrame("Frame", "TukuiInfoLeftBattleGround", UIParent)
-	bgframe:CreatePanel("Default", 1, 1, "TOPLEFT", UIParent, "BOTTOMLEFT", 0, 0)
-	bgframe:SetAllPoints(ileft)
-	bgframe:SetFrameStrata("LOW")
-	bgframe:SetFrameLevel(3)
-	bgframe:EnableMouse(true)
 end
 
 -- BNToastFrame Anchorframe
