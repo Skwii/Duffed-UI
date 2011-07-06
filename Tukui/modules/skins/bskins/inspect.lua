@@ -58,48 +58,50 @@ local function LoadSkin()
 		icon:Point("BOTTOMRIGHT", -2, 2)
 	end
 	
-	local CheckItemBorderColor = CreateFrame("Frame")
-	local function ScanSlots()
-		local notFound
-		for _, slot in pairs(slots) do
-			-- Colour the equipment slots by rarity
-			local target = _G["Inspect"..slot]
-			local slotId, _, _ = GetInventorySlotInfo(slot)
-			local itemId = GetInventoryItemID("target", slotId)
+	if C["skins"].itemborder == true then 
+		local CheckItemBorderColor = CreateFrame("Frame")
+		local function ScanSlots()
+			local notFound
+			for _, slot in pairs(slots) do
+				-- Colour the equipment slots by rarity
+				local target = _G["Inspect"..slot]
+				local slotId, _, _ = GetInventorySlotInfo(slot)
+				local itemId = GetInventoryItemID("target", slotId)
 
-			if itemId then
-				local _, _, rarity, _, _, _, _, _, _, _, _ = GetItemInfo(itemId)
-				if not rarity then notFound = true end
-				if rarity and rarity > 1 then
-					target:SetBackdropBorderColor(GetItemQualityColor(rarity))
+				if itemId then
+					local _, _, rarity, _, _, _, _, _, _, _, _ = GetItemInfo(itemId)
+					if not rarity then notFound = true end
+					if rarity and rarity > 1 then
+						target:SetBackdropBorderColor(GetItemQualityColor(rarity))
+					else
+						target:SetBackdropBorderColor(unpack(C.media.bordercolor))
+					end
 				else
 					target:SetBackdropBorderColor(unpack(C.media.bordercolor))
 				end
+			end	
+
+			if notFound == true then
+				return false
 			else
-				target:SetBackdropBorderColor(unpack(C.media.bordercolor))
-			end
-		end	
+				CheckItemBorderColor:SetScript('OnUpdate', nil) --Stop updating
+				return true
+			end		
+		end
 
-		if notFound == true then
-			return false
-		else
-			CheckItemBorderColor:SetScript('OnUpdate', nil) --Stop updating
-			return true
-		end		
+		local function ColorItemBorder(self)
+			if not ScanSlots() then
+				self:SetScript("OnUpdate", ScanSlots) --Run function until all items borders are colored, sometimes when you have never seen an item before GetItemInfo will return nil, when this happens we have to wait for the server to send information.
+			end 
+		end
+
+		CheckItemBorderColor:RegisterEvent("PLAYER_TARGET_CHANGED")
+		CheckItemBorderColor:RegisterEvent("UNIT_PORTRAIT_UPDATE")
+		CheckItemBorderColor:RegisterEvent("PARTY_MEMBERS_CHANGED")
+		CheckItemBorderColor:SetScript("OnEvent", ColorItemBorder)	
+		InspectFrame:HookScript("OnShow", ColorItemBorder)
+		ColorItemBorder()
 	end
-
-	local function ColorItemBorder(self)
-		if not ScanSlots() then
-			self:SetScript("OnUpdate", ScanSlots) --Run function until all items borders are colored, sometimes when you have never seen an item before GetItemInfo will return nil, when this happens we have to wait for the server to send information.
-		end 
-	end
-
-	CheckItemBorderColor:RegisterEvent("PLAYER_TARGET_CHANGED")
-	CheckItemBorderColor:RegisterEvent("UNIT_PORTRAIT_UPDATE")
-	CheckItemBorderColor:RegisterEvent("PARTY_MEMBERS_CHANGED")
-	CheckItemBorderColor:SetScript("OnEvent", ColorItemBorder)	
-	InspectFrame:HookScript("OnShow", ColorItemBorder)
-	ColorItemBorder()
 	
 	T.SkinRotateButton(InspectModelFrameRotateLeftButton)
 	T.SkinRotateButton(InspectModelFrameRotateRightButton)

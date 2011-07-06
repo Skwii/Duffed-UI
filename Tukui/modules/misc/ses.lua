@@ -88,7 +88,14 @@ spec:CreateShadow("Default")
 		spec.t:SetText(name.." "..panelcolor..tree1.."/"..tree2.."/"..tree3)
 		if HasDualSpec() then
 			local sTree1, sTree2, sTree3, sTree = UnactiveTalents()
-			sName = select(2, GetTalentTabInfo(sTree))
+			if (sTree == nil) then --sName = select(2, GetTalentTabInfo(sTree))
+				sName = "No talents"
+				sTree1 = "0"
+				sTree2 = "0"
+				sTree3 = "0"
+			else
+				sName = select(2, GetTalentTabInfo(sTree))
+			end
 			spec:SetScript("OnEnter", function() spec.t:SetText(cm..sName.." "..panelcolor..sTree1.."/"..sTree2.."/"..sTree3) end)
 			spec:SetScript("OnLeave", function() spec.t:SetText(name.." "..panelcolor..tree1.."/"..tree2.."/"..tree3) end)
 		end

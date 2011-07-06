@@ -139,6 +139,7 @@ C["skins"] = {
 	["Quartz"] = true,									-- Enable Quartz Skin
 	["DBM"] = true,										-- Enable DBM Skin
 	["bskins"] = true,									-- Enable the Skinning for Blizzardframes
+	["itemborder"] = true, 								-- Enable Qualityborder for Items on Character / Inspectframe
 }
 
 C["sCombo"] = {
@@ -264,6 +265,7 @@ C["tooltip"] = {
 	["hidebuttons"] = false,                            -- always hide action bar buttons tooltip.
 	["hideuf"] = false,                                 -- hide tooltip on unitframes
 	["cursor"] = false,                                 -- tooltip via cursor only
+	["ilvl"] = true,									-- shows average itemlevel at tooltip
 }
 
 C["merchant"] = {

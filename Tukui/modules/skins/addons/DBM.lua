@@ -1,4 +1,3 @@
-if not IsAddOnLoaded("DBM") or not C.skins.DBM then return end
 --[[
 
 Tukui_DBM skin by Affli@RU-Howling Fjord
@@ -19,6 +18,7 @@ local rwiconsize=18			-- RaidWarning icon size, because 12 is small for me. Work
 local UI
 if ElvUI then UI=ElvUI else UI=Tukui end
 local T, C, L = unpack(UI)
+if not IsAddOnLoaded("DBM-Core") or not C["skins"].DBM == true then return end
 local classcolor = RAID_CLASS_COLORS[T.myclass]
 local buttonsize
 if C.actionbar.buttonsize and type(C.actionbar.buttonsize)=="number" then

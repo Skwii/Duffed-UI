@@ -129,6 +129,7 @@ local function Local(o)
 	if o == "TukuiConfigUIskinsQuartz" then o = "Enable Quartz Skin" end
 	if o == "TukuiConfigUIskinsDBM" then o = "Enable DBM Skin" end
 	if o == "TukuiConfigUIskinsbskins" then o = "Enable Skinning for Blizzardframes" end
+	if o == "TukuiConfigUIskinsitemborder" then o = "Enable Qualityborder for Items on Character / Inspectframe" end
 	
 	if o == "TukuiConfigUItooltipshowspellid" then o = "Show SpellID on Tooltip" end
 	
@@ -285,6 +286,7 @@ local function Local(o)
 	if o == "TukuiConfigUItooltiphidebuttons" then o = TukuiL.option_tooltip_hidebutton end
 	if o == "TukuiConfigUItooltiphideuf" then o = TukuiL.option_tooltip_hideuf end
 	if o == "TukuiConfigUItooltipcursor" then o = TukuiL.option_tooltip_cursor end
+	if o == "TukuiConfigUItooltipilvl" then o = "Display average itemlevel on tooltip" end
 	
 	-- others
 	if o == "TukuiConfigUIothers" then o = TukuiL.option_others end

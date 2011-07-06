@@ -293,31 +293,33 @@ local function LoadSkin()
 	PetPaperDollPetInfo:Size(24, 24)
 	
 	-- a request to color item by rarity on character frame.
-	local function ColorItemBorder()
-		for _, slot in pairs(slots) do
-			-- Colour the equipment slots by rarity
-			local target = _G["Character"..slot]
-			local slotId, _, _ = GetInventorySlotInfo(slot)
-			local itemId = GetInventoryItemID("player", slotId)
+	if C["skins"].itemborder == true then
+		local function ColorItemBorder()
+			for _, slot in pairs(slots) do
+				-- Colour the equipment slots by rarity
+				local target = _G["Character"..slot]
+				local slotId, _, _ = GetInventorySlotInfo(slot)
+				local itemId = GetInventoryItemID("player", slotId)
 
-			if itemId then
-				local _, _, rarity, _, _, _, _, _, _, _, _ = GetItemInfo(itemId)
-				if rarity then				
-					target:SetBackdropBorderColor(GetItemQualityColor(rarity)) --target.backdrop:SetBackdropBorderColor(GetItemQualityColor(rarity))
+				if itemId then
+					local _, _, rarity, _, _, _, _, _, _, _, _ = GetItemInfo(itemId)
+					if rarity then				
+						target:SetBackdropBorderColor(GetItemQualityColor(rarity)) --target.backdrop:SetBackdropBorderColor(GetItemQualityColor(rarity))
+					end
+				else
+					target:SetBackdropBorderColor(unpack(C.media.bordercolor))
 				end
-			else
-				target:SetBackdropBorderColor(unpack(C.media.bordercolor))
 			end
 		end
-	end
 	
-	-- execute item coloring everytime we open character frame
-	CharacterFrame:HookScript("OnShow", ColorItemBorder)
+		-- execute item coloring everytime we open character frame
+		CharacterFrame:HookScript("OnShow", ColorItemBorder)
 
-	-- execute item coloring everytime an item is changed
-	local CheckItemBorderColor = CreateFrame("Frame")
-	CheckItemBorderColor:RegisterEvent("PLAYER_EQUIPMENT_CHANGED")
-	CheckItemBorderColor:SetScript("OnEvent", ColorItemBorder)
+		-- execute item coloring everytime an item is changed
+		local CheckItemBorderColor = CreateFrame("Frame")
+		CheckItemBorderColor:RegisterEvent("PLAYER_EQUIPMENT_CHANGED")
+		CheckItemBorderColor:SetScript("OnEvent", ColorItemBorder)
+	end
 end
 
 tinsert(T.SkinFuncs["Tukui"], LoadSkin)

@@ -25,13 +25,15 @@ local total, item = 0, 0;
     return 0;
 end
 GameTooltip:HookScript("OnTooltipSetUnit", function(self, ...)
-    local _, unit = GameTooltip:GetUnit();
-    if (unit and CanInspect(unit)) then
-        if (not ((InspectFrame and InspectFrame:IsShown()) or (Examiner and Examiner:IsShown()))) then
-            NotifyInspect(unit);
-            GameTooltip:AddLine("Item Level: " .. GetItemLVL(unit));
-            ClearInspectPlayer(unit);
-            GameTooltip:Show();
-        end
-    end
+    if C["tooltip"].ilvl == true or (IsShiftKeyDown()) then
+		local _, unit = GameTooltip:GetUnit();
+		if (unit and CanInspect(unit)) then
+			if (not ((InspectFrame and InspectFrame:IsShown()) or (Examiner and Examiner:IsShown()))) then
+				NotifyInspect(unit);
+				GameTooltip:AddLine("Item Level: " .. GetItemLVL(unit));
+				ClearInspectPlayer(unit);
+				GameTooltip:Show();
+			end
+		end
+	end
 end)
