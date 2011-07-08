@@ -21,6 +21,8 @@ local function LoadSkin()
 	T.SkinButton(TradeSkillFilterButton, true)
 	T.SkinButton(TradeSkillCreateAllButton, true)
 	T.SkinButton(TradeSkillViewGuildCraftersButton, true)
+	T.SkinScrollBar(TradeSkillListScrollFrameScrollBar)
+	T.SkinScrollBar(TradeSkillDetailScrollFrameScrollBar)
 	
 	TradeSkillLinkButton:GetNormalTexture():SetTexCoord(0.25, 0.7, 0.37, 0.75)
 	TradeSkillLinkButton:GetPushedTexture():SetTexCoord(0.25, 0.7, 0.45, 0.8)

@@ -38,6 +38,7 @@ local function LoadSkin()
 	RaidInfoFrame.backdrop:Point( "TOPLEFT", RaidInfoFrame, "TOPLEFT")
 	RaidInfoFrame.backdrop:Point( "BOTTOMRIGHT", RaidInfoFrame, "BOTTOMRIGHT")
 	T.SkinCloseButton(RaidInfoCloseButton,RaidInfoFrame)
+	T.SkinScrollBar(RaidInfoScrollFrameScrollBar)
 end
 
 tinsert(T.SkinFuncs["Tukui"], LoadSkin)

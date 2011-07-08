@@ -49,6 +49,7 @@ SpellsAN = {
 		[GetSpellInfo(74001)] 	= true, 	-- Combat Readiness
 		[GetSpellInfo(33206)]	= true,		-- Pain Suppression
 		[GetSpellInfo(48707)]	= true,		-- Anti-Magic Shell
+		[GetSpellInfo(48792)]	= true,		-- Icebound Fortitude
 		[GetSpellInfo(19263)]	= true,		-- Deterrence
 		[GetSpellInfo(31224)]	= true,		-- Cloak of Shadows
 	},
