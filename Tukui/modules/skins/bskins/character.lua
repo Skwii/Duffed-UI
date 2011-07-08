@@ -3,6 +3,8 @@ if not C["skins"].bskins == true then return end
 
 local function LoadSkin()
 	T.SkinCloseButton(CharacterFrameCloseButton)
+	T.SkinScrollBar(CharacterStatsPaneScrollBar)
+	T.SkinScrollBar(ReputationListScrollFrameScrollBar)
 	
 	local slots = {
 		"HeadSlot",
@@ -96,7 +98,7 @@ local function LoadSkin()
 	}
 	
 	for _, scrollbar in pairs(scrollbars) do
-		T.SkinScrollBar(_G[scrollbar])
+		T.SkinScrollBar(_G[scrollbar], 5)
 	end
 	
 	for _, object in pairs(charframe) do

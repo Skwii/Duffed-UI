@@ -49,7 +49,7 @@ local function LoadSkin()
 	GlyphFrameClearInfoFrame:StyleButton()
 	GlyphFrameClearInfoFrame:Size(25, 25)
 	
-	T.SkinScrollBar(GlyphFrameScrollFrameScrollBar)
+	T.SkinScrollBar(GlyphFrameScrollFrameScrollBar, 5)
 
 	local StripAllTextures = {
 		"GlyphFrameScrollFrame",

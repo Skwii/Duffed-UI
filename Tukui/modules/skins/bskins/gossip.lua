@@ -8,6 +8,7 @@ local function LoadSkin()
 	T.SkinCloseButton(ItemTextCloseButton)
 	T.SkinNextPrevButton(ItemTextPrevPageButton)
 	T.SkinNextPrevButton(ItemTextNextPageButton)
+	T.SkinScrollBar(GossipGreetingScrollFrameScrollBar, 5)
 	ItemTextPageText:SetTextColor(1, 1, 1)
 	ItemTextPageText.SetTextColor = T.dummy
 	

@@ -58,11 +58,11 @@ local function LoadSkin()
 	AchievementFrameFilterDropDown:Point("TOPRIGHT", AchievementFrame, "TOPRIGHT", -44, 5)
 	
 	-- ScrollBars
-	T.SkinScrollBar(AchievementFrameCategoriesContainerScrollBar)
-	T.SkinScrollBar(AchievementFrameAchievementsContainerScrollBar)
-	T.SkinScrollBar(AchievementFrameStatsContainerScrollBar)
-	T.SkinScrollBar(AchievementFrameComparisonContainerScrollBar)
-	T.SkinScrollBar(AchievementFrameComparisonStatsContainerScrollBar)
+	T.SkinScrollBar(AchievementFrameCategoriesContainerScrollBar, 5)
+	T.SkinScrollBar(AchievementFrameAchievementsContainerScrollBar, 5)
+	T.SkinScrollBar(AchievementFrameStatsContainerScrollBar, 5)
+	T.SkinScrollBar(AchievementFrameComparisonContainerScrollBar, 5)
+	T.SkinScrollBar(AchievementFrameComparisonStatsContainerScrollBar, 5)
 	
 	--Tabs
 	for i = 1, 3 do

@@ -138,10 +138,18 @@ local function Shared(self, unit)
 		local power = CreateFrame('StatusBar', nil, self)
 		power:Size(playerwidth-60, 5)
 		-- power:Height(2)
-		if unit =="player" then
-			power:Point("BOTTOM", panel, "BOTTOM", 0, -11)
+		if C["unitframes"].center == true then
+			if unit =="player" then
+				power:Point("BOTTOM", panel, "BOTTOM", 0, -11)
+			else
+				power:Point("BOTTOM", panel, "BOTTOM", 0, -11)
+			end
 		else
-			power:Point("BOTTOM", panel, "BOTTOM", 0, -11)
+			if unit =="player" then
+				power:Point("TOPRIGHT", panel, "BOTTOMRIGHT", -2, -5)
+			else
+				power:Point("TOPLEFT", panel, "BOTTOMLEFT", 2, -5)
+			end
 		end
 		power:SetStatusBarTexture(normTex)
 		
@@ -183,20 +191,32 @@ local function Shared(self, unit)
 		-- Powerbar Border
 		power:CreateBorder()
 		
-		local l1 = CreateFrame("Frame", nil, power)
-		local l2 = CreateFrame("Frame", nil, l1)
-		local r1 = CreateFrame("Frame", nil, power)
-		local r2 = CreateFrame("Frame", nil, r1)
-		if unit == "player" then
-			l1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
-			l2:CreatePanel("", 2, 7, "BOTTOMLEFT", l1, "BOTTOMLEFT", 0, 0)
-			r1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
-			r2:CreatePanel("", 2, 7, "BOTTOMRIGHT", r1, "BOTTOMRIGHT", 0, 0)
+		if C["unitframes"].center == true then
+			local l1 = CreateFrame("Frame", nil, power)
+			local l2 = CreateFrame("Frame", nil, l1)
+			local r1 = CreateFrame("Frame", nil, power)
+			local r2 = CreateFrame("Frame", nil, r1)
+			if unit == "player" then
+				l1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
+				l2:CreatePanel("", 2, 7, "BOTTOMLEFT", l1, "BOTTOMLEFT", 0, 0)
+				r1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
+				r2:CreatePanel("", 2, 7, "BOTTOMRIGHT", r1, "BOTTOMRIGHT", 0, 0)
+			else
+				l1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
+				l2:CreatePanel("", 2, 7, "BOTTOMRIGHT", l1, "BOTTOMRIGHT", 0, 0)
+				r1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
+				r2:CreatePanel("", 2, 7, "BOTTOMLEFT", r1, "BOTTOMLEFT", 0, 0)
+			end
 		else
-			l1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
-			l2:CreatePanel("", 2, 7, "BOTTOMRIGHT", l1, "BOTTOMRIGHT", 0, 0)
-			r1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
-			r2:CreatePanel("", 2, 7, "BOTTOMLEFT", r1, "BOTTOMLEFT", 0, 0)
+			local l1 = CreateFrame("Frame", nil, power)
+			local l2 = CreateFrame("Frame", nil, l1)
+			if unit == "player" then
+				l1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
+				l2:CreatePanel("", 2, 7, "BOTTOMLEFT", l1, "BOTTOMLEFT", 0, 0)
+			else
+				l1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
+				l2:CreatePanel("", 2, 7, "BOTTOMRIGHT", l1, "BOTTOMRIGHT", 0, 0)
+			end
 		end
 	
 		-- portraits
@@ -1671,13 +1691,23 @@ end
 
 -- tot
 local tot = oUF:Spawn('targettarget', "TukuiTargetTarget")
-tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 28, -18)
-tot:Size(playerwidth-56, 16)
+if C["unitframes"].center == true then
+	tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 28, -18)
+	tot:Size(playerwidth-56, 16)
+else
+	tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 0, -18)
+	tot:Size(playerwidth-56, 16)
+end
 
 -- pet
 local pet = oUF:Spawn('pet', "TukuiPet")
-pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", -28, -18)
-pet:Size(playerwidth-56, 16)
+if C["unitframes"].center == true then
+	pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", -28, -18)
+	pet:Size(playerwidth-56, 16)
+else
+	pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", 0, -18)
+	pet:Size(playerwidth-56, 16)
+end
 
 -- focus & focustarget
 local focus = oUF:Spawn('focus', "TukuiFocus")

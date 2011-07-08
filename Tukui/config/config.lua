@@ -17,6 +17,7 @@ C["general"] = {
 
 C["unitframes"] = {
 	["layout"] = 2,										-- Layout 1 or 2
+	["center"] = false,									-- Set Powerbar to center of the unitframe
 
 	["fontsize"] = 8,									-- Fontsize on Unitframes
 	["healthbarcolor"] = {.2, .2, .2, 1},				-- Healthbar color (if unicolor = true) 
@@ -247,6 +248,7 @@ C["chat"] = {
 
 C["nameplate"] = {
 	["classicons"] = false,
+	["debuff"] = true,									-- Enable Debuffdisplay on nameplates
 
 	["enable"] = true,                                  -- enable nice skinned nameplates that fit into tukui
 	["showhealth"] = false,				                -- show health text on nameplate

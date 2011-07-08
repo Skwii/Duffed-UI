@@ -77,6 +77,7 @@ local function Local(o)
 	if o == "TukuiConfigUIunitframeslayout" then o = "Layout [1,2,3 or 4 (Layout 3&4 have no Outline for textelements)]" end
 	if o == "TukuiConfigUIunitframesColorGradient" then o = "Add Color-Gradient to healthbar (from red to healthbarcolor u set in config)" end
 	if o == "TukuiConfigUIunitframespowerClasscolored" then o = "Powerbar in class-color instead of power-color" end
+	if o == "TukuiConfigUIunitframescenter" then o = "Set Powerbar to center of the unitframe" end
 	
 	if o == "TukuiConfigUIcastbar" then o = "Castbar" end
 	if o == "TukuiConfigUIcastbarcolor"  then o = "Castbarcolor for not-player (if not classcolored)" end
@@ -125,6 +126,7 @@ local function Local(o)
 	if o == "TukuiConfigUIskinsRecount" then o = "Enable Recount Skin" end
 	if o == "TukuiConfigUIskinsOmen" then o = "Enable Omen Skin" end
 	if o == "TukuiConfigUIskinsKLE" then o = "Enable KLE Skin" end
+	if o == "TukuiConfigUIskinsDXE" then o = "Enable DXE Skin" end
 	if o == "TukuiConfigUIskinsTinyDPS" then o = "Enable TinyDPS Skin" end
 	if o == "TukuiConfigUIskinsQuartz" then o = "Enable Quartz Skin" end
 	if o == "TukuiConfigUIskinsDBM" then o = "Enable DBM Skin" end
@@ -165,6 +167,7 @@ local function Local(o)
 	-- nameplate
 	if o == "TukuiConfigUInameplate" then o = TukuiL.option_nameplates end
 	if o == "TukuiConfigUInameplateenable" then o = TukuiL.option_nameplates_enable end
+	if o == "TukuiConfigUInameplatedebuff" then o = "Enable Debuffdisplay on nameplates" end
 	if o == "TukuiConfigUInameplateshowhealth" then o = TukuiL.option_nameplates_showhealth end
 	if o == "TukuiConfigUInameplateenhancethreat" then o = TukuiL.option_nameplates_enhancethreat end
 	if o == "TukuiConfigUInameplateoverlap" then o = UNIT_NAMEPLATES_ALLOW_OVERLAP end

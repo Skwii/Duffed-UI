@@ -76,6 +76,8 @@ local function LoadSkin()
 	for i=1, 4 do
 		ArenaHeader(nil, true, i)
 	end	
+	T.SkinScrollBar(PVPHonorFrameTypeScrollFrameScrollBar)
+
 
 	PVPBannerFrameEditBox:CreateBackdrop("Default")
 	PVPBannerFrameEditBox.backdrop:Point( "TOPLEFT", PVPBannerFrameEditBox, "TOPLEFT" ,-5,-5)
@@ -129,7 +131,7 @@ local function LoadSkin()
 	--War Games
 	T.SkinButton(WarGameStartButton, true)
 	WarGamesFrame:StripTextures()
-	T.SkinScrollBar(WarGamesFrameScrollFrameScrollBar)
+	T.SkinScrollBar(WarGamesFrameScrollFrameScrollBar, 5)
 		
 	WarGameStartButton:ClearAllPoints()
 	WarGameStartButton:Point("LEFT", PVPFrameLeftButton, "RIGHT", 2, 0)

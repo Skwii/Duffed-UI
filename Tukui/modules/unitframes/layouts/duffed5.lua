@@ -1,5 +1,5 @@
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
-if not C.unitframes.enable or C.unitframes.layout ~= 2 then return end
+if not C.unitframes.enable or C.unitframes.layout ~= 5 then return end
 
 local ADDON_NAME, ns = ...
 local oUF = ns.oUF or oUF
@@ -92,8 +92,8 @@ local function Shared(self, unit)
 		local health = CreateFrame('StatusBar', nil, self)
 		health:Height(22)
 		health:SetStatusBarTexture(normTex)
-		health:Point("BOTTOMLEFT", panel, "TOPLEFT", 2, 5)
-		health:Point("BOTTOMRIGHT", panel, "TOPRIGHT", -2, 5)
+		health:Point("BOTTOMLEFT", panel, "TOPLEFT", 2, 14)
+		health:Point("BOTTOMRIGHT", panel, "TOPRIGHT", -2, 14)
 				
 		-- health bar background
 		local healthBG = health:CreateTexture(nil, 'BORDER')
@@ -136,20 +136,12 @@ local function Shared(self, unit)
 		
 		-- power
 		local power = CreateFrame('StatusBar', nil, self)
-		power:Size(playerwidth-60, 5)
+		power:Size(playerwidth-4, 5)
 		-- power:Height(2)
-		if C["unitframes"].center == true then
-			if unit =="player" then
-				power:Point("BOTTOM", panel, "BOTTOM", 0, -11)
-			else
-				power:Point("BOTTOM", panel, "BOTTOM", 0, -11)
-			end
+		if unit =="player" then
+			power:Point("TOP", panel, "TOP", 0, 9)
 		else
-			if unit =="player" then
-				power:Point("TOPRIGHT", panel, "BOTTOMRIGHT", -2, -5)
-			else
-				power:Point("TOPLEFT", panel, "BOTTOMLEFT", 2, -5)
-			end
+			power:Point("TOP", panel, "TOP", 0, 9)
 		end
 		power:SetStatusBarTexture(normTex)
 		
@@ -191,42 +183,14 @@ local function Shared(self, unit)
 		-- Powerbar Border
 		power:CreateBorder()
 		
-		if C["unitframes"].center == true then
-			local l1 = CreateFrame("Frame", nil, power)
-			local l2 = CreateFrame("Frame", nil, l1)
-			local r1 = CreateFrame("Frame", nil, power)
-			local r2 = CreateFrame("Frame", nil, r1)
-			if unit == "player" then
-				l1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
-				l2:CreatePanel("", 2, 7, "BOTTOMLEFT", l1, "BOTTOMLEFT", 0, 0)
-				r1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
-				r2:CreatePanel("", 2, 7, "BOTTOMRIGHT", r1, "BOTTOMRIGHT", 0, 0)
-			else
-				l1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
-				l2:CreatePanel("", 2, 7, "BOTTOMRIGHT", l1, "BOTTOMRIGHT", 0, 0)
-				r1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
-				r2:CreatePanel("", 2, 7, "BOTTOMLEFT", r1, "BOTTOMLEFT", 0, 0)
-			end
-		else
-			local l1 = CreateFrame("Frame", nil, power)
-			local l2 = CreateFrame("Frame", nil, l1)
-			if unit == "player" then
-				l1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
-				l2:CreatePanel("", 2, 7, "BOTTOMLEFT", l1, "BOTTOMLEFT", 0, 0)
-			else
-				l1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
-				l2:CreatePanel("", 2, 7, "BOTTOMRIGHT", l1, "BOTTOMRIGHT", 0, 0)
-			end
-		end
-	
 		-- portraits
 		if (C["unitframes"].charportrait == true) then
 			local pb = CreateFrame("Frame", self:GetName().."_PortraitBorder", self)
 			pb:CreateShadow("")
 			if unit == "player" then
-				pb:CreatePanel("", 43, 43, "BOTTOMRIGHT", panel, "BOTTOMLEFT", -3, 0)
+				pb:CreatePanel("", 52, 52, "BOTTOMRIGHT", panel, "BOTTOMLEFT", -3, 0)
 			else
-				pb:CreatePanel("", 43, 43, "BOTTOMLEFT", panel, "BOTTOMRIGHT", 3, 0)
+				pb:CreatePanel("", 52, 52, "BOTTOMLEFT", panel, "BOTTOMRIGHT", 3, 0)
 			end
 			
 			if C.unitframes.portraitstyle == "MODEL" then
@@ -678,7 +642,7 @@ local function Shared(self, unit)
 			local buffs = CreateFrame("Frame", nil, self)
 			local debuffs = CreateFrame("Frame", nil, self)
 			
-			buffs:Point("BOTTOMLEFT", self, "TOPLEFT", 0, 3)
+			buffs:Point("BOTTOMLEFT", self, "TOPLEFT", 0, 12)
 			buffs.size = 25
 			buffs.spacing = 2
 			buffs:Height((buffs.size+buffs.spacing) * C.unitframes.buffrows)
@@ -1691,23 +1655,13 @@ end
 
 -- tot
 local tot = oUF:Spawn('targettarget', "TukuiTargetTarget")
-if C["unitframes"].center == true then
-	tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 28, -18)
-	tot:Size(playerwidth-56, 16)
-else
-	tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 0, -18)
-	tot:Size(playerwidth-56, 16)
-end
+tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 0, -3)
+tot:Size(playerwidth-56, 16)
 
 -- pet
 local pet = oUF:Spawn('pet', "TukuiPet")
-if C["unitframes"].center == true then
-	pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", -28, -18)
-	pet:Size(playerwidth-56, 16)
-else
-	pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", 0, -18)
-	pet:Size(playerwidth-56, 16)
-end
+pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", 0, -3)
+pet:Size(playerwidth-56, 16)
 
 -- focus & focustarget
 local focus = oUF:Spawn('focus', "TukuiFocus")
@@ -1719,7 +1673,7 @@ if lafo then
 	focustarget:Point("TOPRIGHT", TukuiFocus, "BOTTOMRIGHT", 0, -3)
 else
 	focus:Size(playerwidth/2 -18, 15)
-	focus:Point("TOPRIGHT", TukuiPlayer, "TOPLEFT", -50, 0)
+	focus:Point("TOPRIGHT", TukuiPlayer, "TOPLEFT", -59, 0)
 	focustarget:Size(playerwidth/2 -18, 15)
 	focustarget:Point("TOPRIGHT", TukuiFocus, "BOTTOMRIGHT", 0, -3)
 end

@@ -3,6 +3,11 @@ if not C["skins"].bskins == true then return end
 
 local function LoadSkin()
 	T.SkinCloseButton(QuestLogFrameCloseButton)
+	T.SkinScrollBar(QuestLogDetailScrollFrameScrollBar)
+	T.SkinScrollBar(QuestLogScrollFrameScrollBar, 5)
+	T.SkinScrollBar(QuestDetailScrollFrameScrollBar, 5)
+	T.SkinScrollBar(QuestRewardScrollFrameScrollBar, 5)
+	T.SkinScrollBar(QuestProgressScrollFrameScrollBar, 5)
 	QuestLogFrame:StripTextures()
 	QuestLogFrame:SetTemplate("Transparent")
 	QuestLogFrame:CreateShadow("Default")

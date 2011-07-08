@@ -26,8 +26,11 @@ C["media"] = {
 	["glowTex"] = [[Interface\AddOns\Tukui\medias\textures\glowTex]], -- the glow text around some frame.
 	["bubbleTex"] = [[Interface\AddOns\Tukui\medias\textures\bubbleTex]], -- unitframes combo points
 	["blank"] = [[Interface\AddOns\Tukui\medias\textures\blank]], -- the main texture for all borders/panels
+	["arrowup"] = [[Interface\Addons\Tukui\medias\textures\arrowup]], -- arrowup
+	["arrowdown"] = [[Interface\Addons\Tukui\medias\textures\arrowdown]], -- arrowdown
 	["bordercolor"] = C.general.bordercolor or { .15, .15, .15 }, -- border color of tukui panels
 	["backdropcolor"] = C.general.backdropcolor or { .05,.05,.05 }, -- background color of tukui panels
+	["valuecolor"] = {r = 23/255,g = 132/255,b = 209/255}, -- color for values of datatexts
 	["buttonhover"] = [[Interface\AddOns\Tukui\medias\textures\button_hover]],
 	
 	-- sound
