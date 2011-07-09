@@ -96,7 +96,7 @@ local function Shared(self, unit)
     local Resurrect = CreateFrame('Frame', nil, self)
     Resurrect:SetFrameLevel(20)
     local ResurrectIcon = Resurrect:CreateTexture(nil, "OVERLAY")
-    ResurrectIcon:Point("CENTER", health, 0, 0)
+    ResurrectIcon:Point("CENTER", health, 0, -1)
     ResurrectIcon:Size(20, 15)
     ResurrectIcon:SetDrawLayer('OVERLAY', 7)
     self.ResurrectIcon = ResurrectIcon
