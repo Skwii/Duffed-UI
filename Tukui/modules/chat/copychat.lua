@@ -130,4 +130,6 @@ local function ChatCopyButtons()
 		end
 	end
 end
+T.SkinScrollBar(CopyScrollScrollBar)
+T.SkinCloseButton(CopyCloseButton)
 ChatCopyButtons()

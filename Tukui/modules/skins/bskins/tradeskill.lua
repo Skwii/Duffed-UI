@@ -87,6 +87,7 @@ local function LoadSkin()
 	TradeSkillGuildFrameContainer:StripTextures()
 	TradeSkillGuildFrameContainer:SetTemplate("Default")
 	T.SkinCloseButton(TradeSkillGuildFrameCloseButton)
+	T.SkinScrollBar(TradeSkillGuildCraftersFrameScrollBar)
 end
 
 T.SkinFuncs["Blizzard_TradeSkillUI"] = LoadSkin
