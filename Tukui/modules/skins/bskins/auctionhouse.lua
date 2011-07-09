@@ -6,6 +6,7 @@ local function LoadSkin()
 	AuctionFrame:StripTextures(true)
 	AuctionFrame:SetTemplate("Transparent")
 	AuctionFrame:CreateShadow("Default")
+	T.SkinScrollBar(AuctionsScrollFrameScrollBar)
 	
 	BrowseFilterScrollFrame:StripTextures()
 	BrowseScrollFrame:StripTextures()

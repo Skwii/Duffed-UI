@@ -41,6 +41,8 @@ local function CreatCopyFrame()
 	close:SetPoint("TOPRIGHT", frame, "TOPRIGHT")
 
 	isf = true
+	T.SkinScrollBar(CopyScrollScrollBar)
+	T.SkinCloseButton(CopyCloseButton)
 end
 
 local function GetLines(...)
@@ -130,6 +132,4 @@ local function ChatCopyButtons()
 		end
 	end
 end
-T.SkinScrollBar(CopyScrollScrollBar)
-T.SkinCloseButton(CopyCloseButton)
 ChatCopyButtons()
