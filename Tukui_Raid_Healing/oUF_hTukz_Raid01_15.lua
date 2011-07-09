@@ -113,7 +113,16 @@ local function Shared(self, unit)
 	LFDRole:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp")
 	self.LFDRole = LFDRole
 	
-    local MasterLooter = health:CreateTexture(nil, "OVERLAY")
+	--Resurrect Indicator
+    local Resurrect = CreateFrame('Frame', nil, self)
+    Resurrect:SetFrameLevel(20)
+    local ResurrectIcon = Resurrect:CreateTexture(nil, "OVERLAY")
+    ResurrectIcon:Point("CENTER", health, 0, 0)
+    ResurrectIcon:Size(20, 15)
+    ResurrectIcon:SetDrawLayer('OVERLAY', 7)
+    self.ResurrectIcon = ResurrectIcon
+	
+	local MasterLooter = health:CreateTexture(nil, "OVERLAY")
     MasterLooter:Height(12*T.raidscale)
     MasterLooter:Width(12*T.raidscale)
 	self.MasterLooter = MasterLooter

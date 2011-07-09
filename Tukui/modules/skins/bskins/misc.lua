@@ -31,7 +31,6 @@ local function LoadSkin()
 			_G[skins[i]]:CreateShadow("Default")
 		end
 	end
-
 	
 	local ChatMenus = {
 		"ChatMenu",
@@ -39,7 +38,7 @@ local function LoadSkin()
 		"LanguageMenu",
 		"VoiceMacroMenu",		
 	}
-	--
+
 	for i = 1, getn(ChatMenus) do
 		if _G[ChatMenus[i]] == _G["ChatMenu"] then
 			_G[ChatMenus[i]]:HookScript("OnShow", function(self) self:SetTemplate("Default", true) self:SetBackdropColor(unpack(C["media"].backdropfadecolor)) self:ClearAllPoints() self:SetPoint("BOTTOMLEFT", ChatFrame1, "TOPLEFT", 0, T.Scale(30)) end)
@@ -48,6 +47,9 @@ local function LoadSkin()
 		end
 	end
 	
+	T.SkinSlideBar(OpacityFrameSlider)
+	OpacityFrameSlider:Width(8)
+
 	--LFD Role Picker frame
 	LFDRoleCheckPopup:StripTextures()
 	LFDRoleCheckPopup:SetTemplate("Transparent")
@@ -265,6 +267,20 @@ local function LoadSkin()
 	OpacityFrame:StripTextures()
 	OpacityFrame:SetTemplate("Transparent")
 	T.SkinButton(WatchFrameCollapseExpandButton)
+	
+	-- Graphics_Quality is not like the other sliders
+	Graphics_Quality:SetScript("OnUpdate", function(self)
+		T.SkinSlideBar(Graphics_Quality,11)
+	end)
+	Graphics_RightQuality:SetAlpha(0) -- Graphics Quality Slide background =O
+	
+	-- Graphics_Quality Values
+	Graphics_QualityLow2:Point("BOTTOM",0,-20)
+	Graphics_QualityFair:Point("BOTTOM",0,-20)
+	Graphics_RightQualityLabel:Point("TOP",0,16)
+	Graphics_QualityMed:Point("BOTTOM",0,-20)
+	Graphics_QualityHigh2:Point("BOTTOM",0,-20)
+	Graphics_QualityUltra:Point("BOTTOM",0,-20)
 end
 
 tinsert(T.SkinFuncs["Tukui"], LoadSkin)

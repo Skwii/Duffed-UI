@@ -152,6 +152,15 @@ local function Shared(self, unit)
 	LFDRole:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp")
 	self.LFDRole = LFDRole
 	
+	--Resurrect Indicator
+    local Resurrect = CreateFrame('Frame', nil, self)
+    Resurrect:SetFrameLevel(20)
+    local ResurrectIcon = Resurrect:CreateTexture(nil, "OVERLAY")
+    ResurrectIcon:Point("CENTER", health, 0, 0)
+    ResurrectIcon:Size(20, 15)
+    ResurrectIcon:SetDrawLayer('OVERLAY', 7)
+    self.ResurrectIcon = ResurrectIcon
+	
 	local ReadyCheck = power:CreateTexture(nil, "OVERLAY")
 	ReadyCheck:Height(12*C["unitframes"].gridscale*T.raidscale)
 	ReadyCheck:Width(12*C["unitframes"].gridscale*T.raidscale)

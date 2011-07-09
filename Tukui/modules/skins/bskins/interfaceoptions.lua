@@ -306,6 +306,47 @@ local function LoadSkin ()
 
 	AudioOptionsVoicePanelChatMode1KeyBindingButton:ClearAllPoints()
 	AudioOptionsVoicePanelChatMode1KeyBindingButton:Point("CENTER", AudioOptionsVoicePanelBinding, "CENTER", 0, -10)
+	
+	local slides = {
+		-------- >> Interface
+		-- Combat
+		"InterfaceOptionsCombatPanelSpellAlertOpacitySlider",
+		"InterfaceOptionsCombatPanelMaxSpellStartRecoveryOffset",
+		-- Battle.net
+		"InterfaceOptionsBattlenetPanelToastDurationSlider",
+		-- Camera
+		"InterfaceOptionsCameraPanelMaxDistanceSlider",
+		"InterfaceOptionsCameraPanelFollowSpeedSlider",
+		-- Mouse
+		"InterfaceOptionsMousePanelMouseSensitivitySlider",
+		"InterfaceOptionsMousePanelMouseLookSpeedSlider",
+		--------- >> Options
+		-- Advanced
+		"Advanced_MaxFPSSlider",
+		"Advanced_MaxFPSBKSlider",
+		-- Audio
+		"AudioOptionsSoundPanelSoundQuality",
+		"AudioOptionsSoundPanelMasterVolume",
+		"AudioOptionsSoundPanelSoundVolume",
+		"AudioOptionsSoundPanelMusicVolume",
+		"AudioOptionsSoundPanelAmbienceVolume",
+		-- Voice
+		"AudioOptionsVoicePanelMicrophoneVolume",
+		"AudioOptionsVoicePanelSpeakerVolume",
+		"AudioOptionsVoicePanelSoundFade",
+		"AudioOptionsVoicePanelMusicFade",
+		"AudioOptionsVoicePanelAmbienceFade",
+	}
+
+	for i = 1, getn(slides) do
+		if _G[slides[i]] then
+			if _G[slides[i]] ~= AudioOptionsSoundPanelSoundVolume then
+				T.SkinSlideBar(_G[slides[i]],8,true)
+			else
+				T.SkinSlideBar(_G[slides[i]],8)
+			end
+		end
+	end
 end
 
 tinsert(T.SkinFuncs["Tukui"], LoadSkin)

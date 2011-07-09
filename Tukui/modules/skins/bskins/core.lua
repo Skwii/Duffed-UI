@@ -280,6 +280,20 @@ function T.SkinCloseButton(f, point)
 	end
 end
 
+function T.SkinSlideBar(frame,height,movetext)
+
+	frame:SetTemplate("Default")
+	frame:SetBackdropColor(0,0,0,.8)
+
+	if height then frame:Height(height) else frame:Height(frame:GetHeight()) end
+
+	if movetext then
+		if _G[frame:GetName().."Low"] then _G[frame:GetName().."Low"]:Point("BOTTOM",0,-18) end
+		if _G[frame:GetName().."High"] then _G[frame:GetName().."High"]:Point("BOTTOM",0,-18) end
+		if _G[frame:GetName().."Text"] then _G[frame:GetName().."Text"]:Point("TOP",0,19) end
+	end
+end
+
 local TukuiSkin = CreateFrame("Frame")
 TukuiSkin:RegisterEvent("ADDON_LOADED")
 TukuiSkin:SetScript("OnEvent", function(self, event, addon)
