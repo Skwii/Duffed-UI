@@ -125,7 +125,7 @@ C["pvp"] = {
 }
 
 C["ses"] = {
-	["enable"] = true									-- Enable Specswitcher
+	["enable"] = true,									-- Enable Specswitcher
 	["enablegear"] = true,
 	["set1"] = 1,
 	["set2"] = 2,
