@@ -20,19 +20,19 @@ local function Update(self, event, ...)
 		for spell, check in pairs(SpellsAN.aura) do
 			if (eventType == "SPELL_AURA_APPLIED") and destName == UnitName("player") then
 				if spellName == spell and check == true then
-					SendChatMessage("+ "..spell.."!", channel)
+					SendChatMessage("+ "..GetSpellLink(spell).."!", channel)
 				elseif spellName == spell and check ~= true then
 					SendChatMessage(spell.."!", channel)
 				end
 			elseif eventType == "SPELL_AURA_REMOVED" and destName == UnitName("player") then
 				if spellName == spell and check ~= false then
-					SendChatMessage("- "..spell.."!", channel) 
+					SendChatMessage("- "..GetSpellLink(spell).."!", channel) 
 				end
 			end
 		end
 		for spell, check in pairs(SpellsAN.cast) do
 			if eventType == "SPELL_CAST_SUCCESS" and sourceName == UnitName("player") and spellName == spell then
-				SendChatMessage(spell.."!", channel)
+				SendChatMessage(GetSpellLink(spell).."!", channel)
 			end
 		end
 	end
