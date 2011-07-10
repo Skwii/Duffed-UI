@@ -2,6 +2,7 @@
 -- Spec Helper, by EPIC
 -----------------------------------------------
 local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C - config; L - locales
+if not C["ses"].enable == true then return end
 
 -- colors
 local hoverovercolor = {.4, .4, .4}
