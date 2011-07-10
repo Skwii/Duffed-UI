@@ -152,6 +152,9 @@ local function Local(o)
 	-- Specswitcher
 	if o == "TukuiConfigUIses" then o = "Specswitcher" end
 	if o == "TukuiConfigUIsesenable" then o = "Enable Specswitcher" end
+	if o == "TukuiConfigUIsesenablegear" then o = "Enable automatic gearswap" end
+	if o == "TukuiConfigUIsesset1" then o = "Equipset for first spec (must be a number between 1 - 10)" end
+	if o == "TukuiConfigUIsesset2" then o = "Equipset for second spec (must be a number between 1 - 10)" end
 	
 	-- Threatbar
 	if o == "TukuiConfigUItb" then o = "Threatbar" end
