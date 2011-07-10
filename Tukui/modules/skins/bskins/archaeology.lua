@@ -76,7 +76,7 @@ local function LoadSkin()
 	ArchaeologyFrameArtifactPageIcon:SetDrawLayer("OVERLAY")	
 	
 	ArchaeologyFrameArtifactPageHistoryScrollChildText:SetTextColor(1, 1, 1)
-	E.SkinCloseButton(ArchaeologyFrameCloseButton)
+	T.SkinCloseButton(ArchaeologyFrameCloseButton)
 end
 
 T.SkinFuncs["Blizzard_ArchaeologyUI"] = LoadSkin
