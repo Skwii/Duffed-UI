@@ -20,6 +20,7 @@ local fontsize = C.unitframes.fontsize
 local playerwidth = C["unitframes"].framewidth
 if T.lowversion and not C.general.overridehightolow then playerwidth = C["unitframes"].framewidth - 25 end 
 local nameoffset = 4
+local fontflag = C["unitframes"].outline
 
 local backdrop = {
 	bgFile = C["media"].blank,
@@ -99,7 +100,7 @@ local function Shared(self, unit)
 		local healthBG = health:CreateTexture(nil, 'BORDER')
 		healthBG:SetAllPoints()
 	
-		health.value = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+		health.value = T.SetFontString(health, font1, fontsize, fontflag)
 		if unit == "player" then
 			health.value:Point("RIGHT", health, "RIGHT", -4, 0)
 		elseif unit == "target" then
@@ -149,7 +150,7 @@ local function Shared(self, unit)
 		powerBG:SetTexture(normTex)
 		powerBG.multiplier = 0.3
 		
-		power.value = T.SetFontString(panel, font1, fontsize, "THINOUTLINE")
+		power.value = T.SetFontString(panel, font1, fontsize, fontflag)
 		if unit == "player" then
 			power.value:Point("LEFT", panel, "LEFT", 4, 0)
 		elseif unit == "target" then
@@ -255,7 +256,7 @@ local function Shared(self, unit)
 			FlashInfo:SetScript("OnUpdate", T.UpdateManaLevel)
 			FlashInfo.parent = self
 			FlashInfo:SetAllPoints(panel)
-			FlashInfo.ManaLevel = T.SetFontString(FlashInfo, font1, fontsize, "THINOUTLINE")
+			FlashInfo.ManaLevel = T.SetFontString(FlashInfo, font1, fontsize, fontflag)
 			FlashInfo.ManaLevel:Point("RIGHT", panel, "RIGHT", -4, 0)
 			self.FlashInfo = FlashInfo
 			
@@ -291,7 +292,7 @@ local function Shared(self, unit)
 				vge:SetStatusBarColor(163/255,  24/255,  24/255)
 				
 				vge.Text = vge:CreateFontString(nil, "OVERLAY")
-				vge.Text:SetFont(font1, fontsize, "THINOUTLINE")
+				vge.Text:SetFont(font1, fontsize, fontflag)
 				vge.Text:SetPoint("CENTER")
 				
 				vge.bg = vge:CreateTexture(nil, 'BORDER')
@@ -311,7 +312,7 @@ local function Shared(self, unit)
 				sos.icon:Point("TOPLEFT", 2, -2)
 				sos.icon:Point("BOTTOMRIGHT", -2, 2)
 				
-				sos.text = T.SetFontString(sos, font2, 14, "THINOUTLINE")
+				sos.text = T.SetFontString(sos, font2, 14, fontflag)
 				sos.text:SetPoint("CENTER", sos, 1, 0)
 				sos:SetScript("OnUpdate", Priest_SoS_Time)
 
@@ -417,7 +418,7 @@ local function Shared(self, unit)
 				end)
 				TukuiPlayer_Portrait:HookScript("OnLeave", function() Reputation:SetAlpha(0) end)
 
-				local Text = T.SetFontString(Reputation, font1, fontsize, "THINOUTLINE")
+				local Text = T.SetFontString(Reputation, font1, fontsize, fontflag)
 				Text:SetSize(playerwidth-10, health:GetHeight())
 				Text:Point("CENTER", Reputation, "CENTER", 0, 0)
 				
@@ -442,7 +443,7 @@ local function Shared(self, unit)
 			-- show druid mana when shapeshifted in bear, cat or whatever
 			if T.myclass == "DRUID" then
 				CreateFrame("Frame"):SetScript("OnUpdate", function() T.UpdateDruidMana(self) end)
-				local DruidMana = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+				local DruidMana = T.SetFontString(health, font1, fontsize, fontflag)
 				DruidMana:SetTextColor(1, 0.49, 0.04)
 				self.DruidMana = DruidMana
 			end
@@ -472,7 +473,7 @@ local function Shared(self, unit)
 					solarBar:SetStatusBarColor(.80, .82,  .60)
 					eclipseBar.SolarBar = solarBar
 
-					local eclipseBarText = T.SetFontString(eclipseBar, font1, fontsize, "THINOUTLINE")
+					local eclipseBarText = T.SetFontString(eclipseBar, font1, fontsize, fontflag)
 					eclipseBarText:Point("RIGHT", panel, "RIGHT", -4, 0)
 					eclipseBar.PostUpdatePower = T.EclipseDirection
 					
@@ -621,7 +622,7 @@ local function Shared(self, unit)
 		
 		if (unit == "target") then			
 			-- Unit name on target
-			local Name = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+			local Name = T.SetFontString(health, font1, fontsize, fontflag)
 			Name:Point("LEFT", panel, "LEFT", 4, 0)
 			Name:SetJustifyH("LEFT")
 
@@ -630,7 +631,7 @@ local function Shared(self, unit)
 			
 			-- combo points on target
 			
-			local cp = T.SetFontString(self, font2, 15, "THINOUTLINE")
+			local cp = T.SetFontString(self, font2, 15, fontflag)
 			cp:SetPoint("RIGHT", health.border, "LEFT", -5, 0)
 			
 			self.CPoints = cp
@@ -742,7 +743,7 @@ local function Shared(self, unit)
 		-- add combat feedback support
 		if C["unitframes"].combatfeedback == true then
 			local CombatFeedbackText 
-			CombatFeedbackText = T.SetFontString(health, font2, 14, "THINOUTLINE")
+			CombatFeedbackText = T.SetFontString(health, font2, 14, fontflag)
 			CombatFeedbackText:SetPoint("CENTER", 0, 0)
 			CombatFeedbackText.colors = {
 				DAMAGE = {0.69, 0.31, 0.31},
@@ -865,7 +866,7 @@ local function Shared(self, unit)
 		self.Power = power
 		
 		-- Unit name
-		local Name = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+		local Name = T.SetFontString(health, font1, fontsize, fontflag)
 		Name:SetPoint("CENTER", health, "CENTER", 0, -1)
 		Name:SetJustifyH("CENTER")
 
@@ -991,7 +992,7 @@ local function Shared(self, unit)
 		self.Power.bg = powerBG
 				
 		-- Unit name
-		local Name = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+		local Name = T.SetFontString(health, font1, fontsize, fontflag)
 		Name:SetPoint("CENTER", health, "CENTER", 0, -1)
 		Name:SetJustifyH("CENTER")
 
@@ -1112,7 +1113,7 @@ local function Shared(self, unit)
 		local healthBG = health:CreateTexture(nil, 'BORDER')
 		healthBG:SetAllPoints()
 
-		health.value = T.SetFontString(health, font1,fontsize, "THINOUTLINE")
+		health.value = T.SetFontString(health, font1,fontsize, fontflag)
 		if lafo then
 			health.value:Point("LEFT", health, "LEFT", 2, 0)
 		else
@@ -1146,7 +1147,7 @@ local function Shared(self, unit)
 		end
 		
 		-- names
-		local Name = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+		local Name = T.SetFontString(health, font1, fontsize, fontflag)
 		if lafo then
 			Name:Point("BOTTOMLEFT", health, "TOPLEFT", 2, nameoffset)
 		else
@@ -1184,7 +1185,7 @@ local function Shared(self, unit)
 			powerBG:SetTexture(normTex)
 			powerBG.multiplier = 0.3
 			
-			power.value = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+			power.value = T.SetFontString(health, font1, fontsize, fontflag)
 			power.value:Point("BOTTOMRIGHT", health, "TOPRIGHT", -2, nameoffset)
 			power.PreUpdate = T.PreUpdatePower
 			power.PostUpdate = T.PostUpdatePower
@@ -1214,7 +1215,7 @@ local function Shared(self, unit)
 			AuraTracker.icon:Point("BOTTOMRIGHT", TrackBorder, -2, 2)
 			AuraTracker.icon:SetTexCoord(0.07,0.93,0.07,0.93)
 			
-			AuraTracker.text = T.SetFontString(AuraTracker, font2, 15, "THINOUTLINE")
+			AuraTracker.text = T.SetFontString(AuraTracker, font2, 15, fontflag)
 			AuraTracker.text:SetPoint("CENTER", TrackBorder, 0, 0)
 			AuraTracker:SetScript("OnUpdate", updateAuraTrackerTime)
 			
@@ -1346,7 +1347,7 @@ local function Shared(self, unit)
 		end
 			
 		-- names
-		local Name = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+		local Name = T.SetFontString(health, font1, fontsize, fontflag)
 		Name:SetPoint("CENTER", health, "CENTER", 0, 0)
 		Name:SetJustifyH("CENTER")
 		
@@ -1382,7 +1383,7 @@ local function Shared(self, unit)
 		local healthBG = health:CreateTexture(nil, 'BORDER')
 		healthBG:SetAllPoints()
 
-		health.value = T.SetFontString(health, font1,fontsize, "THINOUTLINE")
+		health.value = T.SetFontString(health, font1,fontsize, fontflag)
 		health.value:Point("LEFT", health, "LEFT", 2, 0)
 		health.PostUpdate = T.PostUpdateHealth
 				
@@ -1431,7 +1432,7 @@ local function Shared(self, unit)
 		powerBG:SetTexture(normTex)
 		powerBG.multiplier = 0.3
 		
-		power.value = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+		power.value = T.SetFontString(health, font1, fontsize, fontflag)
 		power.value:Point("BOTTOMRIGHT", health, "TOPRIGHT", -2, nameoffset)
 		power.PreUpdate = T.PreUpdatePower
 		power.PostUpdate = T.PostUpdatePower
@@ -1451,7 +1452,7 @@ local function Shared(self, unit)
 		power.border:Point("BOTTOMRIGHT", power, "TOPRIGHT", 1, 1)
 		
 		-- names
-		local Name = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+		local Name = T.SetFontString(health, font1, fontsize, fontflag)
 		Name:Point("BOTTOMLEFT", health, "TOPLEFT", 2, nameoffset)
 		Name:SetJustifyH("LEFT")
 		Name.frequentUpdates = 0.2
@@ -1547,7 +1548,7 @@ local function Shared(self, unit)
 			AuraTracker.icon:Point("BOTTOMRIGHT", AuraTracker, -2, 2)
 			AuraTracker.icon:SetTexCoord(0.07,0.93,0.07,0.93)
 			
-			AuraTracker.text = T.SetFontString(AuraTracker, font2, 15, "THINOUTLINE")
+			AuraTracker.text = T.SetFontString(AuraTracker, font2, 15, fontflag)
 			AuraTracker.text:SetPoint("CENTER", AuraTracker, 0, 0)
 			AuraTracker:SetScript("OnUpdate", updateAuraTrackerTime)
 			
@@ -1663,7 +1664,7 @@ local function Shared(self, unit)
 		end
 		
 		-- names
-		local Name = T.SetFontString(health, font1, fontsize, "THINOUTLINE")
+		local Name = T.SetFontString(health, font1, fontsize, fontflag)
 		Name:SetPoint("CENTER", health, "CENTER", 0, 0)
 		Name:SetJustifyH("CENTER")
 		

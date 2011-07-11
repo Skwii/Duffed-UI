@@ -18,6 +18,7 @@ C["general"] = {
 C["unitframes"] = {
 	["layout"] = 2,										-- Layout 1 or 2
 	["center"] = false,									-- Set Powerbar to center of the unitframe
+	["outline"] = "NONE",								-- Set outlines
 
 	["fontsize"] = 8,									-- Fontsize on Unitframes
 	["healthbarcolor"] = {.2, .2, .2, 1},				-- Healthbar color (if unicolor = true) 
