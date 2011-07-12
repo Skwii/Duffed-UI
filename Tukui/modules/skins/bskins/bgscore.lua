@@ -8,6 +8,7 @@ local function LoadSkin()
 	T.SkinCloseButton(WorldStateScoreFrameCloseButton)
 	WorldStateScoreFrameInset:Kill()
 	T.SkinButton(WorldStateScoreFrameLeaveButton)
+	T.SkinScrollBar(WorldStateScoreScrollFrameScrollBar)
 	
 	for i = 1, WorldStateScoreScrollFrameScrollChildFrame:GetNumChildren() do
 		local b = _G["WorldStateScoreButton"..i]
