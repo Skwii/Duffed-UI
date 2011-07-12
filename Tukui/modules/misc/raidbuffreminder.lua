@@ -1,4 +1,8 @@
-﻿local T, C, L = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
+﻿--[[
+	Thx to Asphyxia for this script :)
+]]--
+
+local T, C, L = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
 if C["buffreminder"].raid ~= true then return end
 
 --------------------------------------------------------------------------------------------
