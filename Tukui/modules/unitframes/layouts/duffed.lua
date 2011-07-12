@@ -1559,14 +1559,9 @@ local function Shared(self, unit)
 		
 			-- Trinket Frame
 			local Trinketbg = CreateFrame("Frame", nil, self)
-			Trinketbg:Size(9,9)
-			Trinketbg:Point("TOPRIGHT", health, "TOPRIGHT", 1,1)
-			Trinketbg:SetBackdrop({
-				edgeFile = C["media"].blank, 
-				tile = false, tileSize = 0, edgeSize = 1, 
-				insets = { left = -1, right = -1, top = -1, bottom = -1}
-			})
-			Trinketbg:SetBackdropBorderColor(0,0,0)
+			Trinketbg:Size(40, 40)
+			Trinketbg:Point("LEFT", health, "RIGHT", 5, 3)
+			Trinketbg:SetTemplate("Default")
 			Trinketbg:SetFrameLevel(health:GetFrameLevel()+1)
 			self.Trinketbg = Trinketbg
 			
