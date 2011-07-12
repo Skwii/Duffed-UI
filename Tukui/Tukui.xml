@@ -119,6 +119,7 @@
 	<Script file="modules\misc\macrobuttons.lua"/>
 	<Script file="modules\misc\mail.lua"/>
 	<Script file="modules\misc\ilvl.lua"/>
+	<Script file="modules\misc\raidbuffreminder.lua"/>
 	
 	<Script file="modules\chat\chatframes.lua"/>
 	<Script file="modules\chat\telltarget.lua"/>

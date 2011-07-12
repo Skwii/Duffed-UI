@@ -19,7 +19,7 @@ C["unitframes"] = {
 	["layout"] = 2,										-- Layout 1 or 2
 	["center"] = false,									-- Set Powerbar to center of the unitframe
 	["outline"] = "NONE",								-- Set outlines
-
+	
 	["fontsize"] = 8,									-- Fontsize on Unitframes
 	["healthbarcolor"] = {.2, .2, .2, 1},				-- Healthbar color (if unicolor = true) 
 	["deficitcolor"] = {0, 0, 0},						-- Healthbar deficit color (if unicolor = true)
@@ -294,5 +294,6 @@ C["invite"] = {
 
 C["buffreminder"] = {
 	["enable"] = true,                                  -- this is now the new innerfire warning script for all armor/aspect class.
-	["sound"] = false,                                   -- enable warning sound notification for reminder.
+	["sound"] = false,                                  -- enable warning sound notification for reminder.
+	["raid"] = true,									-- enable raidbuffreminder
 }

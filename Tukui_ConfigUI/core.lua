@@ -303,6 +303,7 @@ local function Local(o)
 	if o == "TukuiConfigUIbuffreminder" then o = TukuiL.option_reminder end
 	if o == "TukuiConfigUIbuffreminderenable" then o = TukuiL.option_reminder_enable end
 	if o == "TukuiConfigUIbuffremindersound" then o = TukuiL.option_reminder_sound end
+	if o == "TukuiConfigUIbuffreminderraid" then o = "Enable RaidBuff Reminder" end
 	
 	-- error
 	if o == "TukuiConfigUIerror" then o = TukuiL.option_error end
