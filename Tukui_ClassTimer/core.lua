@@ -99,6 +99,8 @@ local TRINKET_FILTER = {
 		CreateSpellEntry( 96911 ), CreateSpellEntry( 97125 ), -- The Hungerer
 		CreateSpellEntry( 96887 ), CreateSpellEntry( 97119 ), -- Variable Pulse Lightning Capacitor [Needs Buff-SpellID]
 		CreateSpellEntry( 96980 ), CreateSpellEntry( 97142 ), -- Vessel of Acceleration
+		CreateSpellEntry( 96934 ), CreateSpellEntry( 97127 ), -- Blessing of Khaz'goroth
+		CreateSpellEntry( 96923 ), -- Titanic Power
 		
 		---------------
 		--T-Set Procs--
