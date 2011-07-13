@@ -272,11 +272,16 @@ local function OnAuraChange(self, event, arg1, unit)
 
 end
 
-local bsize = 21
+local bsize = 19
 
 --Create the Main bar
-local raidbuff_reminder = CreateFrame("Frame", "RaidBuffReminder", TukuiMinimap)
-raidbuff_reminder:CreatePanel("Default", bsize + 9, 164, "RIGHT", TukuiMinimap, "LEFT", -3, -10)
+local raidbuff_reminder = CreateFrame("Frame", "RaidBuffReminder", ChatBG1)
+if C["chat"].leftchatbackground ~= true then
+	raidbuff_reminder:CreatePanel("Default", bsize + 9, 151, "LEFT", ChatFrame1, "RIGHT", 3, 10)
+	raidbuff_reminder:SetScale(C["general"].uiscale)
+else
+	raidbuff_reminder:CreatePanel("Default", bsize + 9, 150, "LEFT", ChatBG1, "RIGHT", 3, 0)
+end
 raidbuff_reminder:CreateShadow("Default")
 raidbuff_reminder:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
 raidbuff_reminder:RegisterEvent("UNIT_INVENTORY_CHANGED")

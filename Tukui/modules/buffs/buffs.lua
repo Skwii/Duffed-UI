@@ -209,13 +209,8 @@ local function CreateAuraHeader(filter, ...)
 	return header
 end
 
-if C["buffreminder"].raid ~= true then
-	ScanAuras(CreateAuraHeader("HELPFUL", "TOPRIGHT", Minimap, "TOPLEFT", -11, 0))
-	ScanAuras(CreateAuraHeader("HARMFUL", "TOPRIGHT", Minimap, "BOTTOMLEFT", -11, 5))
-else
-	ScanAuras(CreateAuraHeader("HELPFUL", "TOPRIGHT", Minimap, "TOPLEFT", -43, 0))
-	ScanAuras(CreateAuraHeader("HARMFUL", "TOPRIGHT", Minimap, "BOTTOMLEFT", -43, 5))
-end
+ScanAuras(CreateAuraHeader("HELPFUL", "TOPRIGHT", Minimap, "TOPLEFT", -11, 0))
+ScanAuras(CreateAuraHeader("HARMFUL", "TOPRIGHT", Minimap, "BOTTOMLEFT", -11, 5))
 
 -- create our aura
 local start = CreateFrame("Frame")
