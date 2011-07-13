@@ -35,6 +35,7 @@ local function LoadSkin()
 	T.SkinRotateButton(AuctionDressUpModelRotateLeftButton)
 	T.SkinRotateButton(AuctionDressUpModelRotateRightButton)
 	AuctionDressUpModelRotateRightButton:Point("TOPLEFT", AuctionDressUpModelRotateLeftButton, "TOPRIGHT", 4, 0)
+	T.SkinCloseButton(AuctionDressUpFrameCloseButton)
 	
 	--Progress Frame
 	AuctionProgressFrame:StripTextures()
