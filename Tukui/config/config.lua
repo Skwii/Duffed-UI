@@ -296,4 +296,5 @@ C["buffreminder"] = {
 	["enable"] = true,                                  -- this is now the new innerfire warning script for all armor/aspect class.
 	["sound"] = false,                                  -- enable warning sound notification for reminder.
 	["raid"] = true,									-- enable raidbuffreminder
+	["mouseover"] = false,								-- enable mouseover for raidbuff reminder
 }
