@@ -101,6 +101,7 @@ local TRINKET_FILTER = {
 		CreateSpellEntry( 96980 ), CreateSpellEntry( 97142 ), -- Vessel of Acceleration
 		CreateSpellEntry( 96927 ), CreateSpellEntry( 96928 ), CreateSpellEntry( 96929 ), -- Blessing of the Shaper (normal)
 		CreateSpellEntry( 96923 ), -- Titanic Power
+		CreateSpellEntry( 96881 ), -- Scales of Life
 		
 		---------------
 		--T-Set Procs--
