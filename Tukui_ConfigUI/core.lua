@@ -304,7 +304,7 @@ local function Local(o)
 	if o == "TukuiConfigUIbuffreminderenable" then o = TukuiL.option_reminder_enable end
 	if o == "TukuiConfigUIbuffremindersound" then o = TukuiL.option_reminder_sound end
 	if o == "TukuiConfigUIbuffreminderraid" then o = "Enable RaidBuff Reminder" end
-	if o == "TukuiConfigUIbuffremindermouseover" then = "Enable mouseover for Raidbuff Reminder" end
+	if o == "TukuiConfigUIbuffremindermouseover" then o = "Enable mouseover for Raidbuff Reminder" end
 	
 	-- error
 	if o == "TukuiConfigUIerror" then o = TukuiL.option_error end
