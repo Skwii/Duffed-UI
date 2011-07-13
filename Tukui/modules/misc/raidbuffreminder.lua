@@ -293,6 +293,8 @@ raidbuff_reminder:RegisterEvent("UPDATE_BONUS_ACTIONBAR")
 raidbuff_reminder:RegisterEvent("CHARACTER_POINTS_CHANGED")
 raidbuff_reminder:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 raidbuff_reminder:SetScript("OnEvent", OnAuraChange)
+raidbuff_reminder:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
+raidbuff_reminder:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 
 --Function to create buttons
 local function CreateButton(name, relativeTo, firstbutton)
