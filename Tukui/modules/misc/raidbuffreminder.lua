@@ -280,7 +280,7 @@ if C["chat"].leftchatbackground ~= true then
 	raidbuff_reminder:CreatePanel("Default", bsize + 9, 151, "LEFT", ChatFrame1, "RIGHT", 3, 10)
 	raidbuff_reminder:SetScale(C["general"].uiscale)
 else
-	raidbuff_reminder:CreatePanel("Default", bsize + 9, 150, "LEFT", ChatBG1, "RIGHT", 3, 0)
+	raidbuff_reminder:CreatePanel("Default", bsize + 9, 150, "LEFT", ChatBG1, "RIGHT", 4, -1)
 end
 raidbuff_reminder:CreateShadow("Default")
 raidbuff_reminder:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
