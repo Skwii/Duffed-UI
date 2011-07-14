@@ -330,7 +330,6 @@ local function UpdateObjects(frame)
 	Colorize(frame)
 	frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor = frame.hp:GetStatusBarColor()
 	frame.hp.hpbg:SetTexture(frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor, 0.25)
-	SetVirtualBorder(frame.hp, unpack(C["media"].bordercolor))
 	
 	if C["nameplate"].enhancethreat == true then
 		frame.hp.name:SetTextColor(frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor)
