@@ -227,11 +227,12 @@ local function LoadSkin()
 	GuildTextEditFrame:SetTemplate("Transparent")
 	T.SkinScrollBar(GuildTextEditScrollFrameScrollBar, 5)
 	GuildTextEditContainer:SetTemplate("Default")
-	for i=1, GuildTextEditFrame:GetNumChildren() do
-		local child = select(i, GuildTextEditFrame:GetChildren())
-		if child:GetName() == "GuildTextEditFrameCloseButton" and child:GetWidth() == 32 then
+	for i = 1, GuildLogFrame:GetNumChildren() do
+		local child = select(i, GuildLogFrame:GetChildren())
+		local point = select(1, child:GetPoint())
+		if point == "TOPRIGHT" then
 			T.SkinCloseButton(child)
-		elseif child:GetName() == "GuildTextEditFrameCloseButton" then
+		else
 			T.SkinButton(child, true)
 		end
 	end
@@ -251,7 +252,7 @@ local function LoadSkin()
 	end
 	
 	--Rewards
-	T.SkinScrollBar(GuildRewardsContainerScrollBar, 5)
+	T.SkinScrollBar(GuildRewardsContainerScrollBar)
 	GuildRewardsContainerScrollBar.thumbbg:ClearAllPoints()
 	GuildRewardsContainerScrollBar.thumbbg:Point('TOPLEFT', GuildRewardsContainerScrollBar:GetThumbTexture(), 'TOPLEFT', 6, -5)
 	GuildRewardsContainerScrollBar.thumbbg:Point('BOTTOMRIGHT', GuildRewardsContainerScrollBar:GetThumbTexture(), 'BOTTOMRIGHT', -6, 5)

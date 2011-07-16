@@ -65,6 +65,9 @@ local PlateBlacklist = {
 	--Hunter Trap
 	["Venomous Snake"] = true,
 	["Viper"] = true,
+	
+	--Firelands HC
+	["Liquid Obsidian"] = true,
 
 	--Test
 	--["Unbound Seer"] = true,

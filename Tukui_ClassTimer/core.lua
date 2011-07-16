@@ -575,6 +575,7 @@ local CLASS_FILTERS = {
 				CreateSpellEntry( 85738 ), CreateSpellEntry( 85739 ), -- Meat Cleaver Rank 1 and 2
 				CreateSpellEntry( 86662 ), CreateSpellEntry( 86663 ), -- Rude interruption rank 1 and 2
 				CreateSpellEntry( 23885 ), -- Blood Thirst
+				CreateSpellEntry( 84584 ), CreateSpellEntry( 84585 ), CreateSpellEntry( 84586 ), -- Slaughter
 			},
 			procs = {
 				CreateSpellEntry( 46916 ), -- Bloodsurge Slam (Free & Instant)
