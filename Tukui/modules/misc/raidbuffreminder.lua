@@ -139,6 +139,7 @@ local function SetBuffs()
 	Spell6Buff = {
 		57330, --DK str/agi
 		8075, --Totem str/agi
+		6673, -- Warrior str/agi
 	}
 end
 
