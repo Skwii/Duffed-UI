@@ -59,6 +59,7 @@ end
 -----------
 local spec = CreateFrame("Button", "Spec", UIParent)
 spec:CreatePanel("Default", 1, 20, "TOPRIGHT", UIParent, "TOPRIGHT", -32, -212)
+spec:CreateShadow("Default")
 
 	-- Positioning EDIT HERE FOR ANCHORING!
 	if TukuiMinimap then
@@ -133,6 +134,7 @@ spec:CreatePanel("Default", 1, 20, "TOPRIGHT", UIParent, "TOPRIGHT", -32, -212)
 ----------------
 local toggle = CreateFrame("Button", "Toggle", Spec)
 toggle:CreatePanel("Default", 20, 20, "TOPLEFT", Spec, "TOPRIGHT", 2, 0)
+toggle:CreateShadow("Default")
 
 	if C.general.ali == true then
 	toggle:SetBackdropColor(unpack(C.general.color))
@@ -164,6 +166,7 @@ toggle:CreatePanel("Default", 20, 20, "TOPLEFT", Spec, "TOPRIGHT", 2, 0)
 --------------
 local dps = CreateFrame("Button", "DPS", Toggle, "SecureActionButtonTemplate")
 dps:CreatePanel("Default", 28, 19, "TOPRIGHT", Toggle, "BOTTOMRIGHT", 0, -2)
+dps:CreateShadow("Default")
 dps:Hide()		
 dps.t = dps:CreateFontString(nil, "OVERLAY")
 dps.t:SetPoint("CENTER")
@@ -183,6 +186,7 @@ dps:SetAttribute("macrotext", "/dps")
 ---------------
 local heal = CreateFrame("Button", "HEAL", DPS, "SecureActionButtonTemplate")
 heal:CreatePanel("Default", 32, 19, "RIGHT", DPS, "LEFT", -2, 0)
+heal:CreateShadow("Default")
 		
 heal.t = heal:CreateFontString(nil, "OVERLAY")
 heal.t:SetPoint("CENTER")
@@ -202,6 +206,7 @@ heal:SetAttribute("macrotext", "/heal")
 ------------
 local binds = CreateFrame("Button", "Binds", HEAL, "SecureActionButtonTemplate")
 binds:CreatePanel("Default", 30, 19, "RIGHT", HEAL, "LEFT", -2, 0)
+binds:CreateShadow("Default")
 
 binds.t = binds:CreateFontString(nil, "OVERLAY")
 binds.t:SetPoint("CENTER")
@@ -221,6 +226,7 @@ binds:SetAttribute("macrotext", "/bindkey")
 ------------
 local mui = CreateFrame("Button", "MoveUI", Binds, "SecureActionButtonTemplate")
 mui:CreatePanel("Default", 48, 19, "RIGHT", Binds, "LEFT", -2, 0)
+mui:CreateShadow("Default")
 		
 mui.t = mui:CreateFontString(nil, "OVERLAY")
 mui.t:SetPoint("CENTER")
@@ -243,6 +249,7 @@ if Enablegear == true then
 	for i = 1, 10 do
 			gearSets[i] = CreateFrame("Button", "gearSets"..i, DPS)
 			gearSets[i]:CreatePanel("Default", 19, 19, "CENTER", DPS, "CENTER", 0, 0)
+			gearSets[i]:CreateShadow("Default")
 
 			if i == 1 then
 				gearSets[i]:Point("TOPRIGHT", DPS, "BOTTOMRIGHT", 0, -2)
