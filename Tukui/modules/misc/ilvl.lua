@@ -8,19 +8,19 @@ if C.tooltip.enable ~= true then return end
 local SlotName = {
         "Head","Neck","Shoulder","Back","Chest","Wrist",
         "Hands","Waist","Legs","Feet","Finger0","Finger1",
-        "Trinket0","Trinket1","MainHand","SecondaryHand","Ranged","Ammo"
+        "Trinket0","Trinket1","MainHand","SecondaryHand","Ranged"
     }
 local function GetItemLVL(unit)
 local total, item = 0, 0;
-    for i in pairs(SlotName) do
-        local slot = GetInventoryItemLink(unit, GetInventorySlotInfo(SlotName[i] .. "Slot"));
+    for _,v in pairs(SlotName) do
+        local slot = GetInventoryItemLink(unit, GetInventorySlotInfo(v .. "Slot"));
         if (slot ~= nil) then
             item = item + 1;
             total = total + select(4, GetItemInfo(slot))
         end
     end
     if (item > 0) then
-        return floor(total / item);
+        return floor(total * 10 / item)/10;
     end
     return 0;
 end
