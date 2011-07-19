@@ -293,7 +293,7 @@ local function Colorize(frame)
 		if RAID_CLASS_COLORS[class].r == r and RAID_CLASS_COLORS[class].g == g and RAID_CLASS_COLORS[class].b == b then
 			frame.hasClass = true
 			frame.isFriendly = false
-			frame.hp:SetStatusBarColor(unpack(E.oUF_colors.class[class]))
+			frame.hp:SetStatusBarColor(unpack(T.oUF_colors.class[class]))
 			return
 		end
 	end
@@ -353,7 +353,7 @@ local function UpdateObjects(frame)
 	if C["nameplate"].showhealth == true then
 		frame.hp.level:SetPoint("RIGHT", frame.hp, "RIGHT", 2, 0)
 	else
-		frame.hp.level:SetPoint("LEFT", frame.hp, "LEFT", -15, 0)
+		frame.hp.level:SetPoint("RIGHT", frame.hp, "LEFT", -1, 0)
 	end
 		
 	frame.hp.level:SetTextColor(frame.hp.oldlevel:GetTextColor())
