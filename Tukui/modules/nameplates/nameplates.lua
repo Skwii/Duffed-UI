@@ -348,26 +348,24 @@ local function UpdateObjects(frame)
 	frame.hp.name:SetText(frame.hp.oldname:GetText())
 	
 	--Setup level text
-	if C["nameplate"].showlevel == true then
-		local level, elite, mylevel = tonumber(frame.hp.oldlevel:GetText()), frame.hp.elite:IsShown(), UnitLevel("player")
-		frame.hp.level:ClearAllPoints()
-		if C["nameplate"].showhealth == true then
-			frame.hp.level:SetPoint("RIGHT", frame.hp, "RIGHT", 2, 0)
-		else
-			frame.hp.level:SetPoint("RIGHT", frame.hp, "LEFT", -1, 0)
-		end
+	local level, elite, mylevel = tonumber(frame.hp.oldlevel:GetText()), frame.hp.elite:IsShown(), UnitLevel("player")
+	frame.hp.level:ClearAllPoints()
+	if C["nameplate"].showhealth == true then
+		frame.hp.level:SetPoint("RIGHT", frame.hp, "RIGHT", 2, 0)
+	else
+		frame.hp.level:SetPoint("LEFT", frame.hp, "LEFT", -15, 0)
+	end
 		
-		frame.hp.level:SetTextColor(frame.hp.oldlevel:GetTextColor())
-		if frame.hp.boss:IsShown() then
-			frame.hp.level:SetText("??")
-			frame.hp.level:SetTextColor(0.8, 0.05, 0)
-			frame.hp.level:Show()
-		elseif not elite and level == mylevel then
-			frame.hp.level:Hide()
-		else
-			frame.hp.level:SetText(level..(elite and "+" or ""))
-			frame.hp.level:Show()
-		end
+	frame.hp.level:SetTextColor(frame.hp.oldlevel:GetTextColor())
+	if frame.hp.boss:IsShown() then
+		frame.hp.level:SetText("??")
+		frame.hp.level:SetTextColor(0.8, 0.05, 0)
+		frame.hp.level:Show()
+	elseif not elite and level == mylevel then
+		frame.hp.level:Hide()
+	else
+		frame.hp.level:SetText(level..(elite and "+" or ""))
+		frame.hp.level:Show()
 	end
 	
 	frame.overlay:ClearAllPoints()
@@ -403,16 +401,14 @@ local function SkinObjects(frame)
 	CreateVirtualFrame(hp)
 
 	--Create Level
-	if C["nameplate"].showlevel == true then
-		hp.level = hp:CreateFontString(nil, "OVERLAY")
-		hp.level:SetFont(FONT, FONTSIZE, FONTFLAG)
-		hp.level:SetShadowColor(0, 0, 0, 0.4)
-		hp.level:SetTextColor(1, 1, 1)
-		hp.level:SetShadowOffset(T.mult, -T.mult)	
-		hp.oldlevel = oldlevel
-		hp.boss = bossicon
-		hp.elite = elite
-	end
+	hp.level = hp:CreateFontString(nil, "OVERLAY")
+	hp.level:SetFont(FONT, FONTSIZE, FONTFLAG)
+	hp.level:SetShadowColor(0, 0, 0, 0.4)
+	hp.level:SetTextColor(1, 1, 1)
+	hp.level:SetShadowOffset(T.mult, -T.mult)	
+	hp.oldlevel = oldlevel
+	hp.boss = bossicon
+	hp.elite = elite
 	
 	--Create Health Text
 	if C["nameplate"].showhealth == true then
@@ -505,7 +501,6 @@ local function SkinObjects(frame)
 	
 	frame:HookScript('OnHide', OnHide)
 	frames[frame] = true
-	frame.ElvUIPlate = true
 end
 
 local goodR, goodG, goodB = unpack(C["nameplate"].goodcolor)
@@ -626,7 +621,7 @@ local function ShowHealth(frame, ...)
 	frame.hp:SetValue(valueHealth)	
 	
 	if C["nameplate"].showhealth == true then
-		frame.hp.value:SetText(E.ShortValue(valueHealth).." - "..(string.format("%d%%", math.floor((valueHealth/maxHealth)*100))))
+		frame.hp.value:SetText(T.ShortValue(valueHealth).." - "..(string.format("%d%%", math.floor((valueHealth/maxHealth)*100))))
 	end
 			
 	--Setup frame shadow to change depending on enemy players health, also setup targetted unit to have white shadow
