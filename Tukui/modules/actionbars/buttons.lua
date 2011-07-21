@@ -408,6 +408,7 @@ else
 	exitvehicle.text:Point("CENTER", 1, 1)
 	exitvehicle.text:SetText(cm.."v|r")
 	RegisterStateDriver(exitvehicle, "visibility", "[target=vehicle,exists] show;hide")
+	exitvehicle:SetAlpha(0)
 	exitvehicle:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
 	exitvehicle:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 end
