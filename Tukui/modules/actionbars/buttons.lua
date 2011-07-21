@@ -8,19 +8,20 @@ local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, vari
 	
 local cp = "|cff319f1b" -- +
 local cm = "|cff9a1212" -- -
+local db = TukuiDataPerChar
 
 local function ShowOrHideBar(bar, button)
 	local db = TukuiDataPerChar
 	if bar:IsShown() then
 		if C["actionbar"].layout ~= 1 then
 			if bar == TukuiBar3Left then
-				if button == TukuiBar2Button then
+				if button == TukuiBar5Button then
 					bar:Hide()
 					db.hidebar = true
 				end
 			end
 			if bar == TukuiBar3Right then
-				if button == TukuiBar2Button then
+				if button == TukuiBar5Button then
 					bar:Hide()
 					db.hidebar = true
 				end
@@ -68,7 +69,6 @@ local function ShowOrHideBar(bar, button)
 				elseif button == TukuiBar3Button2 then
 					if C["actionbar"].petbarhorizontal ~= true then TukuiLineToPetActionBarBackground:Hide() end
 					db.rightbars = 0
-
 					bar:Hide()
 				end
 			end
@@ -76,7 +76,7 @@ local function ShowOrHideBar(bar, button)
 	else
 		if C["actionbar"].layout ~= 1 then
 			bar:Show()
-			if bar == TukuiBar3Left and bar == TukuiBar3Right then
+			if bar == TukuiBar3Left then
 				db.hidebar = false
 			end
 			if bar == TukuiBar3Right then
@@ -111,6 +111,16 @@ local function MoveButtonBar(button, bar)
 	local db = TukuiDataPerChar
 	
 	if button == TukuiBar2Button then
+		T.petBarPosition()
+		T.cbPosition()
+		if bar:IsShown() then
+			button.text:SetText(cm.."-|r")
+		else
+			button.text:SetText(cp.."+|r")
+		end
+	end
+	
+	if button == TukuiBar5Button then
 		T.petBarPosition()
 		T.cbPosition()
 		if bar:IsShown() then
@@ -292,7 +302,7 @@ init:SetScript("OnEvent", function(self, event)
 	-- Third Bar at the bottom
 	if C["actionbar"].layout ~= 1 then
 		if db.hidebar then
-			DrPepper(TukuiBar2Button, TukuiBar2)
+			DrPepper(TukuiBar5Button, TukuiBar3Left, TukuiBar3Right)
 		end
 	else
 		if db.hidebar2 then
@@ -326,56 +336,74 @@ init:SetScript("OnEvent", function(self, event)
 end)
 
 -- +/-
-local TukuiBar2Button = CreateFrame("Button", "TukuiBar2Button", UIParent)
-TukuiBar2Button:SetTemplate("Default")
-TukuiBar2Button:CreateShadow("Default")
-TukuiBar2Button:RegisterForClicks("AnyUp")
-TukuiBar2Button.text = T.SetFontString(TukuiBar2Button, C.datatext.font, C.datatext.fontsize)
-TukuiBar2Button:SetScript("OnClick", function(self, btn)
-	if btn == "RightButton" then
-		if TukuiInfoLeftBattleGround and UnitInBattleground("player") then
-			ToggleFrame(TukuiInfoLeftBattleGround)
-		end
-	else
-		if C["actionbar"].layout ~= 1 then
+if C["actionbar"].layout ~= 1 then
+	local TukuiBar5Button = CreateFrame("Button", "TukuiBar5Button", UIParent)
+	TukuiBar5Button:SetTemplate("Default")
+	TukuiBar5Button:CreateShadow("Default")
+	TukuiBar5Button:RegisterForClicks("AnyUp")
+	TukuiBar5Button.text = T.SetFontString(TukuiBar5Button, C.datatext.font, C.datatext.fontsize)
+	TukuiBar5Button:SetScript("OnClick", function(self, btn)
+		if btn == "RightButton" then
+			if TukuiInfoLeftBattleGround and UnitInBattleground("player") then
+				ToggleFrame(TukuiInfoLeftBattleGround)
+			end
+		else
 			DrPepper(self, TukuiBar3Left, TukuiBar3Right)
+		end
+	end)
+	if T.lowversion then
+		TukuiBar5Button:Size(TukuiInfoLeft:GetHeight())
+		TukuiBar5Button:Point("BOTTOMLEFT", TukuiInfoLeft, "BOTTOMRIGHT", 2, 0)
+		TukuiBar5Button.text:Point("CENTER", 0, 0)
+	else
+		TukuiBar5Button:Size(TukuiInfoLeft:GetHeight())
+		TukuiBar5Button:Point("BOTTOMLEFT", TukuiInfoLeft, "BOTTOMRIGHT", 2, 0)
+		TukuiBar5Button.text:Point("CENTER", 0, 0)
+	end
+	if C["actionbar"].button2 == true then
+		TukuiBar5Button:SetAlpha(0)
+	else
+		TukuiBar5Button:SetAlpha(1)
+	end
+	TukuiBar5Button:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(unpack(C.datatext.color)) end)
+	TukuiBar5Button:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(unpack(C.media.bordercolor)) end)
+	TukuiBar5Button:SetAlpha(0)
+	TukuiBar5Button:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
+	TukuiBar5Button:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
+	TukuiBar5Button.text:SetText(cm.."-|r")
+else
+	local TukuiBar2Button = CreateFrame("Button", "TukuiBar2Button", UIParent)
+	TukuiBar2Button:SetTemplate("Default")
+	TukuiBar2Button:CreateShadow("Default")
+	TukuiBar2Button:RegisterForClicks("AnyUp")
+	TukuiBar2Button.text = T.SetFontString(TukuiBar2Button, C.datatext.font, C.datatext.fontsize)
+	TukuiBar2Button:SetScript("OnClick", function(self, btn)
+		if btn == "RightButton" then
+			if TukuiInfoLeftBattleGround and UnitInBattleground("player") then
+				ToggleFrame(TukuiInfoLeftBattleGround)
+			end
 		else
 			DrPepper(self, TukuiBar2)
 		end
-	end
-end)
-if T.lowversion then
-	TukuiBar2Button:Size(TukuiInfoLeft:GetHeight())
-	if C["actionbar"].layout ~= 1 then
-		TukuiBar2Button:Point("BOTTOMLEFT", TukuiInfoLeft, "BOTTOMRIGHT", 2, 0)
-		TukuiBar2Button.text:Point("CENTER", 0, 0)
-	else
+	end)
+	if T.lowversion then
+		TukuiBar2Button:Size(TukuiInfoLeft:GetHeight())
 		TukuiBar2Button:Point("LEFT", TukuiInfoLeft, "RIGHT", 3, 0)
 		TukuiBar2Button.text:Point("CENTER", 1, 0)
-	end
-else
-	if C["actionbar"].layout ~= 1 then
-		TukuiBar2Button:Size(TukuiInfoLeft:GetHeight())
-		TukuiBar2Button:Point("BOTTOMLEFT", TukuiInfoLeft, "BOTTOMRIGHT", 2, 0)
 	else
 		TukuiBar2Button:Point("TOPLEFT", TukuiInfoLeft, "TOPRIGHT", 2, 0)
 		TukuiBar2Button:Point("BOTTOMRIGHT", TukuiInfoRight, "BOTTOMLEFT", -2, 0)
+		TukuiBar2Button.text:Point("CENTER", 0, 0)
 	end
-	TukuiBar2Button.text:Point("CENTER", 0, 0)
+	if C["actionbar"].button2 == true then
+		TukuiBar2Button:SetAlpha(0)
+	else
+		TukuiBar2Button:SetAlpha(1)
+	end
+	TukuiBar2Button:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(unpack(C.datatext.color)) end)
+	TukuiBar2Button:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(unpack(C.media.bordercolor)) end)
+	TukuiBar2Button.text:SetText(cm.."-|r")
 end
-if C["actionbar"].button2 == true then
-	TukuiBar2Button:SetAlpha(0)
-else
-	TukuiBar2Button:SetAlpha(1)
-end
-TukuiBar2Button:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(unpack(C.datatext.color)) end)
-TukuiBar2Button:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(unpack(C.media.bordercolor)) end)
-if C["actionbar"].layout == 2 then
-	TukuiBar2Button:SetAlpha(0)
-	TukuiBar2Button:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
-	TukuiBar2Button:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
-end
-TukuiBar2Button.text:SetText(cm.."-|r")
 
 -- exit vehicle button on right side of bottom action bar (layout 1) and on left side of bottom right datatext panel
 if C["actionbar"].layout ~= 2 then
