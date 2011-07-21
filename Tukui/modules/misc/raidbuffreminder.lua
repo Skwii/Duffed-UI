@@ -295,6 +295,7 @@ raidbuff_reminder:RegisterEvent("CHARACTER_POINTS_CHANGED")
 raidbuff_reminder:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 raidbuff_reminder:SetScript("OnEvent", OnAuraChange)
 if C["buffreminder"].mouseover == true then
+	raidbuff_reminder:SetAlpha(0)
 	raidbuff_reminder:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
 	raidbuff_reminder:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 end

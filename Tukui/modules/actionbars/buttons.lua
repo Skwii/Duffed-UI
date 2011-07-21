@@ -371,6 +371,7 @@ end
 TukuiBar2Button:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(unpack(C.datatext.color)) end)
 TukuiBar2Button:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(unpack(C.media.bordercolor)) end)
 if C["actionbar"].layout == 2 then
+	TukuiBar2Button:SetAlpha(0)
 	TukuiBar2Button:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
 	TukuiBar2Button:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 end
