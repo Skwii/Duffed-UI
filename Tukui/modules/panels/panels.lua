@@ -1,6 +1,92 @@
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
 
-if C["actionbar"].layout == 1 then
+if C["actionbar"].layout ~= 1 then
+	local TukuiBar1 = CreateFrame("Frame", "TukuiBar1", UIParent, "SecureHandlerStateTemplate")
+	TukuiBar1:CreatePanel("Default", 1, 1, "BOTTOM", UIParent, "BOTTOM", 0, 27)
+	TukuiBar1:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 13))
+	TukuiBar1:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
+	TukuiBar1:SetFrameStrata("BACKGROUND")
+	TukuiBar1:SetFrameLevel(1)
+
+	local TukuiBar2 = CreateFrame("Frame", "TukuiBar2", TukuiBar1)
+	TukuiBar2:CreatePanel("Default", 1, 1, "BOTTOM", TukuiBar1, "BOTTOM", 0, 0)
+	TukuiBar2:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 13))
+	TukuiBar2:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
+	TukuiBar2:SetFrameStrata("BACKGROUND")
+	TukuiBar2:SetFrameLevel(2)
+
+	local TukuiBar3Left = CreateFrame("Frame", "TukuiBar3Left", UIParent)
+	TukuiBar3Left:CreatePanel("Default", 1, 1, "BOTTOMRIGHT", TukuiBar1, "BOTTOMLEFT", -T.buttonspacing, 0)
+	TukuiBar3Left:SetWidth((T.buttonsize * 3) + (T.buttonspacing * 4))
+	TukuiBar3Left:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
+	TukuiBar3Left:SetFrameStrata("BACKGROUND")
+	TukuiBar3Left:SetFrameLevel(2)
+
+	local TukuiBar3Right = CreateFrame("Frame", "TukuiBar3Right", UIParent)
+	TukuiBar3Right:CreatePanel("Default", 1, 1, "BOTTOMLEFT", TukuiBar1, "BOTTOMRIGHT", T.buttonspacing, 0)
+	TukuiBar3Right:SetWidth((T.buttonsize * 3) + (T.buttonspacing * 4))
+	TukuiBar3Right:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
+	TukuiBar3Right:SetFrameStrata("BACKGROUND")
+	TukuiBar3Right:SetFrameLevel(2)
+
+	local TukuiBar4 = CreateFrame("Frame", "TukuiBar4", UIParent) -- Rightbars
+	TukuiBar4:CreatePanel("Default", 1, 1, "RIGHT", UIParent, "RIGHT", -14, -14)
+	TukuiBar4:SetWidth((T.buttonsize * 2) + (T.buttonspacing * 3))
+	TukuiBar4:SetHeight((T.buttonsize * 12) + (T.buttonspacing * 13))
+
+	-- INFO LEFT (FOR STATS)
+	local ileft = CreateFrame("Frame", "TukuiInfoLeft", TukuiBar1)
+	ileft:CreatePanel("Default", T.InfoLeftRightWidth, 19, "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 15, 3)
+	ileft:SetFrameLevel(2)
+	if T.lowversion then 
+		ileft:ClearAllPoints() 
+		ileft:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 14, 3)
+	end
+
+	-- INFO RIGHT (FOR STATS)
+	local iright = CreateFrame("Frame", "TukuiInfoRight", TukuiBar1)
+	iright:CreatePanel("Default", T.InfoLeftRightWidth, 19, "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -15, 3)
+	iright:SetFrameLevel(2)
+	if T.lowversion then
+		iright:ClearAllPoints()
+		iright:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -14, 3)
+	end
+	
+	-- HORIZONTAL LINE LEFT
+	local ltoabl = CreateFrame("Frame", "TukuiLineToABLeft", TukuiBar1)
+	ltoabl:CreatePanel("Default", 10, 2, "RIGHT", ileft, "LEFT", 0, 0)
+
+	-- HORIZONTAL LINE RIGHT
+	local ltoabr = CreateFrame("Frame", "TukuiLineToABRight", TukuiBar1)
+	ltoabr:CreatePanel("Default", 10, 2, "LEFT", iright, "RIGHT", 0, 0)
+
+	-- LEFT VERTICAL LINE
+	local ileftlv = CreateFrame("Frame", "TukuiInfoLeftLineVertical", TukuiBar1)
+	ileftlv:CreatePanel("Default", 2, 14, "BOTTOM", ltoabl, "LEFT", 0, -1)
+
+	-- RIGHT VERTICAL LINE
+	local irightlv = CreateFrame("Frame", "TukuiInfoRightLineVertical", TukuiBar1)
+	irightlv:CreatePanel("Default", 2, 14, "BOTTOM", ltoabr, "RIGHT", 0, -1)
+	
+	-- Shadows
+	iright:CreateShadow("Default")
+	ileft:CreateShadow("Default")
+	TukuiBar2:CreateShadow("Default")
+	TukuiBar3Left:CreateShadow("Default")
+	TukuiBar3Right:CreateShadow("Default")
+	TukuiBar4:CreateShadow("Default")
+	BNToastFrame:CreateShadow("Default")
+	
+	--BATTLEGROUND STATS FRAME
+	if C["datatext"].battleground == true then
+		local bgframe = CreateFrame("Frame", "TukuiInfoLeftBattleGround", UIParent)
+		bgframe:CreatePanel("Default", 0, 0, "TOPLEFT", UIParent, "BOTTOMLEFT", 0, 0)
+		bgframe:SetAllPoints(ileft)
+		bgframe:SetFrameStrata("LOW")
+		bgframe:SetFrameLevel(3)
+		bgframe:EnableMouse(true)
+	end
+else
 	local TukuiBar1 = CreateFrame("Frame", "TukuiBar1", UIParent, "SecureHandlerStateTemplate") -- Mainbar (24)
 	TukuiBar1:CreatePanel("Default", 1, 1, "BOTTOM", UIParent, "BOTTOM", 0, 27)
 	if T.lowversion then
@@ -66,92 +152,6 @@ if C["actionbar"].layout == 1 then
 	TukuiBar1:CreateShadow("Default")
 	TukuiBar2:CreateShadow("Default")
 	TukuiBar3:CreateShadow("Default")
-	BNToastFrame:CreateShadow("Default")
-	
-	--BATTLEGROUND STATS FRAME
-	if C["datatext"].battleground == true then
-		local bgframe = CreateFrame("Frame", "TukuiInfoLeftBattleGround", UIParent)
-		bgframe:CreatePanel("Default", 0, 0, "TOPLEFT", UIParent, "BOTTOMLEFT", 0, 0)
-		bgframe:SetAllPoints(ileft)
-		bgframe:SetFrameStrata("LOW")
-		bgframe:SetFrameLevel(3)
-		bgframe:EnableMouse(true)
-	end
-end
-
-if C["actionbar"].layout == 2 then
-	local TukuiBar1 = CreateFrame("Frame", "TukuiBar1", UIParent, "SecureHandlerStateTemplate")
-	TukuiBar1:CreatePanel("Default", 1, 1, "BOTTOM", UIParent, "BOTTOM", 0, 27)
-	TukuiBar1:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 13))
-	TukuiBar1:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
-	TukuiBar1:SetFrameStrata("BACKGROUND")
-	TukuiBar1:SetFrameLevel(1)
-
-	local TukuiBar2 = CreateFrame("Frame", "TukuiBar2", TukuiBar1)
-	TukuiBar2:CreatePanel("Default", 1, 1, "BOTTOM", TukuiBar1, "BOTTOM", 0, 0)
-	TukuiBar2:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 13))
-	TukuiBar2:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
-	TukuiBar2:SetFrameStrata("BACKGROUND")
-	TukuiBar2:SetFrameLevel(2)
-
-	local TukuiBar3Left = CreateFrame("Frame", "TukuiBar3Left", UIParent)
-	TukuiBar3Left:CreatePanel("Default", 1, 1, "BOTTOMRIGHT", TukuiBar1, "BOTTOMLEFT", -T.buttonspacing, 0)
-	TukuiBar3Left:SetWidth((T.buttonsize * 3) + (T.buttonspacing * 4))
-	TukuiBar3Left:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
-	TukuiBar3Left:SetFrameStrata("BACKGROUND")
-	TukuiBar3Left:SetFrameLevel(2)
-
-	local TukuiBar3Right = CreateFrame("Frame", "TukuiBar3Right", UIParent)
-	TukuiBar3Right:CreatePanel("Default", 1, 1, "BOTTOMLEFT", TukuiBar1, "BOTTOMRIGHT", T.buttonspacing, 0)
-	TukuiBar3Right:SetWidth((T.buttonsize * 3) + (T.buttonspacing * 4))
-	TukuiBar3Right:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
-	TukuiBar3Right:SetFrameStrata("BACKGROUND")
-	TukuiBar3Right:SetFrameLevel(2)
-
-	local TukuiBar4 = CreateFrame("Frame", "TukuiBar4", UIParent) -- Rightbars
-	TukuiBar4:CreatePanel("Default", 1, 1, "RIGHT", UIParent, "RIGHT", -14, -14)
-	TukuiBar4:SetWidth((T.buttonsize * 2) + (T.buttonspacing * 3))
-	TukuiBar4:SetHeight((T.buttonsize * 12) + (T.buttonspacing * 13))
-
-	-- INFO LEFT (FOR STATS)
-	local ileft = CreateFrame("Frame", "TukuiInfoLeft", TukuiBar1)
-	ileft:CreatePanel("Default", T.InfoLeftRightWidth, 19, "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 14, 3)
-	ileft:SetFrameLevel(2)
-	if T.lowversion then 
-		ileft:ClearAllPoints() 
-		ileft:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 14, 3)
-	end
-
-	-- INFO RIGHT (FOR STATS)
-	local iright = CreateFrame("Frame", "TukuiInfoRight", TukuiBar1)
-	iright:CreatePanel("Default", T.InfoLeftRightWidth, 19, "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -14, 3)
-	iright:SetFrameLevel(2)
-	if T.lowversion then
-		iright:ClearAllPoints()
-		iright:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -14, 3)
-	end
-	
-	-- HORIZONTAL LINE LEFT
-	local ltoabl = CreateFrame("Frame", "TukuiLineToABLeft", TukuiBar1)
-	ltoabl:CreatePanel("Default", 10, 2, "RIGHT", ileft, "LEFT", 0, 0)
-
-	-- HORIZONTAL LINE RIGHT
-	local ltoabr = CreateFrame("Frame", "TukuiLineToABRight", TukuiBar1)
-	ltoabr:CreatePanel("Default", 10, 2, "LEFT", iright, "RIGHT", 0, 0)
-
-	-- LEFT VERTICAL LINE
-	local ileftlv = CreateFrame("Frame", "TukuiInfoLeftLineVertical", TukuiBar1)
-	ileftlv:CreatePanel("Default", 2, 13, "BOTTOM", ltoabl, "LEFT", 0, -1)
-
-	-- RIGHT VERTICAL LINE
-	local irightlv = CreateFrame("Frame", "TukuiInfoRightLineVertical", TukuiBar1)
-	irightlv:CreatePanel("Default", 2, 13, "BOTTOM", ltoabr, "RIGHT", 0, -1)
-	
-	-- Shadows
-	TukuiBar2:CreateShadow("Default")
-	TukuiBar3Left:CreateShadow("Default")
-	TukuiBar3Right:CreateShadow("Default")
-	TukuiBar4:CreateShadow("Default")
 	BNToastFrame:CreateShadow("Default")
 	
 	--BATTLEGROUND STATS FRAME
