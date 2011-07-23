@@ -29,6 +29,7 @@ local ALLOWED_GROUPS = {
 	["swingtimer"]=1,
 	["ses"]=1,
 	["tb"]=1,
+	["rd"]=1,
 }
 
 --List of "Table Names" that we do not want to show in the config
@@ -157,6 +158,13 @@ local function Local(o)
 	if o == "TukuiConfigUIsesset1" then o = "Equipset for first spec (must be a number between 1 - 10)" end
 	if o == "TukuiConfigUIsesset2" then o = "Equipset for second spec (must be a number between 1 - 10)" end
 	
+	-- Raid & Dungeon
+	if o == "TukuiConfigUIrd" then o = "Raid & Dungeon" end
+	if o == "TukuiConfigUIrdraid" then o = "Enable RaidBuff Reminder" end
+	if o == "TukuiConfigUIrdmouseover" then o = "Enable mouseover for Raidbuff Reminder" end
+	if o == "TukuiConfigUIrddebuff" then o = "Enable Debuffdisplay on nameplates" end
+	if o == "TukuiConfigUIrdbossicons" then o = "Enable alternative Bossportraits on instancemaps" end
+	
 	-- Threatbar
 	if o == "TukuiConfigUItb" then o = "Threatbar" end
 	if o == "TukuiConfigUItbchattab" then o = "Set Threatbarpoint to ChatBG2Tab" end
@@ -171,7 +179,6 @@ local function Local(o)
 	-- nameplate
 	if o == "TukuiConfigUInameplate" then o = TukuiL.option_nameplates end
 	if o == "TukuiConfigUInameplateenable" then o = TukuiL.option_nameplates_enable end
-	if o == "TukuiConfigUInameplatedebuff" then o = "Enable Debuffdisplay on nameplates" end
 	if o == "TukuiConfigUInameplateshowhealth" then o = TukuiL.option_nameplates_showhealth end
 	if o == "TukuiConfigUInameplateenhancethreat" then o = TukuiL.option_nameplates_enhancethreat end
 	if o == "TukuiConfigUInameplateoverlap" then o = UNIT_NAMEPLATES_ALLOW_OVERLAP end
@@ -303,8 +310,6 @@ local function Local(o)
 	if o == "TukuiConfigUIbuffreminder" then o = TukuiL.option_reminder end
 	if o == "TukuiConfigUIbuffreminderenable" then o = TukuiL.option_reminder_enable end
 	if o == "TukuiConfigUIbuffremindersound" then o = TukuiL.option_reminder_sound end
-	if o == "TukuiConfigUIbuffreminderraid" then o = "Enable RaidBuff Reminder" end
-	if o == "TukuiConfigUIbuffremindermouseover" then o = "Enable mouseover for Raidbuff Reminder" end
 	
 	-- error
 	if o == "TukuiConfigUIerror" then o = TukuiL.option_error end

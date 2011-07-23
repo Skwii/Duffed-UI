@@ -63,7 +63,7 @@ end
 
 local NamePlates = CreateFrame("Frame", nil, T.UIParent)
 NamePlates:SetScript("OnEvent", function(self, event, ...) self[event](self, ...) end)
-if C["nameplate"].debuff == true then
+if C["rd"].debuff == true then
 	NamePlates:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 end
 
@@ -205,7 +205,7 @@ local function OnAura(frame, unit)
 		local match
 		local name,_,_,_,_,duration,_,caster,_,_,spellid = UnitAura(frame.unit,index,"HARMFUL")
 		
-		if C["nameplate"].debuff == true then
+		if C["rd"].debuff == true then
 			if caster == "player" then match = true end
 		end
 		
@@ -372,7 +372,7 @@ local function UpdateObjects(frame)
 	frame.overlay:SetAllPoints(frame.hp)
 	
 	-- Aura tracking
-	if C["nameplate"].debuff == true then
+	if C["rd"].debuff == true then
 		if frame.icons then return end
 		frame.icons = CreateFrame("Frame",nil,frame)
 		frame.icons:SetPoint("BOTTOMRIGHT",frame.hp,"TOPRIGHT", 0, FONTSIZE+5)

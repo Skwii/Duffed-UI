@@ -3,7 +3,7 @@
 ]]--
 
 local T, C, L = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
-if C["buffreminder"].raid ~= true then return end
+if C["rd"].raid ~= true then return end
 
 --------------------------------------------------------------------------------------------
 -- Raid Buff Reminder (Bar in the topright corner below minimap)
@@ -294,10 +294,11 @@ raidbuff_reminder:RegisterEvent("UPDATE_BONUS_ACTIONBAR")
 raidbuff_reminder:RegisterEvent("CHARACTER_POINTS_CHANGED")
 raidbuff_reminder:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 raidbuff_reminder:SetScript("OnEvent", OnAuraChange)
-if C["buffreminder"].mouseover == true then
+if C["rd"].mouseover == true then
 	raidbuff_reminder:SetAlpha(0)
-	raidbuff_reminder:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
-	raidbuff_reminder:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
+	raidbuff_reminder:EnableMouse(true)
+	raidbuff_reminder:SetScript("OnEnter", function(self) self:SetAlpha(1) end) --
+	raidbuff_reminder:SetScript("OnLeave", function(self) self:SetAlpha(0) end) --
 end
 
 --Function to create buttons

@@ -132,6 +132,13 @@ C["ses"] = {
 	["set2"] = 2,
 }
 
+C["rd"] = {
+	["debuff"] = true,									-- enable Debuffdisplay on nameplates
+	["raid"] = true,									-- enable raidbuffreminder
+	["bossicons"] = true,								-- enable alternative Bossportraits
+	["mouseover"] = false,								-- enable mouseover for raidbuff reminder
+}
+
 C["skins"] = {
 	["background"] = false,								-- Create a Panel that has the exactly same size as the left chat, placed at the bottomright (for addon placement)
 		["combat_toggle"] = false,						-- Shows the Addon Background, Omen, Recount & Skada infight, hides outfight
@@ -252,7 +259,6 @@ C["chat"] = {
 
 C["nameplate"] = {
 	["classicons"] = false,
-	["debuff"] = true,									-- Enable Debuffdisplay on nameplates
 
 	["enable"] = true,                                  -- enable nice skinned nameplates that fit into tukui
 	["showhealth"] = false,				                -- show health text on nameplate
@@ -295,6 +301,4 @@ C["invite"] = {
 C["buffreminder"] = {
 	["enable"] = true,                                  -- this is now the new innerfire warning script for all armor/aspect class.
 	["sound"] = false,                                  -- enable warning sound notification for reminder.
-	["raid"] = true,									-- enable raidbuffreminder
-	["mouseover"] = false,								-- enable mouseover for raidbuff reminder
 }
