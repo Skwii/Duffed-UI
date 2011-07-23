@@ -505,7 +505,8 @@ end
 
 local goodR, goodG, goodB = unpack(C["nameplate"].goodcolor)
 local badR, badG, badB = unpack(C["nameplate"].badcolor)
-local transitionR, transitionG, transitionB = unpack(C["nameplate"].transitioncolor)
+local transitionR, transitionG, transitionB = unpack(C["nameplate"].gtransitioncolor)
+local transitionR2, transitionG2, transitionB2 = unpack(C["nameplate"].btransitioncolor)
 local function UpdateThreat(frame, elapsed)
 	frame.hp:Show()
 	if frame.hasClass == true then return end

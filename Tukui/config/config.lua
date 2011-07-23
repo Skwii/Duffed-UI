@@ -258,15 +258,15 @@ C["chat"] = {
 }
 
 C["nameplate"] = {
-	["classicons"] = false,
-
 	["enable"] = true,                                  -- enable nice skinned nameplates that fit into tukui
+	["overlap"] = true,									-- allows to overlap nameplates
 	["showhealth"] = false,				                -- show health text on nameplate
 	["enhancethreat"] = false,			                -- threat features based on if your a tank or not
 	["combat"] = false,					                -- only show enemy nameplates in-combat.
 	["goodcolor"] = {75/255,  175/255, 76/255},	        -- good threat color (tank shows this with threat, everyone else without)
 	["badcolor"] = {0.78, 0.25, 0.25},			        -- bad threat color (opposite of above)
-	["transitioncolor"] = {218/255, 197/255, 92/255},	-- threat color when gaining threat
+	["gtransitioncolor"] = {218/255, 197/255, 92/255},	-- threat color when gaining threat
+	["btransitioncolor"] = {240/255, 154/255, 17/255},	-- threat color when losing threat
 }
 
 C["tooltip"] = {
