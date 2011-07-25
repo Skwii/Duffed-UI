@@ -19,9 +19,17 @@ local function ShowOrHideBar(bar, button)
 					bar:Hide()
 					db.hidebar = true
 				end
+				if button == TukuiBar5Button2 then
+					bar:Hide()
+					db.hidebar = true
+				end
 			end
 			if bar == TukuiBar3Right then
 				if button == TukuiBar5Button then
+					bar:Hide()
+					db.hidebar = true
+				end
+				if button == TukuiBar5Button2 then
 					bar:Hide()
 					db.hidebar = true
 				end
@@ -121,6 +129,16 @@ local function MoveButtonBar(button, bar)
 	end
 	
 	if button == TukuiBar5Button then
+		T.petBarPosition()
+		T.cbPosition()
+		if bar:IsShown() then
+			button.text:SetText(cm.."-|r")
+		else
+			button.text:SetText(cp.."+|r")
+		end
+	end
+	
+	if button == TukuiBar5Button2 then
 		T.petBarPosition()
 		T.cbPosition()
 		if bar:IsShown() then
@@ -356,14 +374,9 @@ if C["actionbar"].layout ~= 1 then
 		TukuiBar5Button:Point("BOTTOMLEFT", TukuiInfoLeft, "BOTTOMRIGHT", 2, 0)
 		TukuiBar5Button.text:Point("CENTER", 0, 0)
 	else
-		TukuiBar5Button:Size(TukuiInfoLeft:GetHeight())
-		TukuiBar5Button:Point("BOTTOMLEFT", TukuiInfoLeft, "BOTTOMRIGHT", 2, 0)
+		TukuiBar5Button:Size(19, 66)
+		TukuiBar5Button:Point("RIGHT", TukuiBar1, "LEFT", -2, 0)
 		TukuiBar5Button.text:Point("CENTER", 0, 0)
-	end
-	if C["actionbar"].button2 == true then
-		TukuiBar5Button:SetAlpha(0)
-	else
-		TukuiBar5Button:SetAlpha(1)
 	end
 	TukuiBar5Button:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(unpack(C.datatext.color)) end)
 	TukuiBar5Button:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(unpack(C.media.bordercolor)) end)
@@ -371,6 +384,30 @@ if C["actionbar"].layout ~= 1 then
 	TukuiBar5Button:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
 	TukuiBar5Button:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 	TukuiBar5Button.text:SetText(cm.."-|r")
+	
+	local TukuiBar5Button2 = CreateFrame("Button", "TukuiBar5Button2", UIParent)
+	TukuiBar5Button2:SetTemplate("Default")
+	TukuiBar5Button2:CreateShadow("Default")
+	TukuiBar5Button2:RegisterForClicks("AnyUp")
+	TukuiBar5Button2.text = T.SetFontString(TukuiBar5Button2, C.datatext.font, C.datatext.fontsize)
+	TukuiBar5Button2:SetScript("OnClick", function(self, btn)
+		if btn == "RightButton" then
+			if TukuiInfoLeftBattleGround and UnitInBattleground("player") then
+				ToggleFrame(TukuiInfoLeftBattleGround)
+			end
+		else
+			DrPepper(self, TukuiBar3Left, TukuiBar3Right)
+		end
+	end)
+	TukuiBar5Button2:Size(19, 66)
+	TukuiBar5Button2:Point("LEFT", TukuiBar1, "RIGHT", 2, 0)
+	TukuiBar5Button2.text:Point("CENTER", 0, 0)
+	TukuiBar5Button2:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(unpack(C.datatext.color)) end)
+	TukuiBar5Button2:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(unpack(C.media.bordercolor)) end)
+	TukuiBar5Button2:SetAlpha(0)
+	TukuiBar5Button2:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
+	TukuiBar5Button2:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
+	TukuiBar5Button2.text:SetText(cm.."-|r")
 else
 	local TukuiBar2Button = CreateFrame("Button", "TukuiBar2Button", UIParent)
 	TukuiBar2Button:SetTemplate("Default")
@@ -413,7 +450,7 @@ if C["actionbar"].layout ~= 2 then
 	exitvehicle:SetScript("OnClick", function() VehicleExit() end)
 	exitvehicle:CreateShadow("Default")
 	exitvehicle.text = T.SetFontString(exitvehicle, C.media.font, 19)
-	exitvehicle.text:Point("CENTER", 1, 1)
+	exitvehicle.text:Point("CENTER", 0, 0)
 	exitvehicle.text:SetText(cm.."v|r")
 	RegisterStateDriver(exitvehicle, "visibility", "[target=vehicle,exists] show;hide")
 
@@ -423,20 +460,33 @@ if C["actionbar"].layout ~= 2 then
 	exitvehicle2:SetScript("OnClick", function() VehicleExit() end)
 	exitvehicle2:CreateShadow("Default")
 	exitvehicle2.text = T.SetFontString(exitvehicle2, C.media.font, 19)
-	exitvehicle2.text:Point("CENTER", 1, 1)
+	exitvehicle2.text:Point("CENTER", 0, 0)
 	exitvehicle2.text:SetText(cm.."v|r")
 	RegisterStateDriver(exitvehicle2, "visibility", "[target=vehicle,exists] show;hide")
 else
 	local exitvehicle = CreateFrame("Button", "TukuiExitVehicleButton", UIParent, "SecureHandlerClickTemplate")
-	exitvehicle:CreatePanel("Default", 19, 19, "BOTTOMRIGHT", TukuiInfoRight, "BOTTOMLEFT", -2, 0)
+	exitvehicle:CreatePanel("Default", 19, 19, "TOP", TukuiBar5Button, "TOP", 0, 21)
 	exitvehicle:RegisterForClicks("AnyUp")
 	exitvehicle:SetScript("OnClick", function() VehicleExit() end)
 	exitvehicle:CreateShadow("Default")
 	exitvehicle.text = T.SetFontString(exitvehicle, C.media.font, 19)
-	exitvehicle.text:Point("CENTER", 1, 1)
+	exitvehicle.text:Point("CENTER", 0, 0)
 	exitvehicle.text:SetText(cm.."v|r")
 	RegisterStateDriver(exitvehicle, "visibility", "[target=vehicle,exists] show;hide")
 	exitvehicle:SetAlpha(0)
 	exitvehicle:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
 	exitvehicle:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
+	
+	local exitvehicle2 = CreateFrame("Button", "TukuiExitVehicleButton2", UIParent, "SecureHandlerClickTemplate")
+	exitvehicle2:CreatePanel("Default", 19, 19, "TOP", TukuiBar5Button2, "TOP", 0, 21)
+	exitvehicle2:RegisterForClicks("AnyUp")
+	exitvehicle2:SetScript("OnClick", function() VehicleExit() end)
+	exitvehicle2:CreateShadow("Default")
+	exitvehicle2.text = T.SetFontString(exitvehicle2, C.media.font, 19)
+	exitvehicle2.text:Point("CENTER", 0, 0)
+	exitvehicle2.text:SetText(cm.."v|r")
+	RegisterStateDriver(exitvehicle2, "visibility", "[target=vehicle,exists] show;hide")
+	exitvehicle2:SetAlpha(0)
+	exitvehicle2:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
+	exitvehicle2:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 end
