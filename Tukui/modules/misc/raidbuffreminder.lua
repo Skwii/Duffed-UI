@@ -273,16 +273,11 @@ local function OnAuraChange(self, event, arg1, unit)
 
 end
 
-local bsize = 19
+local bsize = 20
 
 --Create the Main bar
-local raidbuff_reminder = CreateFrame("Frame", "RaidBuffReminder", ChatBG1)
-if C["chat"].leftchatbackground ~= true then
-	raidbuff_reminder:CreatePanel("Default", bsize + 9, 151, "LEFT", ChatFrame1, "RIGHT", 3, 10)
-	raidbuff_reminder:SetScale(C["general"].uiscale)
-else
-	raidbuff_reminder:CreatePanel("Default", bsize + 9, 152, "LEFT", ChatBG1, "RIGHT", 3, 0)
-end
+local raidbuff_reminder = CreateFrame("Frame", "RaidBuffReminder", UIParent)
+raidbuff_reminder:CreatePanel("Default", 153, bsize + 8, "TOPLEFT", UIParent, "TOPLEFT", 3, -3)
 raidbuff_reminder:CreateShadow("Default")
 raidbuff_reminder:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
 raidbuff_reminder:RegisterEvent("UNIT_INVENTORY_CHANGED")
@@ -294,20 +289,20 @@ raidbuff_reminder:RegisterEvent("UPDATE_BONUS_ACTIONBAR")
 raidbuff_reminder:RegisterEvent("CHARACTER_POINTS_CHANGED")
 raidbuff_reminder:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 raidbuff_reminder:SetScript("OnEvent", OnAuraChange)
-if C["rd"].mouseover == true then
+if C["rd"].rbfmouseover == true then
 	raidbuff_reminder:SetAlpha(0)
 	raidbuff_reminder:EnableMouse(true)
-	raidbuff_reminder:SetScript("OnEnter", function(self) self:SetAlpha(1) end) --
-	raidbuff_reminder:SetScript("OnLeave", function(self) self:SetAlpha(0) end) --
+	raidbuff_reminder:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
+	raidbuff_reminder:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 end
 
 --Function to create buttons
 local function CreateButton(name, relativeTo, firstbutton)
 	local button = CreateFrame("Frame", name, RaidBuffReminder)
 	if firstbutton == true then
-		button:CreatePanel("Default", bsize, bsize, "TOP", relativeTo, "TOP", 0, -4)
+		button:CreatePanel("Default", bsize, bsize, "LEFT", relativeTo, "LEFT", 4, 0)
 	else
-		button:CreatePanel("Default", bsize, bsize, "TOP", relativeTo, "BOTTOM", 0, -5)
+		button:CreatePanel("Default", bsize, bsize, "LEFT", relativeTo, "RIGHT", 5, 0)
 	end
 	button:SetFrameLevel(RaidBuffReminder:GetFrameLevel() + 2)
 	button.FrameBackdrop = CreateFrame("Frame", nil, button)

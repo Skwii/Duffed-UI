@@ -71,7 +71,7 @@ spec:CreateShadow("Default")
 		spec:SetPoint("TOPLEFT", TukuiMinimapStatsLeft, "BOTTOMLEFT", 0, -2)
 		spec:SetPoint("TOPRIGHT", TukuiMinimapStatsRight, "BOTTOMRIGHT", -22, -2)
 	end
-
+	
 	-- Text
 	spec.t = spec:CreateFontString(spec, "OVERLAY")
 	spec.t:SetPoint("CENTER")

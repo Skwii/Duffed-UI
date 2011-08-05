@@ -264,7 +264,7 @@ end
 
 local locale = GetLocale()
 local rollpairs = locale == "deDE" and {
-	["(.*) passt automatisch bei (.+), weil [ersi]+ den Gegenstand nicht benutzen kann.$"]  = "pass",
+	["(.*) passt automatisch bei (.+), weil [ersie]+ den Gegenstand nicht benutzen kann.$"]  = "pass",
 	["(.*) würfelt nicht für: (.+|r)$"] = "pass",
 	["(.*) hat für (.+) 'Gier' ausgewählt"] = "greed",
 	["(.*) hat für (.+) 'Bedarf' ausgewählt"] = "need",
@@ -281,6 +281,12 @@ local rollpairs = locale == "deDE" and {
 	["(.*)選擇了貪婪優先:(.+)"] = "greed",
 	["(.*)選擇了需求優先:(.+)"] = "need",
 	["(.*)選擇分解:(.+)"] = "disenchant",
+} or locale == "zhCN" and { 
+	["(.*)自动放弃了(.+)，因为他无法拾取该物品。$"]  = "pass",
+	["(.*)放弃了：(.+)"] = "pass", 
+	["(.*)选择了贪婪取向：(.+)"] = "greed", 
+	["(.*)选择了需求取向：(.+)"] = "need", 
+	["(.*)选择了分解取向：(.+)"] = "disenchant",
 } or locale == "ruRU" and {
 	["(.*) автоматически передает предмет (.+), поскольку не может его забрать"] = "pass",
 	["(.*) пропускает розыгрыш предмета \"(.+)\", поскольку не может его забрать"] = "pass",

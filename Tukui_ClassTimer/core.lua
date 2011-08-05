@@ -110,6 +110,7 @@ local TRINKET_FILTER = {
 		--DeathKnight
 		CreateSpellEntry( 90507 ), -- DPS set T11
 		CreateSpellEntry( 98957 ), -- Burning Blood Tank T12
+		CreateSpellEntry( 98971 ), -- Smoldering Rune DPS set T12
 		
 		--Druid
 		CreateSpellEntry( 90159 ), -- Resto T11
@@ -526,6 +527,7 @@ local CLASS_FILTERS = {
 				CreateSpellEntry( 710 ), -- Banish
 				CreateSpellEntry( 5484 ), -- Howl of Terror
 				CreateSpellEntry( 6789 ), -- Deathcoil
+				CreateSpellEntry( 17800 ), -- Shadow & Flame
 			},
 				player = {
 				CreateSpellEntry( 17941 ), -- Shadow Trance

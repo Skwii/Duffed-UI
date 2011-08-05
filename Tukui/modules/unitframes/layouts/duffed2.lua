@@ -307,13 +307,12 @@ local function Shared(self, unit)
 			self.FlashInfo = FlashInfo
 			
 			-- pvp status text
-			local status = panel:CreateFontString(nil, "OVERLAY")
-			status:SetFont(font1, fontsize, fontflag)
-			status:Point("RIGHT", panel, "RIGHT", -4, 0)
-			status:SetTextColor(0.69, 0.31, 0.31)
-			status:Hide()
-			self.Status = status
-			self:Tag(status, "[pvp]")
+			self.PvP = T.SetFontString(panel, font1, fontsize)
+			self.PvP:Point("RIGHT", panel, "RIGHT", -4, 0)
+        	self.PvP:SetTextColor(0.69, 0.31, 0.31)
+        	self.PvP:Hide()
+        	self.PvP.Override = T.dummy
+        	self:HookScript("OnUpdate", T.PvPUpdate)
 			
 			-- leader icon
 			local Leader = InvFrame:CreateTexture(nil, "OVERLAY")
@@ -645,7 +644,7 @@ local function Shared(self, unit)
 					self.EclipseBar.Text:Hide()
 				end
 				FlashInfo.ManaLevel:Hide()
-				status:Show()
+				self.PvP:Show()
 				UnitFrame_OnEnter(self) 
 			end)
 			self:SetScript("OnLeave", function(self) 
@@ -653,7 +652,7 @@ local function Shared(self, unit)
 					self.EclipseBar.Text:Show()
 				end
 				FlashInfo.ManaLevel:Show()
-				status:Hide()
+				self.PvP:Hide()
 				UnitFrame_OnLeave(self) 
 			end)
 		end
@@ -724,9 +723,9 @@ local function Shared(self, unit)
 			if unit == "player" then
 				castbar:Height(21)
 			elseif unit == "target" then
-				castbar:Width(240)
+				castbar:Width(C["castbar"].targetwidth)
 				castbar:Height(18)
-				castbar:Point("BOTTOM", UIParent, "BOTTOM", 0, C["castbar"]["target-y-offset"])
+				castbar:Point("BOTTOM", UIParent, "BOTTOM", C["castbar"]["target-x-offset"], C["castbar"]["target-y-offset"])
 			end
 			
 			castbar.CustomTimeText = T.CustomCastTimeText
@@ -1175,8 +1174,8 @@ local function Shared(self, unit)
 			castbar:SetStatusBarTexture(normTex)
 			castbar:SetFrameLevel(10)
 			castbar:Height(20)
-			castbar:Width(240)
-			castbar:Point("TOP", UIParent, "TOP", 0, C["castbar"]["focus-y-offset"])
+			castbar:Width(C["castbar"].focuswidth)
+			castbar:Point("TOP", UIParent, "TOP", C["castbar"]["target-x-offset"], C["castbar"]["focus-y-offset"])
 			
 			castbar:CreateBorder()
 			
@@ -1650,9 +1649,9 @@ oUF:RegisterStyle('Tukui', Shared)
 if C["actionbar"].layout == 2 then
 	local player = oUF:Spawn('player', "TukuiPlayer")
 	if T.lowversion then
-		player:Point("BOTTOMLEFT", TukuiBar3Left, "TOPLEFT", -50,100)
+		player:Point("BOTTOMLEFT", TukuiBar3Left, "TOPLEFT", -75,100)
 	else
-		player:Point("BOTTOMLEFT", TukuiBar3Left, "TOPLEFT", -50,100)
+		player:Point("BOTTOMLEFT", TukuiBar3Left, "TOPLEFT", -75,100)
 	end
 	player:Size(playerwidth, 43)
 else
@@ -1670,9 +1669,9 @@ end
 if C["actionbar"].layout == 2 then
 	local target = oUF:Spawn('target', "TukuiTarget")
 	if T.lowversion then
-		target:Point("BOTTOMRIGHT", TukuiBar3Right, "TOPRIGHT", 50,100)
+		target:Point("BOTTOMRIGHT", TukuiBar3Right, "TOPRIGHT", 75,100)
 	else
-		target:Point("BOTTOMRIGHT", TukuiBar3Right, "TOPRIGHT", 50,100)
+		target:Point("BOTTOMRIGHT", TukuiBar3Right, "TOPRIGHT", 75,100)
 	end
 	target:Size(playerwidth, 43)
 else

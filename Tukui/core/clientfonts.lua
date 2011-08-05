@@ -13,4 +13,8 @@ elseif T.client == "koKR" then
 	C["media"].font = C["media"].kr_font
 	C["media"].dmgfont = C["media"].kr_dmgfont
 	if C["unitframes"].fontsize == 8 then C["unitframes"].fontsize = 11 end
+elseif T.client == "zhCN" then
+	C["media"].uffont = C["media"].cn_uffont
+	C["media"].font = C["media"].cn_font
+	C["media"].dmgfont = C["media"].cn_dmgfont
 end

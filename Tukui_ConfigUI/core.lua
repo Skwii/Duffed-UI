@@ -85,7 +85,11 @@ local function Local(o)
 	if o == "TukuiConfigUIcastbarcolor"  then o = "Castbarcolor for not-player (if not classcolored)" end
 	if o == "TukuiConfigUIcastbarclasscolored"  then o = "Castbar classcolored." end
 	if o == "TukuiConfigUIcastbartarget-y-offset"  then o = "Target Castbar offset from the BOTTOM" end
+	if o == "TukuiConfigUIcastbartarget-x-offset" then o = "Target Castbar offset from the CENTER (horizontal)" end
+	if o == "TukuiConfigUIcastbartargetwidth" then o = "Target Castbar width" end
 	if o == "TukuiConfigUIcastbarfocus-y-offset"  then o = "Focus Castbar offset from the TOP" end
+	if o == "TukuiConfigUIcastbarfocus-x-offset" then o = "Focus Castbar offset from the CENTER (horizontal)" end
+	if o == "TukuiConfigUIcastbarfocuswidth" then o = "Focus Castbar width" end
 	if o == "TukuiConfigUIcastbarenable" then o = TukuiL.option_unitframes_castbar end
 	if o == "TukuiConfigUIcastbarcblatency" then o = TukuiL.option_unitframes_latency end
 	if o == "TukuiConfigUIcastbarcbicons" then o = TukuiL.option_unitframes_icon end
@@ -161,7 +165,7 @@ local function Local(o)
 	-- Raid & Dungeon
 	if o == "TukuiConfigUIrd" then o = "Raid & Dungeon" end
 	if o == "TukuiConfigUIrdraid" then o = "Enable RaidBuff Reminder" end
-	if o == "TukuiConfigUIrdmouseover" then o = "Enable mouseover for Raidbuff Reminder" end
+	if o == "TukuiConfigUIrdrbfmouseover" then o = "Enable mouseover for RaidBuff Reminder" end
 	if o == "TukuiConfigUIrddebuff" then o = "Enable Debuffdisplay on nameplates" end
 	if o == "TukuiConfigUIrdbossicons" then o = "Enable alternative Bossportraits on instancemaps" end
 	

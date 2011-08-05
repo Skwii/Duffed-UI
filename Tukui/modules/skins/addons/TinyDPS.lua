@@ -14,7 +14,7 @@ TinyDPS:SetScript("OnEvent", function(self, event, addon)
 	tdpsFrame:CreateShadow("Default")
 	if TukuiMinimap then
 		tdps.width = TukuiMinimap:GetWidth()
-		tdpsAnchor:SetPoint('BOTTOMLEFT', TukuiMinimapStatsLeft or TukuiReputation or TukuiMinimap, 'BOTTOMLEFT', 0, -6)
+		tdpsAnchor:SetPoint('BOTTOMLEFT', TukuiMinimapStatsLeft or TukuiReputation or TukuiMinimap, 'BOTTOMLEFT', 0, -5)
 	end
 	if tdpsStatusBar then
 		tdpsStatusBar:SetStatusBarTexture(C["media"].normTex)

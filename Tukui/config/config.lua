@@ -88,7 +88,11 @@ C["castbar"] = {
 	["classcolored"] = true,
 		["color"] = { 0.9, 0.9, 0.9, 0.9 },				-- Castbar color for everything except player (if classcolored = false)
 	["target-y-offset"] = 380,							-- Target Castbar offset from the BOTTOM
+	["target-x-offset"] = 0,							-- Target Castbar offset from the CENTER (horizontal)
+	["targetwidth"] = 240,								-- Target Castbar width for target
 	["focus-y-offset"] = -320,							-- Focus Castbar offset from the TOP
+	["focus-x-offset"] = 0,								-- Target Castbar offset from the CENTER (horizontal)
+	["focuswidth"] = 240,								-- Castbar width for focus
 }
 
 C["actionbar"] = {
@@ -136,7 +140,7 @@ C["rd"] = {
 	["debuff"] = true,									-- enable Debuffdisplay on nameplates
 	["raid"] = true,									-- enable raidbuffreminder
 	["bossicons"] = true,								-- enable alternative Bossportraits
-	["mouseover"] = false,								-- enable mouseover for raidbuff reminder
+	["rbfmouseover"] = true,							-- enable mouseover for RaidBuff Reminder
 }
 
 C["skins"] = {

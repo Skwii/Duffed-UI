@@ -1,6 +1,9 @@
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
 if not C["map"].enable == true then return end
 
+-- don't use our zonemap script if capping is used.
+if IsAddOnLoaded("Capping") then return end
+
 -- BG TINY MAP (BG, mining, etc)
 local tinymap = CreateFrame("Frame", "TukuiZoneMap", UIParent)
 tinymap:SetPoint("CENTER")

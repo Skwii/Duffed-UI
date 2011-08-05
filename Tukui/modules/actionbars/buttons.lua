@@ -473,9 +473,6 @@ else
 	exitvehicle.text:Point("CENTER", 0, 0)
 	exitvehicle.text:SetText(cm.."v|r")
 	RegisterStateDriver(exitvehicle, "visibility", "[target=vehicle,exists] show;hide")
-	exitvehicle:SetAlpha(0)
-	exitvehicle:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
-	exitvehicle:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 	
 	local exitvehicle2 = CreateFrame("Button", "TukuiExitVehicleButton2", UIParent, "SecureHandlerClickTemplate")
 	exitvehicle2:CreatePanel("Default", 19, 19, "TOP", TukuiBar5Button2, "TOP", 0, 21)
@@ -486,7 +483,4 @@ else
 	exitvehicle2.text:Point("CENTER", 0, 0)
 	exitvehicle2.text:SetText(cm.."v|r")
 	RegisterStateDriver(exitvehicle2, "visibility", "[target=vehicle,exists] show;hide")
-	exitvehicle2:SetAlpha(0)
-	exitvehicle2:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
-	exitvehicle2:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
 end

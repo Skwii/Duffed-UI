@@ -199,9 +199,10 @@ local function LoadSkin()
 		end
 	end)
 
-	WorldMapZoneDropDownButton:HookScript('OnClick', function(self) 
+	WorldMapZoneDropDownButton:HookScript('OnClick', function(self)
+		DropDownList1:SetScale(C.general.uiscale)
 		DropDownList1:ClearAllPoints()
-		DropDownList1:Point("TOPRIGHT", self, "BOTTOMRIGHT", -17, -4)
+		DropDownList1:Point("TOPRIGHT", self, "BOTTOMRIGHT", 2, -4)
 	end)
 	T.SkinScrollBar(WorldMapQuestScrollFrameScrollBar)
  end

@@ -20,7 +20,12 @@ C["media"] = {
 	-- fonts (KOREAN ONLY)
 	["kr_font"] = [=[Fonts\2002.TTF]=], 													-- general font of tukui
 	["kr_uffont"] = [[Fonts\2002.TTF]], 													-- general font of unitframes
-	["kr_dmgfont"] = [[Fonts\2002.TTF]], 													-- general font of dmg / sct
+	["kr_dmgfont"] = [[Fonts\2002.TTF]],													-- general font of dmg / sct
+	
+	-- fonts (Chinese only)
+	["cn_font"] = [=[Fonts\ZYKai_T.TTF]=], -- general font of tukui
+	["cn_uffont"] = [[Fonts\ZYHei.TTF]], -- general font of unitframes
+	["cn_dmgfont"] = [[Fonts\ZYKai_C.TTF]], -- general font of dmg / sct
 	
 	-- textures
 	["normTex"] = [[Interface\AddOns\Tukui\medias\textures\normTex]], 						-- texture used for tukui healthbar/powerbar/etc

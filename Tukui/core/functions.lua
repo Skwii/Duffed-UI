@@ -978,6 +978,37 @@ function Priest_SoS_Time(self, elapsed)
 	end
 end
 
+function T.PvPUpdate(self, elapsed)
+	if(self.elapsed and self.elapsed > 0.2) then
+		local unit = self.unit
+		local time = GetPVPTimer()
+
+		local min = format("%01.f", floor((time/1000)/60))
+		local sec = format("%02.f", floor((time/1000) - min *60))
+		if(self.PvP) then
+			local factionGroup = UnitFactionGroup(unit)
+			if(UnitIsPVPFreeForAll(unit)) then
+				if time ~= 301000 and time ~= -1 then
+					self.PvP:SetText(PVP.." ".."("..min..":"..sec..")")
+				else
+					self.PvP:SetText(PVP)
+				end
+			elseif(factionGroup and UnitIsPVP(unit)) then
+				if time ~= 301000 and time ~= -1 then
+					self.PvP:SetText(PVP.." ".."("..min..":"..sec..")")
+				else
+					self.PvP:SetText(PVP)
+				end
+			else
+				self.PvP:SetText("")
+			end
+		end
+		self.elapsed = 0
+	else
+		self.elapsed = (self.elapsed or 0) + elapsed
+	end
+end
+
 --------------------------------------------------------------------------------------------
 -- THE AURAWATCH FUNCTION ITSELF. HERE BE DRAGONS!
 --------------------------------------------------------------------------------------------
@@ -1196,30 +1227,32 @@ if C["unitframes"].raidunitdebuffwatch == true then
 			
 			-- SpellName(6788), --test
 		--Firelands
-			--Beth'tilac
-			SpellName(99506), -- Widows Kiss
-  
-			--Alysrazor
-			SpellName(101296), -- Fiero Blast
-			SpellName(100723), -- Gushing Wound
-  
-			--Shannox
-			SpellName(99837), -- Crystal Prison
-			SpellName(99937), -- Jagged Tear
-  
-			--Baleroc
-			SpellName(99403), -- Tormented
-			SpellName(99256), -- Qual / Torment
-			SpellName(99252), -- Flammeneifer (Tank Debuff)
-  
-			--Lord Rhyolith
-			--<< NONE KNOWN YET >>
-  
-			--Majordomo Staghelm
-			--<< NONE KNOWN YET >>
-  
-			--Ragnaros
-			--<< NONE KNOWN YET >>
+			-- Beth'tilac
+			SpellName(99506),  -- Widows Kiss
+			SpellName(97202),  -- Fiery Web Spin
+			SpellName(49026),  -- Fixate
+			SpellName(97079),  -- Seeping Venom
+			-- Lord Rhyolith
+			-- none, hehe, fake boss
+			-- Alysrazor
+			SpellName(101296),  -- Fieroblast
+			SpellName(100723),  -- Gushing Wound
+			SpellName(99389),  -- Imprinted
+			SpellName(101729),  -- Blazing Claw
+			-- Shannox
+			SpellName(99837),  -- Crystal Prison
+			SpellName(99937),  -- Jagged Tear
+			-- Baleroc
+			SpellName(99256),  -- Torment
+			SpellName(99252),  -- Blaze of Glory
+			SpellName(99516),  -- Countdown
+			-- Majordomo Staghelm
+			SpellName(98450),  -- Searing Seeds
+			-- Ragnaros
+			SpellName(99399),  -- Burning Wound
+			SpellName(100293),  -- Lava Wave
+			SpellName(98313),  -- Magma Blast
+			SpellName(100675),  -- Dreadflame
 		}
 
 		T.ReverseTimer = {
