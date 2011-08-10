@@ -261,7 +261,7 @@ local function Shared(self, unit)
 			self.FlashInfo = FlashInfo
 			
 			-- pvp status text
-			self.PvP = T.SetFontString(panel, font1, fontsize)
+			self.PvP = T.SetFontString(panel, font1, fontsize, fontflag)
 			self.PvP:Point("RIGHT", panel, "RIGHT", -4, 0)
         	self.PvP:SetTextColor(0.69, 0.31, 0.31)
         	self.PvP:Hide()
@@ -1020,10 +1020,10 @@ local function Shared(self, unit)
 			local castbar = CreateFrame("StatusBar", self:GetName().."CastBar", self)
 			castbar:SetStatusBarTexture(normTex)
 			self.Castbar = castbar
-			castbar:Height(3)
+			castbar:Height(16)
 			
-			castbar:Point("TOPLEFT", health, "BOTTOMLEFT", 0, -7)
-			castbar:Point("TOPRIGHT", health, "BOTTOMRIGHT", 0, -7)
+			castbar:Point("TOPLEFT", health, "BOTTOMLEFT", 0, 16)
+			castbar:Point("TOPRIGHT", health, "BOTTOMRIGHT", 0, 16)
 
 			castbar.bg = castbar:CreateTexture(nil, "BORDER")
 			castbar.bg:SetTexture(normTex)
@@ -1035,10 +1035,6 @@ local function Shared(self, unit)
 			castbar.PostCastStart = T.CheckCast
 			castbar.PostChannelStart = T.CheckChannel
 
-			castbar.Text = T.SetFontString(castbar, font1, fontsize)
-			castbar.Text:Point("LEFT", castbar, "LEFT", 4, 0)
-			castbar.Text:SetTextColor(0.84, 0.75, 0.65)
-			
 			self.Castbar.Time = castbar.time
 			
 			-- Border
@@ -1071,11 +1067,15 @@ local function Shared(self, unit)
 			debuffs.spacing = 4
 			debuffs.num = 6
 
-			debuffs:Point("TOPLEFT", power, "BOTTOMLEFT", -2, -5)
+			if TukuiPetCastBar:IsShown() then
+				debuffs:Point("TOPLEFT", self, "BOTTOMLEFT", 0, -12)
+			else
+				debuffs:Point("TOPLEFT", power, "BOTTOMLEFT", -2, -5)
+			end
 			debuffs.initialAnchor = "TOPLEFT"
 			debuffs["growth-y"] = "UP"
-			debuffs.PostCreateIcon = C["unitframes"].PostCreateAura
-			debuffs.PostUpdateIcon = C["unitframes"].PostUpdateAura
+			debuffs.PostCreateIcon = T.PostCreateAura
+			debuffs.PostUpdateIcon = T.PostUpdateAura
 			self.Debuffs = debuffs
 		end
 		
@@ -1727,8 +1727,8 @@ tot:Size(125, 18)
 
 -- pet
 local pet = oUF:Spawn('pet', "TukuiPet")
-if ShardBarBorder or RuneBarBorder or TotemBarBorder then
-	pet:Point("TOPLEFT", ShardBarBorder or RuneBarBorder or TotemBarBorder, "BOTTOMLEFT", 2, -5)
+if ShardBarBorder or RuneBarBorder or TotemBarBorder or EclipseBarBorder then
+	pet:Point("TOPLEFT", ShardBarBorder or RuneBarBorder or TotemBarBorder or EclipseBarBorder, "BOTTOMLEFT", 2, -5)
 else
 	pet:Point("TOPLEFT", TukuiPlayer, "BOTTOMLEFT", 0,-7)
 end

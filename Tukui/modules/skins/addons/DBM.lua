@@ -68,7 +68,7 @@ local function SkinBars(self)
 				if not frame.styled then
 					frame:SetScale(1)
 					frame.SetScale=T.dummy
-					frame:SetHeight(buttonsize/3)
+					frame:SetHeight(buttonsize)
 					frame:SetTemplate("Default")
 					if drawshadow then
 						frame:CreateShadow("Default")
@@ -111,7 +111,7 @@ local function SkinBars(self)
 
 				if not name.styled then
 					name:ClearAllPoints()
-					name:Point("BOTTOMLEFT", frame, "TOPLEFT", 0, 4)
+					name:Point("LEFT", frame, "LEFT", 4, 0)
 					name:SetWidth(165)
 					name:SetHeight(8)
 					name:SetFont(C["media"].font, 12, "OUTLINE")
@@ -123,7 +123,7 @@ local function SkinBars(self)
 				
 				if not timer.styled then	
 					timer:ClearAllPoints()
-					timer:Point("BOTTOMRIGHT", frame, "TOPRIGHT", -1, 2)
+					timer:Point("RIGHT", frame, "RIGHT", -4, 0)
 					timer:SetFont(C["media"].font, 12, "OUTLINE")
 					timer:SetJustifyH("RIGHT")
 					timer:SetShadowColor(0, 0, 0, 0)

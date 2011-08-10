@@ -89,14 +89,15 @@ C["castbar"] = {
 		["color"] = { 0.9, 0.9, 0.9, 0.9 },				-- Castbar color for everything except player (if classcolored = false)
 	["target-y-offset"] = 380,							-- Target Castbar offset from the BOTTOM
 	["target-x-offset"] = 0,							-- Target Castbar offset from the CENTER (horizontal)
-	["targetwidth"] = 240,								-- Target Castbar width for target
+	["targetwidth"] = 240,								-- Target Castbar width
 	["focus-y-offset"] = -320,							-- Focus Castbar offset from the TOP
-	["focus-x-offset"] = 0,								-- Target Castbar offset from the CENTER (horizontal)
-	["focuswidth"] = 240,								-- Castbar width for focus
+	["focus-x-offset"] = 0,								-- Focus Castbar offset from the CENTER (horizontal)
+	["focuswidth"] = 240,								-- Focus Castbar width
 }
 
 C["actionbar"] = {
 	["swapbar1and3"] = false,							-- Swap Bar 1 and 3 (Mainbar with the third at the Top)
+	["swapbar1and2"] = true,							-- Swap Bar 1 and 2 (Mainbar with the second at the Top)
 	["rightbarsmouseover"] = true, 						-- Right Bars on mouseover
 	["shapeshiftborder"] = true,						-- Create a Border around the shapeshift buttons
 	["shapeshiftmouseover"] = false,					-- Shapeshiftbar on mouseover

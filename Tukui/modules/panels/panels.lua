@@ -9,7 +9,11 @@ if C["actionbar"].layout ~= 1 then
 	TukuiBar1:SetFrameLevel(1)
 
 	local TukuiBar2 = CreateFrame("Frame", "TukuiBar2", TukuiBar1)
-	TukuiBar2:CreatePanel("Default", 1, 1, "BOTTOM", TukuiBar1, "BOTTOM", 0, 0)
+	if C["actionbar"].swapbar1and2 ~= true then
+		TukuiBar2:CreatePanel("Default", 1, 1, "BOTTOM", TukuiBar1, "BOTTOM", 0, 0)
+	else
+		TukuiBar2:CreatePanel("Default", 1, 1, "TOP", TukuiBar1, "TOP", 0, 0)
+	end
 	TukuiBar2:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 13))
 	TukuiBar2:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
 	TukuiBar2:SetFrameStrata("BACKGROUND")

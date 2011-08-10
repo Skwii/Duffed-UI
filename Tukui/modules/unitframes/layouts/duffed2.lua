@@ -307,7 +307,7 @@ local function Shared(self, unit)
 			self.FlashInfo = FlashInfo
 			
 			-- pvp status text
-			self.PvP = T.SetFontString(panel, font1, fontsize)
+			self.PvP = T.SetFontString(panel, font1, fontsize, fontflag)
 			self.PvP:Point("RIGHT", panel, "RIGHT", -4, 0)
         	self.PvP:SetTextColor(0.69, 0.31, 0.31)
         	self.PvP:Hide()
@@ -968,10 +968,10 @@ local function Shared(self, unit)
 			local castbar = CreateFrame("StatusBar", self:GetName().."CastBar", self)
 			castbar:SetStatusBarTexture(normTex)
 			self.Castbar = castbar
-			castbar:Height(3)
+			castbar:Height(11)
 			
-			castbar:Point("TOPLEFT", health, "BOTTOMLEFT", 0, -7)
-			castbar:Point("TOPRIGHT", health, "BOTTOMRIGHT", 0, -7)
+			castbar:Point("TOPLEFT", health, "BOTTOMLEFT", 0, 11)
+			castbar:Point("TOPRIGHT", health, "BOTTOMRIGHT", 0, 11)
 
 			castbar.bg = castbar:CreateTexture(nil, "BORDER")
 			castbar.bg:SetTexture(normTex)
@@ -984,9 +984,6 @@ local function Shared(self, unit)
 			castbar.PostChannelStart = T.CheckChannel
 			
 			self.Castbar.Time = castbar.time
-			
-			-- Border
-			castbar:CreateBorder()
 		end
 		
 		if C["unitframes"].totdebuffs == true then
@@ -1000,8 +997,8 @@ local function Shared(self, unit)
 			debuffs:Point("TOPLEFT", self, "BOTTOMLEFT", 0, -3)
 			debuffs.initialAnchor = "TOPLEFT"
 			debuffs["growth-y"] = "UP"
-			debuffs.PostCreateIcon = C["unitframes"].PostCreateAura
-			debuffs.PostUpdateIcon = C["unitframes"].PostUpdateAura
+			debuffs.PostCreateIcon = T.PostCreateAura
+			debuffs.PostUpdateIcon = T.PostUpdateAura
 			self.Debuffs = debuffs
 		end
 		

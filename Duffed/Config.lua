@@ -47,11 +47,13 @@ SpellsAN = {
 		[GetSpellInfo(871)] 	= true, 	-- Shield Wall
 		[GetSpellInfo(5277)] 	= true, 	-- Evasion
 		[GetSpellInfo(74001)] 	= true, 	-- Combat Readiness
-		[GetSpellInfo(33206)]	= true,		-- Pain Suppression
 		[GetSpellInfo(48707)]	= true,		-- Anti-Magic Shell
 		[GetSpellInfo(48792)]	= true,		-- Icebound Fortitude
 		[GetSpellInfo(19263)]	= true,		-- Deterrence
 		[GetSpellInfo(31224)]	= true,		-- Cloak of Shadows
+		[GetSpellInfo(498)]    	= true,    	-- Divine Protection
+		[GetSpellInfo(86150)]  	= true,    	-- Guardian of Ancient Kings
+		[GetSpellInfo(31850)]  	= true,    	-- Ardent Defender
 	},
 	
 	-- casts that doesnt apply a buff or debuff (true/false doesnt do anything here)
