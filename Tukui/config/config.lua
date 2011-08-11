@@ -132,9 +132,11 @@ C["pvp"] = {
 
 C["ses"] = {
 	["enable"] = true,									-- Enable Specswitcher
-	["enablegear"] = true,
-	["set1"] = 1,
-	["set2"] = 2,
+	["enablegear"] = true,								-- Enable Gear
+	["set1"] = 1,										-- Gearset for Primary Spec
+	["set2"] = 2,										-- Gearset for Secondary Spec
+	["gearswap"] = true,								-- Enable automatic gearswap @respec
+	["castbar"] = true,									-- Enable castbar @specswitcher
 }
 
 C["rd"] = {

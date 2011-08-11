@@ -162,6 +162,8 @@ local function Local(o)
 	if o == "TukuiConfigUIsesenablegear" then o = "Enable automatic gearswap" end
 	if o == "TukuiConfigUIsesset1" then o = "Equipset for first spec (must be a number between 1 - 10)" end
 	if o == "TukuiConfigUIsesset2" then o = "Equipset for second spec (must be a number between 1 - 10)" end
+	if o == "TukuiConfigUIsesgearswap" then o = "Enable automatic gearswap for respec" end
+	if o == "TukuiConfigUIsescastbar" then o = "Enable castbar for specswitcher" end
 	
 	-- Raid & Dungeon
 	if o == "TukuiConfigUIrd" then o = "Raid & Dungeon" end
