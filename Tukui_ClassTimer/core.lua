@@ -103,13 +103,14 @@ local TRINKET_FILTER = {
 		CreateSpellEntry( 96923 ), -- Titanic Power
 		CreateSpellEntry( 96881 ), -- Scales of Life
 		
+		--Molten Front
+		CreateSpellEntry( 100403 ), -- Moonwell Chalice
+		
 		---------------
 		--T-Set Procs--
-		---------------
-		
+		---------------		
 		--DeathKnight
 		CreateSpellEntry( 90507 ), -- DPS set T11
-		CreateSpellEntry( 98957 ), -- Burning Blood Tank T12
 		CreateSpellEntry( 98971 ), -- Smoldering Rune DPS set T12
 		
 		--Druid
@@ -197,7 +198,8 @@ local CLASS_FILTERS = {
 				CreateSpellEntry( 81130 ), -- Scarlet Fever
 				CreateSpellEntry( 50536 ), -- Unholy Blight
 				CreateSpellEntry( 65142 ), -- Ebon Plague
-				CreateSpellEntry( 51714 ), -- Razorice 
+				CreateSpellEntry( 51714 ), -- Razorice
+				CreateSpellEntry( 98957 ), -- Burning Blood Tank T12
 			},
 			player = {
 				CreateSpellEntry( 59052 ), -- Freezing Fog

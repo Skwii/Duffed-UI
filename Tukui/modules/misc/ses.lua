@@ -68,49 +68,51 @@ end
 
 	
 local function SpecChangeCastbar(self)
-	local specbar = CreateFrame("StatusBar", nil, UIParent)
-	specbar:Point("TOPLEFT", self, "BOTTOMLEFT", 0, -2)
-	specbar:Point("TOPRIGHT", self, "BOTTOMRIGHT", 22, -2)
-	specbar:Height(19)
-	local border = CreateFrame("Frame", specbar:GetName() and specbar:GetName() .. "InnerBorder" or nil, specbar)
-    border:Point("TOPLEFT", -T.mult, T.mult)
-    border:Point("BOTTOMRIGHT", T.mult, -T.mult)
-    border:SetBackdrop({
-      edgeFile = C["media"].blank, 
-      edgeSize = T.mult, 
-      insets = { left = T.mult, right = T.mult, top = T.mult, bottom = T.mult }
-    })
-    border:SetBackdropBorderColor(unpack(C["media"].backdropcolor))
-    specbar.iborder = border
-	specbar:CreateShadow("Default")
+	if C["castbar"].enable == true then
+		local specbar = CreateFrame("StatusBar", nil, UIParent)
+		specbar:Point("TOPLEFT", self, "BOTTOMLEFT", 0, -2)
+		specbar:Point("TOPRIGHT", self, "BOTTOMRIGHT", 22, -2)
+		specbar:Height(19)
+		local border = CreateFrame("Frame", specbar:GetName() and specbar:GetName() .. "InnerBorder" or nil, specbar)
+		border:Point("TOPLEFT", -T.mult, T.mult)
+		border:Point("BOTTOMRIGHT", T.mult, -T.mult)
+		border:SetBackdrop({
+			edgeFile = C["media"].blank, 
+			edgeSize = T.mult, 
+			insets = { left = T.mult, right = T.mult, top = T.mult, bottom = T.mult }
+			})
+		border:SetBackdropBorderColor(unpack(C["media"].backdropcolor))
+		specbar.iborder = border
+		specbar:CreateShadow("Default")
 	
-	specbar:SetStatusBarTexture(C.media.normTex)
-	specbar:GetStatusBarTexture():SetHorizTile(false)
-	specbar:SetBackdrop({bgFile = C.media.blank})
-	specbar:SetBackdropColor(.2, .2, .2, 1)
-	specbar:SetMinMaxValues(0, 5)
+		specbar:SetStatusBarTexture(C.media.normTex)
+		specbar:GetStatusBarTexture():SetHorizTile(false)
+		specbar:SetBackdrop({bgFile = C.media.blank})
+		specbar:SetBackdropColor(.2, .2, .2, 1)
+		specbar:SetMinMaxValues(0, 5)
 	
-	specbar.t = specbar:CreateFontString(specbar, "OVERLAY")
-	specbar.t:Point("CENTER", specbar, "CENTER", 0, 0)  
-	specbar.t:SetFont(C["media"].uffont, C.datatext.fontsize)	
+		specbar.t = specbar:CreateFontString(specbar, "OVERLAY")
+		specbar.t:Point("CENTER", specbar, "CENTER", 0, 0)  
+		specbar.t:SetFont(C["media"].uffont, C.datatext.fontsize)	
 	
-	specbar:RegisterEvent("UNIT_SPELLCAST_START")
-	specbar:RegisterEvent("UNIT_SPELLCAST_STOP")
-	specbar:SetScript("OnUpdate", function(self)
-		local spell, _, DisplayName, _, startTime, endTime, _, castID, _ = UnitCastingInfo("player")
-		local time = GetTime()
-		if (spell == "Activating Primary Spec") or (spell == "Activating Secondary Spec") then
-			local val = time-(startTime/1000) or 0
-			self:SetAlpha(1)
-			self:SetValue(val)
-			specbar.t:SetText(spell)
+		specbar:RegisterEvent("UNIT_SPELLCAST_START")
+		specbar:RegisterEvent("UNIT_SPELLCAST_STOP")
+		specbar:SetScript("OnUpdate", function(self)
+			local spell, _, DisplayName, _, startTime, endTime, _, castID, _ = UnitCastingInfo("player")
+			local time = GetTime()
+			if (spell == "Activating Primary Spec") or (spell == "Activating Secondary Spec") then
+				local val = time-(startTime/1000) or 0
+				self:SetAlpha(1)
+				self:SetValue(val)
+				specbar.t:SetText(spell)
 			
-			TukuiPlayerCastBar:SetAlpha(0)
-		else
-			TukuiPlayerCastBar:SetAlpha(1)
-			self:SetAlpha(0)
-		end
-	end)
+				TukuiPlayerCastBar:SetAlpha(0)
+			else
+				TukuiPlayerCastBar:SetAlpha(1)
+				self:SetAlpha(0)
+			end
+		end)
+	end
 end
 
 -----------
