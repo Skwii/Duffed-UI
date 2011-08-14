@@ -120,6 +120,7 @@ local TRINKET_FILTER = {
 		
 		--Hunter
 		CreateSpellEntry( 99058 ), -- Flaming Arrow T12
+		CreateSpellEntry( 99060 ), -- Burning Adrenaline T12
 		
 		--Mage
 		CreateSpellEntry( 99063), -- Mirror Image T12
