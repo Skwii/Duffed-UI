@@ -1519,8 +1519,8 @@ local function Shared(self, unit)
 		
 			-- Trinket Frame
 			local Trinketbg = CreateFrame("Frame", nil, self)
-			Trinketbg:Size(41, 41)
-			Trinketbg:Point("LEFT", health, "RIGHT", 4, -9)
+			Trinketbg:Size(51, 19)
+			Trinketbg:Point("CENTER", health, "CENTER", 0, 0)
 			Trinketbg:SetTemplate("Default")
 			Trinketbg:SetFrameLevel(health:GetFrameLevel()+1)
 			self.Trinketbg = Trinketbg
