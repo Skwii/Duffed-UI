@@ -96,8 +96,7 @@ C["castbar"] = {
 }
 
 C["actionbar"] = {
-	["swapbar1and3"] = false,							-- Swap Bar 1 and 3 (Mainbar with the third at the Top)
-	["swapbar1and2"] = true,							-- Swap Bar 1 and 2 (Mainbar with the second at the Top)
+	["swapbar1and3"] = false,							-- Swap Mainbar with 2. or 3. (depends on which AB-Layout you use)
 	["rightbarsmouseover"] = true, 						-- Right Bars on mouseover
 	["shapeshiftborder"] = true,						-- Create a Border around the shapeshift buttons
 	["shapeshiftmouseover"] = false,					-- Shapeshiftbar on mouseover

@@ -89,6 +89,7 @@ local function LoadSkin()
 	PVPTeamManagementFrameInvalidTeamFrame.backdrop:Point( "TOPLEFT", PVPTeamManagementFrameInvalidTeamFrame, "TOPLEFT")
 	PVPTeamManagementFrameInvalidTeamFrame.backdrop:Point( "BOTTOMRIGHT", PVPTeamManagementFrameInvalidTeamFrame, "BOTTOMRIGHT")
 	PVPTeamManagementFrameInvalidTeamFrame.backdrop:SetFrameLevel(PVPTeamManagementFrameInvalidTeamFrame:GetFrameLevel())
+	T.SkinScrollBar(PVPTeamManagementFrameTeamScrollFrameScrollBar)
 
 	PVPFrameConquestBarLeft:Kill()
 	PVPFrameConquestBarRight:Kill()

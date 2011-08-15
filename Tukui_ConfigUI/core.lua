@@ -94,8 +94,7 @@ local function Local(o)
 	if o == "TukuiConfigUIcastbarcblatency" then o = TukuiL.option_unitframes_latency end
 	if o == "TukuiConfigUIcastbarcbicons" then o = TukuiL.option_unitframes_icon end
 	
-	if o == "TukuiConfigUIactionbarswapbar1and3"  then o = "Swap Mainbar with 3. (on top)[ONLY FOR LAYOUT 1(DEFAULT)]" end
-	if o == "TukuiConfigUIactionbarswapbar1and2" then o = "Swap Mainbar with 2. (on top) [ONLY FOR LAYOUT 2]" end
+	if o == "TukuiConfigUIactionbarswapbar1and3"  then o = "Swap Mainbar with 2. or 3. (depends on which AB-Layout you use)" end
 	if o == "TukuiConfigUIactionbarrightbarsmouseover"  then o = "Rightbars on mouseover" end
 	if o == "TukuiConfigUIactionbarshapeshiftborder"  then o = "Display Border around Shapeshiftbar" end
 	if o == "TukuiConfigUIactionbarshapeshiftmouseover"  then o = "Shapeshiftbar on mouseover" end

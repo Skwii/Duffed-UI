@@ -18,7 +18,7 @@ if C["actionbar"].layout ~= 1 then
 		b:SetFrameLevel(15)
 	
 		if i == 1 then
-			if C["actionbar"].swapbar1and2 == false then
+			if C["actionbar"].swapbar1and3 == false then
 				if T.lowversion then
 					b:SetPoint("BOTTOMLEFT", bar, "BOTTOMLEFT", T.buttonspacing, T.buttonspacing)
 				else

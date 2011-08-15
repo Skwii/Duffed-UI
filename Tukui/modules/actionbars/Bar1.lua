@@ -86,7 +86,7 @@ bar:SetScript("OnEvent", function(self, event, ...)
 			button:SetFrameLevel(15)
 			if C["actionbar"].layout == 2 then
 				if i == 1 then
-					if C["actionbar"].swapbar1and2 == false then
+					if C["actionbar"].swapbar1and3 == false then
 						button:SetPoint("TOPLEFT", T.buttonspacing, -T.buttonspacing)
 					else
 						button:SetPoint("BOTTOMLEFT", T.buttonspacing, T.buttonspacing)
