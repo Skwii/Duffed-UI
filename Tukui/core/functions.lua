@@ -809,21 +809,17 @@ T.EclipseDirection = function(self)
 	end
 end
 
-T.DruidBarDisplay = function(self, login)
+T.EclipseDisplay = function(self, login)
 	local eb = self.EclipseBar
-	local dm = self.DruidMana
 	local txt = self.EclipseBar.Text
 
 	if login then
-		dm:SetScript("OnUpdate", nil)
+		eb:SetScript("OnUpdate", nil)
 	end
 	
-	if eb:IsShown() or dm:IsShown() then
-		if eb:IsShown() then
-			txt:Show()
-			self.FlashInfo:Hide()
-		end
-		self.DruidManaBackground:Show()
+	if eb:IsShown() then
+		txt:Show()
+		self.FlashInfo:Hide()
 		if T.lowversion then
 			if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 34) end
 		else
@@ -832,7 +828,6 @@ T.DruidBarDisplay = function(self, login)
 	else
 		txt:Hide()
 		self.FlashInfo:Show()
-		self.DruidManaBackground:Hide()
 		if T.lowversion then
 			if self.Buffs then self.Buffs:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 26) end
 		else
@@ -915,19 +910,19 @@ T.UpdateDruidMana = function(self)
 
 		if min ~= max then
 			if self.Power.value:GetText() then
-				self.DruidManaText:SetPoint("LEFT", self.Power.value, "RIGHT", 1, 0)
-				self.DruidManaText:SetFormattedText("|cffD7BEA5-|r  |cff4693FF%d%%|r|r", floor(min / max * 100))
+				self.DruidMana:SetPoint("LEFT", self.Power.value, "RIGHT", 1, 0)
+				self.DruidMana:SetFormattedText("|cffD7BEA5-|r  |cff4693FF%d%%|r|r", floor(min / max * 100))
 			else
-				self.DruidManaText:SetPoint("LEFT", self.panel, "LEFT", 4, 1)
-				self.DruidManaText:SetFormattedText("%d%%", floor(min / max * 100))
+				self.DruidMana:SetPoint("LEFT", self.panel, "LEFT", 4, 1)
+				self.DruidMana:SetFormattedText("%d%%", floor(min / max * 100))
 			end
 		else
-			self.DruidManaText:SetText()
+			self.DruidMana:SetText()
 		end
 
-		self.DruidManaText:SetAlpha(1)
+		self.DruidMana:SetAlpha(1)
 	else
-		self.DruidManaText:SetAlpha(0)
+		self.DruidMana:SetAlpha(0)
 	end
 end
 

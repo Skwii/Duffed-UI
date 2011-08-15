@@ -455,14 +455,16 @@ local function Shared(self, unit)
 					eclipseBar:Size(playerwidth, 5)
 					eclipseBar:SetFrameStrata("MEDIUM")
 					eclipseBar:SetFrameLevel(8)
-					eclipseBar:SetScript("OnShow", function() T.DruidBarDisplay(self, false) end)
-					eclipseBar:SetScript("OnHide", function() T.DruidBarDisplay(self, false) end)
+					eclipseBar:SetScript("OnShow", function() T.EclipseDisplay(self, false) end) 
+					eclipseBar:SetScript("OnUpdate", function() T.EclipseDisplay(self, true) end) -- just forcing 1 update on login for buffs/shadow/etc. 
+					eclipseBar:SetScript("OnHide", function() T.EclipseDisplay(self, false) end) 
+
 					
 					local lunarBar = CreateFrame('StatusBar', nil, eclipseBar)
 					lunarBar:SetPoint('LEFT', eclipseBar, 'LEFT', 0, 0)
 					lunarBar:SetSize(eclipseBar:GetWidth(), eclipseBar:GetHeight())
 					lunarBar:SetStatusBarTexture(normTex)
-					lunarBar:SetStatusBarColor(.30, .52, .70)
+					lunarBar:SetStatusBarColor(.30, .52, .90)
 					eclipseBar.LunarBar = lunarBar
 
 					local solarBar = CreateFrame('StatusBar', nil, eclipseBar)
