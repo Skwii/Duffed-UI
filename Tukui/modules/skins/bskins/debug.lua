@@ -14,6 +14,7 @@ local function LoadSkin()
 	ScriptErrorsFrame:SetBackdropColor(unpack(C.media.backdropcolor))
 	ScriptErrorsFrame:SetBackdropBorderColor(unpack(C.media.bordercolor))
 	T.SkinScrollBar(ScriptErrorsFrameScrollFrameScrollBar)
+	T.SkinCloseButton(ScriptErrorsFrameClose)
 
 	EventTraceFrame:SetTemplate("Transparent")
 	

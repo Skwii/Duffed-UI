@@ -145,11 +145,11 @@
 	<Script file="modules\skins\addons\Skada.lua"/>
 	<Script file="modules\skins\addons\Omen.lua"/>
 	<Script file="modules\skins\addons\Recount.lua"/>
-	<Script file="modules\skins\addons\KLE.lua"/>
 	<Script file="modules\skins\addons\DXE.lua"/>
 	<Script file="modules\skins\addons\TinyDPS.lua"/>
 	<Script file="modules\skins\addons\Quartz.lua"/>
 	<Script file="modules\skins\addons\DBM.lua"/>
+	<Script file="modules\skins\addons\BigWigs.lua"/>
 	
 	<Include file="modules\unitframes\templates\tankassist.xml"/>
 	<Script file="modules\unitframes\tags\tags.lua"/>
@@ -162,6 +162,7 @@
 	<Script file="modules\misc\mage.lua"/>
 	<Script file="modules\misc\raidUtility.lua"/>
 	
+	<Script file="modules\misc\addonmanager.lua"/>
 	<Script file="modules\blizzard\achievements.lua"/>
 	<Script file="core\movers.lua"/>
 	<Script file="developer\test.lua"/>

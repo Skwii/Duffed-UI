@@ -84,7 +84,7 @@ local function ChatCopyButtons()
 		buttontext:SetText(T.panelcolor.."C")
 		buttontext:SetShadowColor(0, 0, 0)
 		buttontext:SetShadowOffset(1.25, -1.25)
-		buttontext:Point("CENTER", 1, 0)
+		buttontext:Point("CENTER", 1, -1)
 		buttontext:SetJustifyH("CENTER")
 		buttontext:SetJustifyV("CENTER")
 				

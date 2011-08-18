@@ -166,6 +166,8 @@ local menuList = {
 	end},
 	{text = LFG_TITLE,
 	func = function() ToggleFrame(LFDParentFrame) end},
+	{text = "Addonmanager",
+	func = function() addonBG:Show() end},
 	{text = LOOKING_FOR_RAID,
 	func = function() ToggleFrame(LFRParentFrame) end},
 	{text = HELP_BUTTON,

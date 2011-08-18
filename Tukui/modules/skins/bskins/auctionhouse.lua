@@ -13,6 +13,7 @@ local function LoadSkin()
 	AuctionsScrollFrame:StripTextures()
 	BidScrollFrame:StripTextures()
 	T.SkinScrollBar(BrowseScrollFrameScrollBar)
+	T.SkinScrollBar(BrowseFilterScrollFrameScrollBar)
 	
 	T.SkinDropDownBox(BrowseDropDown)
 	T.SkinDropDownBox(PriceDropDown)

@@ -131,7 +131,7 @@ local function Local(o)
 	if o == "TukuiConfigUIskinsSkada" then o = "Enable Skada Skin" end
 	if o == "TukuiConfigUIskinsRecount" then o = "Enable Recount Skin" end
 	if o == "TukuiConfigUIskinsOmen" then o = "Enable Omen Skin" end
-	if o == "TukuiConfigUIskinsKLE" then o = "Enable KLE Skin" end
+	if o == "TukuiConfigUIskinsBigWigs" then o = "Enable BigWigs Skin" end
 	if o == "TukuiConfigUIskinsDXE" then o = "Enable DXE Skin" end
 	if o == "TukuiConfigUIskinsTinyDPS" then o = "Enable TinyDPS Skin" end
 	if o == "TukuiConfigUIskinsQuartz" then o = "Enable Quartz Skin" end
@@ -406,6 +406,7 @@ StaticPopupDialogs["PERCHAR"] = {
 	button2 = CANCEL,
 	timeout = 0,
 	whileDead = 1,
+	preferredIndex = 3,
 }
 
 StaticPopupDialogs["RESET_PERCHAR"] = {
@@ -419,6 +420,7 @@ StaticPopupDialogs["RESET_PERCHAR"] = {
 	button2 = CANCEL,
 	timeout = 0,
 	whileDead = 1,
+	preferredIndex = 3,
 }
 
 StaticPopupDialogs["RESET_ALL"] = {
@@ -433,6 +435,7 @@ StaticPopupDialogs["RESET_ALL"] = {
 	button2 = CANCEL,
 	timeout = 0,
 	whileDead = 1,
+	preferredIndex = 3,
 }
 
 -- We wanna make sure we have all needed tables when we try add values

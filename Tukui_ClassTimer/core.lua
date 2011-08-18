@@ -309,7 +309,7 @@ local CLASS_FILTERS = {
 				CreateSpellEntry( 3045 ), -- Rapid Fire
 				CreateSpellEntry( 34471 ), --The beast within
 				CreateSpellEntry( 53434 ), --call of the wild
-				CreateSpellEntry( 64420 ), -- Sniper Training
+				CreateSpellEntry( 64418 ), CreateSpellEntry( 64419 ), CreateSpellEntry( 64420 ), -- Sniper Training Rank 1/2/3
 			},
 			procs = {
 				CreateSpellEntry( 53257 ), -- cobra strikes 
