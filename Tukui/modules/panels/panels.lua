@@ -73,8 +73,8 @@ else
 end
 ileft:SetFrameLevel(2)
 if T.lowversion then
-	iright:ClearAllPoints()
-	iright:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -14, 3)
+	ileft:ClearAllPoints()
+	ileft:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", 14, 3)
 end
 
 -- INFO RIGHT (FOR STATS)
@@ -86,8 +86,8 @@ else
 end
 iright:SetFrameLevel(2)
 if T.lowversion then 
-	ileft:ClearAllPoints() 
-	ileft:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 14, 3)
+	iright:ClearAllPoints() 
+	iright:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", -14, 3)
 end		
 
 -- HORIZONTAL LINE LEFT
