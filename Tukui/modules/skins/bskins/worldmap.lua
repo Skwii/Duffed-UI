@@ -205,6 +205,7 @@ local function LoadSkin()
 		DropDownList1:Point("TOPRIGHT", self, "BOTTOMRIGHT", 2, -4)
 	end)
 	T.SkinScrollBar(WorldMapQuestScrollFrameScrollBar)
+	T.SkinScrollBar(WorldMapQuestDetailScrollFrameScrollBar)
  end
 
 tinsert(T.SkinFuncs["Tukui"], LoadSkin)

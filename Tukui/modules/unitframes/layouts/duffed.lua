@@ -1068,11 +1068,7 @@ local function Shared(self, unit)
 			debuffs.spacing = 4
 			debuffs.num = 6
 
-			if TukuiPetCastBar:IsShown() then
-				debuffs:Point("TOPLEFT", self, "BOTTOMLEFT", 0, -12)
-			else
-				debuffs:Point("TOPLEFT", power, "BOTTOMLEFT", -2, -5)
-			end
+			debuffs:Point("TOPLEFT", power, "BOTTOMLEFT", -2, -5)
 			debuffs.initialAnchor = "TOPLEFT"
 			debuffs["growth-y"] = "UP"
 			debuffs.PostCreateIcon = T.PostCreateAura
