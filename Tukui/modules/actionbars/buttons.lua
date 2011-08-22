@@ -425,7 +425,7 @@ else
 	end)
 	if T.lowversion then
 		TukuiBar2Button:Size(TukuiInfoLeft:GetHeight())
-		TukuiBar2Button:Point("LEFT", TukuiInfoLeft, "RIGHT", 3, 0)
+		TukuiBar2Button:Point("BOTTOMRIGHT", TukuiBar1, "BOTTOMLEFT", -2, 0)
 		TukuiBar2Button.text:Point("CENTER", 1, 0)
 	else
 		TukuiBar2Button:Point("TOPLEFT", TukuiInfoLeft, "TOPRIGHT", 2, 0)

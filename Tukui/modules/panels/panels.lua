@@ -74,7 +74,7 @@ end
 ileft:SetFrameLevel(2)
 if T.lowversion then
 	ileft:ClearAllPoints()
-	ileft:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", 14, 3)
+	ileft:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 11, 3)
 end
 
 -- INFO RIGHT (FOR STATS)
@@ -87,24 +87,26 @@ end
 iright:SetFrameLevel(2)
 if T.lowversion then 
 	iright:ClearAllPoints() 
-	iright:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", -14, 3)
+	iright:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -11, 3)
 end		
 
--- HORIZONTAL LINE LEFT
-local ltoabl = CreateFrame("Frame", "TukuiLineToABLeft", TukuiBar1)
-ltoabl:CreatePanel("Default", 10, 2, "RIGHT", ileft, "LEFT", 0, 0)
+if not T.lowversion then
+	-- HORIZONTAL LINE LEFT
+	local ltoabl = CreateFrame("Frame", "TukuiLineToABLeft", TukuiBar1)
+	ltoabl:CreatePanel("Default", 10, 2, "RIGHT", ileft, "LEFT", 0, 0)
 
--- HORIZONTAL LINE RIGHT
-local ltoabr = CreateFrame("Frame", "TukuiLineToABRight", TukuiBar1)
-ltoabr:CreatePanel("Default", 10, 2, "LEFT", iright, "RIGHT", 0, 0)
+	-- HORIZONTAL LINE RIGHT
+	local ltoabr = CreateFrame("Frame", "TukuiLineToABRight", TukuiBar1)
+	ltoabr:CreatePanel("Default", 10, 2, "LEFT", iright, "RIGHT", 0, 0)
 
--- LEFT VERTICAL LINE
-local ileftlv = CreateFrame("Frame", "TukuiInfoLeftLineVertical", TukuiBar1)
-ileftlv:CreatePanel("Default", 2, 13, "BOTTOM", ltoabl, "LEFT", 0, -1)
+	-- LEFT VERTICAL LINE
+	local ileftlv = CreateFrame("Frame", "TukuiInfoLeftLineVertical", TukuiBar1)
+	ileftlv:CreatePanel("Default", 2, 13, "BOTTOM", ltoabl, "LEFT", 0, -1)
 
--- RIGHT VERTICAL LINE
-local irightlv = CreateFrame("Frame", "TukuiInfoRightLineVertical", TukuiBar1)
-irightlv:CreatePanel("Default", 2, 13, "BOTTOM", ltoabr, "RIGHT", 0, -1)
+	-- RIGHT VERTICAL LINE
+	local irightlv = CreateFrame("Frame", "TukuiInfoRightLineVertical", TukuiBar1)
+	irightlv:CreatePanel("Default", 2, 13, "BOTTOM", ltoabr, "RIGHT", 0, -1)
+end
 
 --BATTLEGROUND STATS FRAME
 if C["datatext"].battleground == true then

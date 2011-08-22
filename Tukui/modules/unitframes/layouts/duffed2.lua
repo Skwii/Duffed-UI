@@ -891,7 +891,7 @@ local function Shared(self, unit)
 			local debuffs = CreateFrame("Frame", nil, health)
 			debuffs:Height(20)
 			debuffs:Width(300)
-			debuffs.size = 19.5
+			debuffs.size = C["unitframes"].totdebuff
 			debuffs.spacing = 3
 			debuffs.num = 7
 

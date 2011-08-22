@@ -19,6 +19,7 @@ C["unitframes"] = {
 	["layout"] = 2,										-- Layout 1 or 2
 	["center"] = false,									-- Set Powerbar to center of the unitframe
 	["outline"] = "NONE",								-- Set outlines
+	["totdebuff"] = 19.5,								-- Set size of Target of Target debuffs
 	
 	["fontsize"] = 8,									-- Fontsize on Unitframes
 	["healthbarcolor"] = {.2, .2, .2, 1},				-- Healthbar color (if unicolor = true) 
