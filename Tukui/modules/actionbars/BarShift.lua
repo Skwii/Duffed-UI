@@ -63,7 +63,11 @@ bar:SetScript("OnEvent", function(self, event, ...)
 				button:Point("BOTTOMLEFT", TukuiShift, 0, 24)
 			else
 				local previous = _G["ShapeshiftButton"..i-1]
-				button:Point("LEFT", previous, "RIGHT", T.buttonspacing, 0)
+				if C.actionbar.verticalshapeshift then
+					button:Point("TOP", previous, "BOTTOM", 0, -T.buttonspacing)
+				else
+					button:Point("LEFT", previous, "RIGHT", T.buttonspacing, 0)
+				end
 			end
 			local _, name = GetShapeshiftFormInfo(i)
 			if name then
@@ -86,10 +90,18 @@ bar:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 		T.TukuiShiftBarUpdate()
-		ShapeShiftBorder:Size(((ShapeshiftButton1:GetWidth()+T.buttonspacing)*GetNumShapeshiftForms() )+ T.buttonspacing, ShapeshiftButton1:GetHeight()+ 2*T.buttonspacing)
+		if C.actionbar.verticalshapeshift then
+			ShapeShiftBorder:Size(((ShapeshiftButton1:GetWidth()+T.buttonspacing))+ T.buttonspacing, ShapeshiftButton1:GetHeight()*GetNumShapeshiftForms()+ 4*T.buttonspacing)
+		else
+			ShapeShiftBorder:Size(((ShapeshiftButton1:GetWidth()+T.buttonspacing)*GetNumShapeshiftForms() )+ T.buttonspacing, ShapeshiftButton1:GetHeight()+ 2*T.buttonspacing)
+		end
 	elseif event == "PLAYER_ENTERING_WORLD" then
 		T.StyleShift()
-		ShapeShiftBorder:Size(((ShapeshiftButton1:GetWidth()+T.buttonspacing)*GetNumShapeshiftForms() )+ T.buttonspacing, ShapeshiftButton1:GetHeight()+ 2*T.buttonspacing)
+		if C.actionbar.verticalshapeshift then
+			ShapeShiftBorder:Size(((ShapeshiftButton1:GetWidth()+T.buttonspacing))+ T.buttonspacing, ShapeshiftButton1:GetHeight()*GetNumShapeshiftForms()+ 4*T.buttonspacing)
+		else
+			ShapeShiftBorder:Size(((ShapeshiftButton1:GetWidth()+T.buttonspacing)*GetNumShapeshiftForms() )+ T.buttonspacing, ShapeshiftButton1:GetHeight()+ 2*T.buttonspacing)
+		end
 		
 		-- Mouseover
 		if C["actionbar"].shapeshiftmouseover == true then
@@ -124,4 +136,8 @@ else
 end
 ssborder:SetFrameLevel(1)
 ssborder:SetFrameStrata("BACKGROUND")
-ssborder:Point("LEFT", -T.buttonspacing, 0)
+if C.actionbar.verticalshapeshift then
+	ssborder:Point("TOP", 0, T.buttonspacing)
+else
+	ssborder:Point("LEFT", -T.buttonspacing, 0)
+end

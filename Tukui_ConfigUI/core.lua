@@ -78,7 +78,6 @@ local function Local(o)
 	if o == "TukuiConfigUIunitframeslayout" then o = "Layout (1, 2)" end
 	if o == "TukuiConfigUIunitframesColorGradient" then o = "Add Color-Gradient to healthbar (from red to healthbarcolor u set in config)" end
 	if o == "TukuiConfigUIunitframespowerClasscolored" then o = "Powerbar in class-color instead of power-color" end
-	if o == "TukuiConfigUIunitframescenter" then o = "Set Powerbar to center of the unitframe" end
 	if o == "TukuiConfigUIunitframesoutline" then o = "Set Outline for Unitframes (NONE, OUTLINE, THINOUTLINE)" end
 	
 	if o == "TukuiConfigUIcastbar" then o = "Castbar" end
@@ -98,6 +97,7 @@ local function Local(o)
 	if o == "TukuiConfigUIactionbarrightbarsmouseover"  then o = "Rightbars on mouseover" end
 	if o == "TukuiConfigUIactionbarshapeshiftborder"  then o = "Display Border around Shapeshiftbar" end
 	if o == "TukuiConfigUIactionbarshapeshiftmouseover"  then o = "Shapeshiftbar on mouseover" end
+	if o == "TukuiConfigUIactionbarverticalshapeshift" then o = "Set Shapeshiftbar vertical" end
 	if o == "TukuiConfigUIactionbarmacrotext"  then o = "Display Macrotext" end
 	if o == "TukuiConfigUIactionbarmacro" then o ="Enable Buttonhighlightning like Blizzstandard for Procs" end
 	if o == "TukuiConfigUIactionbarpetbaralwaysvisible"  then o = "Always show Petbar even if rightbarsmouseover = true" end

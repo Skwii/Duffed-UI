@@ -15,9 +15,9 @@ if C["datatext"].haste and C["datatext"].haste > 0 then
 	local int = 1
 
 	local function Update(self, t)
-		spellhaste = GetCombatRating(20)
-		rangedhaste = GetCombatRating(19)
-		attackhaste = GetCombatRating(18)
+		spellhaste = UnitSpellHaste("player");
+		rangedhaste = GetRangedHaste();
+		attackhaste = GetMeleeHaste();
 		
 		if attackhaste > spellhaste and select(2, UnitClass("Player")) ~= "HUNTER" then
 			haste = attackhaste
@@ -29,7 +29,7 @@ if C["datatext"].haste and C["datatext"].haste > 0 then
 		
 		int = int - t
 		if int < 0 then
-			Text:SetText(haste.." "..T.panelcolor..L.datatext_playerhaste)
+			Text:SetText(format("%.2f", haste).."% "..T.panelcolor..L.datatext_playerhaste) -- 
 			int = 1
 		end     
 	end

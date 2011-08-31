@@ -139,18 +139,10 @@ local function Shared(self, unit)
 		local power = CreateFrame('StatusBar', nil, self)
 		power:Size(playerwidth-60, 5)
 		-- power:Height(2)
-		if C["unitframes"].center == true then
-			if unit =="player" then
-				power:Point("BOTTOM", panel, "BOTTOM", 0, -11)
-			else
-				power:Point("BOTTOM", panel, "BOTTOM", 0, -11)
-			end
+		if unit =="player" then
+			power:Point("TOPRIGHT", panel, "BOTTOMRIGHT", -2, -5)
 		else
-			if unit =="player" then
-				power:Point("TOPRIGHT", panel, "BOTTOMRIGHT", -2, -5)
-			else
-				power:Point("TOPLEFT", panel, "BOTTOMLEFT", 2, -5)
-			end
+			power:Point("TOPLEFT", panel, "BOTTOMLEFT", 2, -5)
 		end
 		power:SetStatusBarTexture(normTex)
 		
@@ -192,32 +184,14 @@ local function Shared(self, unit)
 		-- Powerbar Border
 		power:CreateBorder()
 		
-		if C["unitframes"].center == true then
-			local l1 = CreateFrame("Frame", nil, power)
-			local l2 = CreateFrame("Frame", nil, l1)
-			local r1 = CreateFrame("Frame", nil, power)
-			local r2 = CreateFrame("Frame", nil, r1)
-			if unit == "player" then
-				l1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
-				l2:CreatePanel("", 2, 7, "BOTTOMLEFT", l1, "BOTTOMLEFT", 0, 0)
-				r1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
-				r2:CreatePanel("", 2, 7, "BOTTOMRIGHT", r1, "BOTTOMRIGHT", 0, 0)
-			else
-				l1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
-				l2:CreatePanel("", 2, 7, "BOTTOMRIGHT", l1, "BOTTOMRIGHT", 0, 0)
-				r1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
-				r2:CreatePanel("", 2, 7, "BOTTOMLEFT", r1, "BOTTOMLEFT", 0, 0)
-			end
+		local l1 = CreateFrame("Frame", nil, power)
+		local l2 = CreateFrame("Frame", nil, l1)
+		if unit == "player" then
+			l1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
+			l2:CreatePanel("", 2, 7, "BOTTOMLEFT", l1, "BOTTOMLEFT", 0, 0)
 		else
-			local l1 = CreateFrame("Frame", nil, power)
-			local l2 = CreateFrame("Frame", nil, l1)
-			if unit == "player" then
-				l1:CreatePanel("", 9, 2, "RIGHT", power.border, "LEFT", -1, 0)
-				l2:CreatePanel("", 2, 7, "BOTTOMLEFT", l1, "BOTTOMLEFT", 0, 0)
-			else
-				l1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
-				l2:CreatePanel("", 2, 7, "BOTTOMRIGHT", l1, "BOTTOMRIGHT", 0, 0)
-			end
+			l1:CreatePanel("", 9, 2, "LEFT", power.border, "RIGHT", 1, 0)
+			l2:CreatePanel("", 2, 7, "BOTTOMRIGHT", l1, "BOTTOMRIGHT", 0, 0)
 		end
 	
 		-- portraits
@@ -589,7 +563,7 @@ local function Shared(self, unit)
 						Runes[i] = CreateFrame("StatusBar", self:GetName().."_Runes"..i, health)
 						Runes[i]:SetHeight(5)
 						if (i == 1) then
-							Runes[i]:Width(((playerwidth-4) / 6)-3)
+							Runes[i]:Width(((playerwidth-4) / 6))
 							Runes[i]:Point("LEFT", Runes.border, "LEFT", 2, 0)
 						else
 							Runes[i]:Width(((playerwidth-4) / 6)-1)
@@ -1683,23 +1657,13 @@ end
 
 -- tot
 local tot = oUF:Spawn('targettarget', "TukuiTargetTarget")
-if C["unitframes"].center == true then
-	tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 28, -18)
-	tot:Size(playerwidth-56, 16)
-else
-	tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 0, -18)
-	tot:Size(playerwidth-56, 16)
-end
+tot:Point("TOPLEFT", TukuiTarget, "BOTTOMLEFT", 0, -18)
+tot:Size(playerwidth-56, 16)
 
 -- pet
 local pet = oUF:Spawn('pet', "TukuiPet")
-if C["unitframes"].center == true then
-	pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", -28, -18)
-	pet:Size(playerwidth-56, 16)
-else
-	pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", 0, -18)
-	pet:Size(playerwidth-56, 16)
-end
+pet:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", 0, -18)
+pet:Size(playerwidth-56, 16)
 
 -- focus & focustarget
 local focus = oUF:Spawn('focus', "TukuiFocus")
@@ -1711,7 +1675,7 @@ if lafo then
 	focustarget:Point("TOPRIGHT", TukuiFocus, "BOTTOMRIGHT", 0, -3)
 else
 	focus:Size(playerwidth/2 -18, 15)
-	focus:Point("TOPRIGHT", TukuiPlayer, "TOPLEFT", -50, 0)
+	focus:Point("TOPRIGHT", TukuiPlayer, "BOTTOMRIGHT", -171, -3)
 	focustarget:Size(playerwidth/2 -18, 15)
 	focustarget:Point("TOPRIGHT", TukuiFocus, "BOTTOMRIGHT", 0, -3)
 end

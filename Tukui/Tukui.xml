@@ -155,6 +155,7 @@
 	<Script file="modules\unitframes\tags\tags.lua"/>
 	<Script file="modules\unitframes\layouts\duffed.lua"/>
 	<Script file="modules\unitframes\layouts\duffed2.lua"/>
+	<Script file="modules\unitframes\layouts\merith.lua"/>
 	<Script file="modules\misc\sCombo.lua"/>
 	
 	<Script file="modules\misc\altpowerbar.lua"/>

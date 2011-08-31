@@ -38,9 +38,6 @@ local TENTHS_TRESHOLD = 1 -- Timer tenths threshold - range from 1 to 60
 -- Trinket filter - mostly for trinket procs, delete or wrap into comment block --[[  ]] if you dont want to track those
 local TRINKET_FILTER = {
 		
-		--Heroictrinkets
-		CreateSpellEntry( 90992 ), -- Hymn of Power
-		
 		--Enchants
 		CreateSpellEntry( 74221 ), -- Hurricane
 		CreateSpellEntry( 74241 ), -- Power Torrent
@@ -153,44 +150,6 @@ local TRINKET_FILTER = {
 		CreateSpellEntry( 99233 ), -- DPS Burning Rage T12
 	};
 	
---[[ Class specific filters
-
-Examples:
-
-	Track "Frost Fever" and "Blood Plague" on target and "Bone Shield" on player:
-	
-		DEATHKNIGHT = { 
-			target = { 
-				CreateSpellEntry( "Frost Fever" ),
-				CreateSpellEntry( "Blood Plague" ),
-			},
-			player = { 
-				CreateSpellEntry( "Bone Shield" ),
-			}
-		},
-
-	Track "Frost Fever" and "Blood Plague" on target and nothing on player:
-	
-		DEATHKNIGHT = { 
-			target = { 
-				CreateSpellEntry( "Frost Fever" ),
-				CreateSpellEntry( "Blood Plague" ),
-			},
-		},
-
-	Track nothing on target and nothing on player:
-	
-		DEATHKNIGHT = { 
-
-		},
-		
-	or
-	
-				
-		
-		( ^^^ yes nothing ^^^ )
-]]--
-
 local CLASS_FILTERS = {
 		DEATHKNIGHT = { 
 			target = {
@@ -1193,7 +1152,24 @@ if C["unitframes"].charportrait == true then xOffset = -62 end
 local playerFrame = CreateAuraBarFrame( playerDataSource, TukuiPlayer );
 playerFrame:SetHiddenHeight( -yOffset );
 
-if C.unitframes.layout == 2 then
+if C.unitframes.layout == 1 then
+	if C.unitframes.largefocus then
+		playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
+	else
+		if TukuiFocus:IsShown() then
+			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, yOffset   + TukuiFocus:GetHeight() +6)
+		else
+			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
+		end
+		TukuiFocus:HookScript("OnShow", function()
+			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, yOffset   + TukuiFocus:GetHeight() +6)
+		end)
+		TukuiFocus:HookScript("OnHide", function()
+			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
+		end)	
+	end
+	playerFrame:Point( "BOTTOMRIGHT", TukuiPlayer, "TOPRIGHT", 0, yOffset )
+elseif C.unitframes.layout == 2 then
 	playerFrame:Point("BOTTOMLEFT", ShardBarBorder or RuneBarBorder or TotemBarBorder or TukuiPlayer, "TOPLEFT", 2, 5)
 	playerFrame:Point("BOTTOMRIGHT", ShardBarBorder or RuneBarBorder or TotemBarBorder or TukuiPlayer, "TOPRIGHT", -2, 5)
 
@@ -1211,23 +1187,9 @@ if C.unitframes.layout == 2 then
 			playerFrame:Point("BOTTOMRIGHT", TukuiPlayer, "TOPRIGHT", -2, 5)
 		end)
 	end
-else
-	if C.unitframes.largefocus then
-		playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
-	else
-		if TukuiFocus:IsShown() then
-			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, yOffset + TukuiFocus:GetHeight() +6)
-		else
-			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
-		end
-		TukuiFocus:HookScript("OnShow", function()
-			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, yOffset + TukuiFocus:GetHeight() +6)
-		end)
-		TukuiFocus:HookScript("OnHide", function()
-			playerFrame:Point( "BOTTOMLEFT", TukuiPlayer, "TOPLEFT", xOffset, 6 )
-		end)	
-	end
-	playerFrame:Point( "BOTTOMRIGHT", TukuiPlayer, "TOPRIGHT", 0, yOffset )
+elseif C.unitframes.layout == 3 then
+	playerFrame:Point("BOTTOMLEFT", TukuiPlayer, "TOPLEFT", 2, 7)
+	playerFrame:Point("BOTTOMRIGHT", TukuiPlayer, "TOPRIGHT", -2, 7)
 end
 
 local trinketFrame = CreateAuraBarFrame( trinketDataSource, TukuiPlayer )

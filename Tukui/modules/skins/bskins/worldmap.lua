@@ -95,11 +95,9 @@ local function LoadSkin()
 		if not InCombatLockdown() then
 			WorldMapFrame:SetScale(1)
 			WorldMapFrameSizeDownButton:Show()
-			WorldMapFrame:SetFrameLevel(10)
-		else
-			WorldMapFrameSizeDownButton:Disable()
-			WorldMapFrameSizeUpButton:Disable()
-		end	
+			WorldMapFrame:SetFrameLevel(40)
+			WorldMapFrame:SetFrameStrata("HIGH")
+		end
 		
 		WorldMapFrameAreaLabel:SetFont(C["media"].font, 50, "OUTLINE")
 		WorldMapFrameAreaLabel:SetShadowOffset(2, -2)

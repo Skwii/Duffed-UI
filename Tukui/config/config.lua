@@ -17,7 +17,6 @@ C["general"] = {
 
 C["unitframes"] = {
 	["layout"] = 2,										-- Layout 1 or 2
-	["center"] = false,									-- Set Powerbar to center of the unitframe
 	["outline"] = "NONE",								-- Set outlines
 	["totdebuff"] = 19.5,								-- Set size of Target of Target debuffs
 	
@@ -101,6 +100,7 @@ C["actionbar"] = {
 	["rightbarsmouseover"] = true, 						-- Right Bars on mouseover
 	["shapeshiftborder"] = true,						-- Create a Border around the shapeshift buttons
 	["shapeshiftmouseover"] = false,					-- Shapeshiftbar on mouseover
+	["verticalshapeshift"] = false,						-- Shapeshiftbar vertical
 	["macrotext"] = false,								-- display macro text on buttons
 	["macro"] = true,									-- Enable Buttonhighlightning like Blizzstandard for procs
 	["petbaralwaysvisible"] = true,						-- Always show petbar even if rightbarsmouseover = true

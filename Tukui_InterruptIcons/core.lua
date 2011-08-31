@@ -1,6 +1,10 @@
 local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C - config; L - locales
 
+-- on Tukui 13.13 or less, T.toc doesn't exist
+if not T.toc then T.patch, T.build, T.releasedate, T.toc = GetBuildInfo() end
+
 tInterruptIcons = CreateFrame("frame")
+tInterruptIcons:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 tInterruptIcons:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 tInterruptIcons:RegisterEvent("PLAYER_ENTERING_WORLD")
 tInterruptIcons:SetScript("OnUpdate", function(self, elapsed) tInterruptIcons.OnUpdate(elapsed) end)
@@ -13,10 +17,10 @@ anchor:SetFrameLevel(19)
 anchor:SetMovable(true)
 
 tInterruptIcons.Orientations = { 
-	["HORIZONTALRIGHT"] = { ["point"] = "TOPLEFT", ["rpoint"] = "TOPRIGHT", ["x"] = 3, ["y"] = 0 },
-	["HORIZONTALLEFT"] = { ["point"] = "TOPRIGHT", ["rpoint"] = "TOPLEFT", ["x"] = -3, ["y"] = 0 }, 
-	["VERTICALDOWN"] = { ["point"] = "TOPLEFT", ["rpoint"] = "BOTTOMLEFT", ["x"] = 0, ["y"] = -3 },
-	["VERTICALUP"] = { ["point"] = "BOTTOMLEFT", ["rpoint"] = "TOPLEFT", ["x"] = 0, ["y"] = 3 }, 
+	["HORIZONTALRIGHT"] = { ["point"] = "LEFT", ["rpoint"] = "LEFT", ["x"] = 32, ["y"] = 0 },
+	["HORIZONTALLEFT"] = { ["point"] = "RIGHT", ["rpoint"] = "RIGHT", ["x"] = -32, ["y"] = 0 }, 
+	["VERTICALDOWN"] = { ["point"] = "TOP", ["rpoint"] = "TOP", ["x"] = 0, ["y"] = -32 },
+	["VERTICALUP"] = { ["point"] = "BOTTOM", ["rpoint"] = "BOTTOM", ["x"] = 0, ["y"] = 32 }, 
 }
 
 ------------------------------------------------------------
@@ -28,12 +32,14 @@ tInterruptIcons.Spells = T.interrupt
 ------------------------------------------------------------
 -- end of spell configuration
 ------------------------------------------------------------
+
 SlashCmdList["tInterruptIcons"] = function(msg) tInterruptIcons.SlashHandler(msg) end
 SLASH_tInterruptIcons1 = "/ii"
 tInterruptIcons:SetScript("OnEvent", function(self, event, ...) tInterruptIcons[event](...) end)
 tInterruptIcons.Icons = { }
 
 local pvpType
+local needupdate = false
 
 function tInterruptIcons.CreateIcon()
 	local i = (#tInterruptIcons.Icons)+1
@@ -60,7 +66,7 @@ function tInterruptIcons.CreateIcon()
 	tInterruptIcons.Icons[i].TimerText:SetShadowColor(0,0,0)
 	tInterruptIcons.Icons[i].TimerText:SetShadowOffset(T.mult,-T.mult)
 	tInterruptIcons.Icons[i].TimerText:Point("CENTER", tInterruptIcons.Icons[i], "CENTER",1,0)
-	tInterruptIcons.Icons[i].TimerText:SetText(5)
+	tInterruptIcons.Icons[i].TimerText:SetText(999)
    
 	return i
 end
@@ -92,7 +98,7 @@ function tInterruptIcons.UNLOCK()
 		anchor:RegisterForDrag("LeftButton", "RightButton")
 		anchor:SetScript("OnDragStart", function(self) self:SetUserPlaced(true) self:StartMoving() end)			
 		anchor:SetScript("OnDragStop", function(self) self:StopMovingOrSizing() end)
-		tInterruptIcons.StartTimer(1,999,nil)
+		tInterruptIcons.StartTimer(1, 999, nil)
 		tInterruptIcons.Icons[1].moving = true
 	end
 end
@@ -137,10 +143,19 @@ function tInterruptIcons.Print(msg, ...)
 	DEFAULT_CHAT_FRAME:AddMessage("|cFFFFFF33[Tukui Interrupt Icons]|r "..format(msg, ...))
 end
 
-function tInterruptIcons.COMBAT_LOG_EVENT_UNFILTERED(timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags, spellID)
-	if (event == "SPELL_CAST_SUCCESS" and not tInterruptIcons.Icons[1]:IsMouseEnabled() and (bit.band(sourceFlags,COMBATLOG_OBJECT_REACTION_HOSTILE) == COMBATLOG_OBJECT_REACTION_HOSTILE)) then 
+function tInterruptIcons.COMBAT_LOG_EVENT_UNFILTERED(...)
+	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags, spellID
+	
+	if T.toc < 40200 then
+		timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags, spellID = ...
+	else
+		timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellID = ...
+	end
+	
+	if (event == "SPELL_CAST_SUCCESS" and not tInterruptIcons.Icons[1]:IsMouseEnabled() and (bit.band(sourceFlags,COMBATLOG_OBJECT_REACTION_HOSTILE) == COMBATLOG_OBJECT_REACTION_HOSTILE)) then			
 		if (sourceName ~= UnitName("player")) then
 			if (tInterruptIcons.Spells[spellID]) then
+				needupdate = true
 				local _,_,texture = GetSpellInfo(spellID)
 				tInterruptIcons.StartTimer(tInterruptIcons.NextAvailable(),tInterruptIcons.Spells[spellID],texture,spellID)
 			end
@@ -158,13 +173,13 @@ function tInterruptIcons.NextAvailable()
 end
 
 tInterruptIcons.Timers = { }
-function tInterruptIcons.StartTimer(icon, duration, texture, spellID)			
+function tInterruptIcons.StartTimer(icon, duration, texture, spellID)
 	tInterruptIcons.Timers[(icon)] = {
 		["Start"] = GetTime(),
 		["Duration"] = duration,
 		["SpellID"] = spellID,
 	}
-	UIFrameFadeIn(tInterruptIcons.Icons[icon],0,0.0,1.0)
+	UIFrameFadeIn(tInterruptIcons.Icons[icon],1,0,1)
 	if (texture) then
 		tInterruptIcons.Icons[(active or icon)].Texture:SetTexture(texture)
 		tInterruptIcons.Icons[(active or icon)].Texture:Point("TOPLEFT", tInterruptIcons.Icons[(active or icon)], 2, -2)
@@ -172,16 +187,14 @@ function tInterruptIcons.StartTimer(icon, duration, texture, spellID)
 		tInterruptIcons.Icons[(active or icon)].Texture:SetTexCoord(.08, .92, .08, .92)
 		tInterruptIcons.Icons[(active or icon)]:SetTemplate("Default")
 	end
-	tInterruptIcons.Reposition()	
 end
 
 function tInterruptIcons.StopTimer(icon)
 	if (tInterruptIcons.Icons[icon]:IsMouseEnabled()) then
 		tInterruptIcons.LOCK()
 	end
-	UIFrameFadeOut(tInterruptIcons.Icons[icon],0,1.0,0.0)
+	UIFrameFadeOut(tInterruptIcons.Icons[icon],1,1,0)
 	tInterruptIcons.Timers[icon] = nil
-	tInterruptIcons.Reposition()
 end
 
 function tInterruptIcons.StopAllTimers()
@@ -202,6 +215,7 @@ function tInterruptIcons.Reposition()
 	table.sort(sorttable)
 
 	local currentactive = 0
+	
 	for k=1,#sorttable do
 		local v = sorttable[k]
 		local i = indexes[v]
@@ -209,24 +223,39 @@ function tInterruptIcons.Reposition()
 		if (currentactive == 0) then
 			tInterruptIcons.Icons[i]:SetPoint("CENTER", anchor, "CENTER", 0, 0)
 		else
-			tInterruptIcons.Icons[i]:SetPoint(tInterruptIcons.Orientations[TukuiInterruptIcons.orientation].point, 
-				tInterruptIcons.Icons[currentactive], 
+			tInterruptIcons.Icons[i]:SetPoint(
+				tInterruptIcons.Orientations[TukuiInterruptIcons.orientation].point,
+				anchor, 
 				tInterruptIcons.Orientations[TukuiInterruptIcons.orientation].rpoint, 
-				tInterruptIcons.Orientations[TukuiInterruptIcons.orientation].x, 
-				tInterruptIcons.Orientations[TukuiInterruptIcons.orientation].y)
+				tInterruptIcons.Orientations[TukuiInterruptIcons.orientation].x * currentactive, 
+				tInterruptIcons.Orientations[TukuiInterruptIcons.orientation].y * currentactive
+			)
 		end
 		currentactive = i
 	end
 end
 
-function tInterruptIcons.OnUpdate(elapsed)
-	for i in pairs(tInterruptIcons.Timers) do
-		local timeleft = tInterruptIcons.Timers[i].Duration+1-(GetTime()-tInterruptIcons.Timers[i].Start)
-		if (timeleft < 0) then
-			tInterruptIcons.StopTimer(i)
-		else
-			tInterruptIcons.Icons[i].TimerText:SetText(math.floor(timeleft))
+local interval = 0.1
+function tInterruptIcons.OnUpdate(elapsed)	
+	if interval > 0 then
+		interval = interval - elapsed
+	else
+		for i in pairs(tInterruptIcons.Timers) do
+			local timeleft = tInterruptIcons.Timers[i].Duration+1-(GetTime()-tInterruptIcons.Timers[i].Start)
+			if (timeleft < 0) then
+				needupdate = true
+				tInterruptIcons.StopTimer(i)
+			else
+				tInterruptIcons.Icons[i].TimerText:SetText(math.floor(timeleft))
+			end
 		end
+		
+		if needupdate then
+			tInterruptIcons.Reposition()
+			needupdate = false
+		end
+		
+		interval = 0.1
 	end
 end
 
@@ -235,23 +264,14 @@ function tInterruptIcons:PLAYER_ENTERING_WORLD()
 		TukuiInterruptIcons = {["orientation"] = "VERTICALUP",} 
 	end
 	pvpType = GetZonePVPInfo()
-	
-	if pvpType == "arena" then
-		tInterruptIcons:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-	else
-		tInterruptIcons:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-	end
 end
 
 function tInterruptIcons:ZONE_CHANGED_NEW_AREA()
 	pvpType = GetZonePVPInfo()
 	
-	if pvpType == "arena" then
+	if not pvpType or pvpType == "arena" then
 		for i in pairs(tInterruptIcons.Timers) do
 			tInterruptIcons.StopTimer(i)
 		end
-		tInterruptIcons:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-	else
-		tInterruptIcons:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	end
 end
