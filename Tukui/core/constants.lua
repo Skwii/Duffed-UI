@@ -4,6 +4,7 @@ T.dummy = function() return end
 T.myname = select(1, UnitName("player"))
 T.myrealm = GetRealmName()
 T.myclass = select(2, UnitClass("player"))
+T.myrace = select(2, UnitRace("player"))
 T.client = GetLocale() 
 T.resolution = GetCVar("gxResolution")
 T.getscreenheight = tonumber(string.match(T.resolution, "%d+x(%d+)"))
