@@ -258,6 +258,7 @@ local function Shared(self, unit)
 			self:RegisterEvent("PARTY_LEADER_CHANGED", T.MLAnchorUpdate)
 			self:RegisterEvent("PARTY_MEMBERS_CHANGED", T.MLAnchorUpdate)
 
+
 			-- show druid mana when shapeshifted in bear, cat or whatever
 			if C["unitframes"].classbar then
 				if T.myclass == "DRUID" then
@@ -1435,12 +1436,13 @@ local function Shared(self, unit)
 		debuffs:SetWidth(200)
 		debuffs:SetPoint('TOPLEFT', self, 'TOPRIGHT', T.Scale(5), 2)
 		debuffs.size = 26
-		debuffs.num = 0
+		debuffs.num = 4
 		debuffs.spacing = 3
 		debuffs.initialAnchor = 'LEFT'
 		debuffs["growth-x"] = "RIGHT"
 		debuffs.PostCreateIcon = T.PostCreateAura
 		debuffs.PostUpdateIcon = T.PostUpdateAura
+		debuffs.onlyShowPlayer = true
 		self.Debuffs = debuffs
 				
 		-- trinket feature via trinket plugin
