@@ -345,7 +345,6 @@ local function Shared(self, unit)
 						bars[i].border:SetFrameLevel(self:GetFrameLevel() + 3)
 					    bars[i].border:SetTemplate("Default")
 					    bars[i].border:CreateShadow("Default")
-					    --bars[i].border:SetBackdropColor(.1,.1,.1,1)
 					end
 					
 					if T.myclass == "WARLOCK" then
@@ -393,7 +392,6 @@ local function Shared(self, unit)
 					Runes[i].border:SetPoint("BOTTOMRIGHT", Runes[i], "BOTTOMRIGHT", T.Scale(2), T.Scale(-2))
 					Runes[i].border:SetFrameStrata("MEDIUM")
                     Runes[i].border:SetFrameLevel(4)					
-					--Runes[i].border:SetBackdropColor(.1,.1,.1,1 )
 					Runes[i].border:SetTemplate("Default")
 					Runes[i].border:CreateShadow("Default")
                 end
@@ -409,7 +407,7 @@ local function Shared(self, unit)
 						TotemBar[i] = CreateFrame("StatusBar", self:GetName().."_TotemBar"..i, self)
 						TotemBar[i]:SetFrameLevel(self:GetFrameLevel() + 3)
 						if (i == 1) then
-					    TotemBar[i]:Point("LEFT", power, "BOTTOMLEFT", 16, -3)					else
+					    TotemBar[i]:Point("LEFT", power, "BOTTOMLEFT", 14, -3)					else
 					    TotemBar[i]:SetPoint("TOPLEFT", TotemBar[i-1], "TOPRIGHT", T.Scale(7), 0)
 					end
 					TotemBar[i]:SetStatusBarTexture(normTex)
@@ -431,7 +429,6 @@ local function Shared(self, unit)
 					TotemBar[i].border:SetPoint("BOTTOMRIGHT", TotemBar[i], "BOTTOMRIGHT", T.Scale(2), T.Scale(-2))
 					TotemBar[i].border:SetFrameStrata("MEDIUM")
 					TotemBar[i].border:SetFrameLevel(4)
-					--TotemBar[i].border:SetBackdropColor(.1,.1,.1,1)
 					TotemBar[i].border:CreateShadow("Default")
 					TotemBar[i].border:SetTemplate("Default")
 				end
@@ -468,7 +465,6 @@ local function Shared(self, unit)
 			self.Name = Name
 			
 			-- combo points on target
-			
 			local cp = T.SetFontString(self, font, 15, "THINOUTLINE")
 			cp:SetPoint("RIGHT", health.border, "LEFT", -5, 0)
 			
@@ -711,7 +707,6 @@ local function Shared(self, unit)
 		line1:SetFrameLevel(0)
 		line1:SetAlpha(0)
 		
-			
 		-- power
 		local power = CreateFrame('StatusBar', nil, self)
 		power:Height(3)
@@ -816,7 +811,6 @@ local function Shared(self, unit)
 		self.HealthBorder = HealthBorder
 		
 		health.PostUpdate = T.PostUpdatePetColor
-				
 		self.Health = health
 		self.Health.bg = healthBG
 		
@@ -1497,7 +1491,6 @@ local function Shared(self, unit)
 		self.Castbar.Icon = castbar.icon
 	end
 
-
 	------------------------------------------------------------------------
 	--	Main tanks and Main Assists layout (both mirror'd)
 	------------------------------------------------------------------------
@@ -1559,7 +1552,6 @@ local function Shared(self, unit)
 	
 	return self
 end
-
 
 ------------------------------------------------------------------------
 --	Default position of Tukui unitframes
