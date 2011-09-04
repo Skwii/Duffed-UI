@@ -12,13 +12,13 @@ ns._Headers = {}
 --	local variables
 ------------------------------------------------------------------------
 
-local font1 = C["media"].uffont
-local font2 = C["media"].font
 local font = C["media"].font
+local font1 = C["media"].uffont
 local normTex = C["media"].normTex
 local glowTex = C["media"].glowTex
 local bubbleTex = C["media"].bubbleTex
 local fontflag = C["unitframes"].outline
+local fontsize = C["unitframes"].fontsize+1
 
 local backdrop = {
 	bgFile = C["media"].blank,
@@ -98,7 +98,7 @@ local function Shared(self, unit)
 		healthBG:SetAllPoints()
 		healthBG:SetTexture(0, 0, 0)
 		
-		health.value = T.SetFontString(health, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		health.value = T.SetFontString(health, font, fontsize, fontflag)
 		health.value:Point("RIGHT", health, "RIGHT", -4, -1)
 		health.PostUpdate = T.PostUpdateHealth
 				
@@ -148,7 +148,7 @@ local function Shared(self, unit)
 		powerBG:SetTexture(normTex)
 		powerBG.multiplier = 0.3
 		
-		power.value = T.SetFontString(health, font, C["datatext"].fontsize, C["unitframes"].outline)
+		power.value = T.SetFontString(health, font, C["datatext"].fontsize, fontflag)
 		if (unit == "player") then
 			power.value:Point("LEFT", health, "LEFT", 4, -1)
 		end
@@ -232,7 +232,7 @@ local function Shared(self, unit)
 			FlashInfo:SetScript("OnUpdate", T.UpdateManaLevel)
 			FlashInfo.parent = self
 			FlashInfo:SetAllPoints(health)
-			FlashInfo.ManaLevel = T.SetFontString(FlashInfo, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+			FlashInfo.ManaLevel = T.SetFontString(FlashInfo, font, fontsize, fontflag)
 			FlashInfo.ManaLevel:SetPoint("CENTER", health, "CENTER", 0, 1)
 			self.FlashInfo = FlashInfo
 			
@@ -257,7 +257,6 @@ local function Shared(self, unit)
 			self.MasterLooter = MasterLooter
 			self:RegisterEvent("PARTY_LEADER_CHANGED", T.MLAnchorUpdate)
 			self:RegisterEvent("PARTY_MEMBERS_CHANGED", T.MLAnchorUpdate)
-
 
 			-- show druid mana when shapeshifted in bear, cat or whatever
 			if C["unitframes"].classbar then
@@ -290,7 +289,7 @@ local function Shared(self, unit)
 					local eclipseBarText = eclipseBar:CreateFontString(nil, 'OVERLAY')
 					eclipseBarText:SetPoint('TOP', eclipseBar, 0, 25)
 					eclipseBarText:SetPoint('BOTTOM', eclipseBar)
-					eclipseBarText:SetFont(font, C["datatext"].fontsize, C["unitframes"].outline)
+					eclipseBarText:SetFont(font, C["datatext"].fontsize, fontflag)
 					eclipseBarText:SetShadowOffset(T.mult, -T.mult)
 					eclipseBarText:SetShadowColor(0, 0, 0, 0.4)
 					eclipseBar.PostUpdatePower = T.EclipseDirection
@@ -462,7 +461,7 @@ local function Shared(self, unit)
 			local Name = health:CreateFontString(nil, "OVERLAY")
 			Name:Point("LEFT", health, "LEFT", 4, -1)
 			Name:SetJustifyH("LEFT")
-			Name:SetFont(font, C["datatext"].fontsize, C["unitframes"].outline)
+			Name:SetFont(font, C["datatext"].fontsize, fontflag)
 			Name:SetShadowOffset(1.25, -1.25)
 
 			self:Tag(Name, '[Tukui:getnamecolor][Tukui:namelong] [Tukui:diffcolor][level] [shortclassification]')
@@ -470,7 +469,7 @@ local function Shared(self, unit)
 			
 			-- combo points on target
 			
-			local cp = T.SetFontString(self, font2, 15, "THINOUTLINE")
+			local cp = T.SetFontString(self, font, 15, "THINOUTLINE")
 			cp:SetPoint("RIGHT", health.border, "LEFT", -5, 0)
 			
 			self.CPoints = cp
@@ -604,7 +603,7 @@ local function Shared(self, unit)
 		-- add combat feedback support
 		if C["unitframes"].combatfeedback == true then
 			local CombatFeedbackText 
-			CombatFeedbackText = T.SetFontString(health, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+			CombatFeedbackText = T.SetFontString(health, font, fontsize, fontflag)
 			CombatFeedbackText:SetPoint("CENTER", 0, 1)
 			CombatFeedbackText.colors = {
 				DAMAGE = {0.69, 0.31, 0.31},
@@ -771,7 +770,7 @@ local function Shared(self, unit)
 		self:Tag(Name, '[Tukui:getnamecolor][Tukui:nameshort] [Tukui:diffcolor][level] [shortclassification]')
 		Name:SetPoint("CENTER", health, "CENTER", 2, 2)
 		Name:SetJustifyH("CENTER")
-		Name:SetFont(font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		Name:SetFont(font, fontsize, fontflag)
 		Name:SetShadowColor(0, 0, 0)
 		Name:SetShadowOffset(1.25, -1.25)
 		self.Name = Name
@@ -847,7 +846,7 @@ local function Shared(self, unit)
 		-- Unit name
 		local Name = health:CreateFontString(nil, "OVERLAY")
 		Name:SetPoint("CENTER", self.Health, "CENTER", 1, 2)
-		Name:SetFont(font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		Name:SetFont(font, fontsize, fontflag)
 		Name:SetJustifyH("CENTER")
 		Name:SetShadowOffset(1.25, -1.25)
 
@@ -954,7 +953,7 @@ local function Shared(self, unit)
 		-- Unit name
 		local Name = health:CreateFontString(nil, "OVERLAY")
 		Name:SetPoint("CENTER", self.Health, "CENTER", 0, 1)
-		Name:SetFont(font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		Name:SetFont(font, fontsize, fontflag)
 		Name:SetJustifyH("CENTER")
 
 		self:Tag(Name, '[Tukui:getnamecolor][Tukui:namemedium]')
@@ -996,7 +995,7 @@ local function Shared(self, unit)
 		healthBG:SetAllPoints()
 		healthBG:SetTexture(0, 0, 0)
 
-		health.value = T.SetFontString(health, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		health.value = T.SetFontString(health, font, fontsize, fontflag)
 		health.value:Point("LEFT", 2, 1)
 		health.PostUpdate = T.PostUpdateHealth
 				
@@ -1047,7 +1046,7 @@ local function Shared(self, unit)
 		powerBG:SetTexture(normTex)
 		powerBG.multiplier = 0.3
 		
-		power.value = T.SetFontString(health, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		power.value = T.SetFontString(health, font, fontsize, fontflag)
 		power.value:Point("RIGHT", -2, 1)
 		power.PreUpdate = T.PreUpdatePower
 		power.PostUpdate = T.PostUpdatePower
@@ -1059,7 +1058,7 @@ local function Shared(self, unit)
 		local Name = health:CreateFontString(nil, "OVERLAY")
 		Name:SetPoint("CENTER", health, "CENTER", 0, 0)
 		Name:SetJustifyH("CENTER")
-		Name:SetFont(C.media.font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		Name:SetFont(C.media.font, fontsize, fontflag)
 		Name:SetShadowColor(0, 0, 0)
 		Name:SetShadowOffset(1.25, -1.25)
 		
@@ -1154,7 +1153,7 @@ local function Shared(self, unit)
 		healthBG:SetAllPoints()
 		healthBG:SetTexture(0, 0, 0)
 
-		health.value = T.SetFontString(health, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		health.value = T.SetFontString(health, font, fontsize, fontflag)
 		health.value:Point("LEFT", 2, 1)
 		health.PostUpdate = T.PostUpdateHealth
 				
@@ -1205,7 +1204,7 @@ local function Shared(self, unit)
 		powerBG:SetTexture(normTex)
 		powerBG.multiplier = 0.3
 		
-		power.value = T.SetFontString(health, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		power.value = T.SetFontString(health, font, fontsize, fontflag)
 		power.value:Point("RIGHT", -2, 1)
 		power.PreUpdate = T.PreUpdatePower
 		power.PostUpdate = T.PostUpdatePower
@@ -1217,7 +1216,7 @@ local function Shared(self, unit)
 		local Name = health:CreateFontString(nil, "OVERLAY")
 		Name:SetPoint("CENTER", health, "CENTER", 0, 1)
 		Name:SetJustifyH("CENTER")
-		Name:SetFont(font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		Name:SetFont(font, fontsize, fontflag)
 		Name:SetShadowColor(0, 0, 0)
 		Name:SetShadowOffset(1.25, -1.25)
 		
@@ -1255,13 +1254,13 @@ local function Shared(self, unit)
 		castbar.bg:Point("BOTTOMRIGHT", 2, -2)
 		castbar.bg:SetFrameLevel(5)
 		
-		castbar.time = T.SetFontString(castbar, font, C["datatext"].fontsize, C["unitframes"].outline)
+		castbar.time = T.SetFontString(castbar, font, C["datatext"].fontsize, fontflag)
 		castbar.time:Point("RIGHT", castbar, "RIGHT", -4, 0)
 		castbar.time:SetTextColor(0, 4, 0)
 		castbar.time:SetJustifyH("RIGHT")
 		castbar.CustomTimeText = T.CustomCastTimeText
 
-		castbar.Text = T.SetFontString(castbar, font, C["datatext"].fontsize, C["unitframes"].outline)
+		castbar.Text = T.SetFontString(castbar, font, C["datatext"].fontsize, fontflag)
 		castbar.Text:SetPoint("LEFT", castbar, "LEFT", 4, 0)
 		castbar.Text:SetTextColor(0.3, 0.2, 1)
 		castbar.Text:Width(100)
@@ -1323,7 +1322,7 @@ local function Shared(self, unit)
 		healthBG:SetAllPoints()
 		healthBG:SetTexture(0, 0, 0)
 
-		health.value = T.SetFontString(health, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		health.value = T.SetFontString(health, font, fontsize, fontflag)
 		health.value:Point("LEFT", 2, 0.5)
 		health.PostUpdate = T.PostUpdateHealth
 				
@@ -1374,7 +1373,7 @@ local function Shared(self, unit)
 		powerBG:SetTexture(normTex)
 		powerBG.multiplier = 0.3
 		
-		power.value = T.SetFontString(health, font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		power.value = T.SetFontString(health, font, fontsize, fontflag)
 		power.value:Point("RIGHT", -2, 0.5)
 		power.PreUpdate = T.PreUpdatePower
 		power.PostUpdate = T.PostUpdatePower
@@ -1386,7 +1385,7 @@ local function Shared(self, unit)
 		local Name = health:CreateFontString(nil, "OVERLAY")
 		Name:SetPoint("CENTER", health, "CENTER", 0, 1)
 		Name:SetJustifyH("CENTER")
-		Name:SetFont(font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		Name:SetFont(font, fontsize, fontflag)
 		Name:SetShadowColor(0, 0, 0)
 		Name:SetShadowOffset(1.25, -1.25)
 		Name.frequentUpdates = 0.2
@@ -1550,7 +1549,7 @@ local function Shared(self, unit)
 		local Name = health:CreateFontString(nil, "OVERLAY")
 		Name:SetPoint("CENTER", health, "CENTER", 0, 1)
 		Name:SetJustifyH("CENTER")
-		Name:SetFont(font, C["datatext"].fontsize+1, C["unitframes"].outline)
+		Name:SetFont(font, fontsize, fontflag)
 		Name:SetShadowColor(0, 0, 0)
 		Name:SetShadowOffset(1.25, -1.25)
 		
