@@ -360,7 +360,7 @@ local function Shared(self, unit)
 				if T.myclass == "DEATHKNIGHT" then
 					
 				local Runes = CreateFrame("Frame", nil, self)
-                Runes:Point("LEFT", power, "BOTTOMLEFT", 16, -3)
+                Runes:Point("LEFT", power, "BOTTOMLEFT", 15, -3)
                 Runes:Size(100, 5)
 				Runes:SetFrameLevel(self:GetFrameLevel() + 3)
 				Runes:SetFrameStrata("MEDIUM")
@@ -407,7 +407,7 @@ local function Shared(self, unit)
 						TotemBar[i] = CreateFrame("StatusBar", self:GetName().."_TotemBar"..i, self)
 						TotemBar[i]:SetFrameLevel(self:GetFrameLevel() + 3)
 						if (i == 1) then
-					    TotemBar[i]:Point("LEFT", power, "BOTTOMLEFT", 14, -3)					else
+					    TotemBar[i]:Point("LEFT", power, "BOTTOMLEFT", 15, -3)					else
 					    TotemBar[i]:SetPoint("TOPLEFT", TotemBar[i-1], "TOPRIGHT", T.Scale(7), 0)
 					end
 					TotemBar[i]:SetStatusBarTexture(normTex)
