@@ -1,0 +1,14 @@
+﻿## Interface: 40200
+## Author: Tukz
+## Project Collaborators: Elv22, Nightcracker
+## Credits to: Caith, Caellian, Shestak, Haste, Tekkub, Alza, Roth, P3lim, Tulla, Hungtar, hankthetank, Ishtara and others...
+## Special Thanks to: Admins, Moderator and VIP's from tukui.org
+## Version: 13.50 (Duffed UI v5.77.2)
+## Title: |cffC495DDTukui|r
+## Notes: UI of awesomeness!
+## SavedVariables: TukuiData
+## SavedVariablesPerCharacter: TukuiDataPerChar
+## OptionalDeps: Tukui_ConfigUI, !ClassColors, Clique, Recount, Omen, a, b, nibHideBlackBar, Skada, TelUI_AddonSkins, TinyDPS, Quartz, CooldownToGo, spellstealer, KLE, DXE, DBM
+## X-oUF: oUFTukui
+
+Tukui.xml
