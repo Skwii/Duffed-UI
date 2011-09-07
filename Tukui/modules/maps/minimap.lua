@@ -53,7 +53,7 @@ MiniMapMailIcon:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\mail")
 
 -- Move battleground icon
 MiniMapBattlefieldFrame:ClearAllPoints()
-MiniMapBattlefieldFrame:Point("BOTTOMRIGHT", Minimap, 3, 0)
+MiniMapBattlefieldFrame:Point("BOTTOMRIGHT", Minimap, 0, 0)
 MiniMapBattlefieldBorder:Hide()
 
 -- Ticket Frame
