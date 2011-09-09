@@ -1213,13 +1213,13 @@ if C["unitframes"].raidunitdebuffwatch == true then
 
 		--Throne of the Four Winds
 			--Conclave of Wind
-				--Nezir <Lord of the North Wind>
-				SpellName(93131), --Ice Patch
-				--Anshal <Lord of the West Wind>
-				SpellName(86206), --Soothing Breeze
-				SpellName(93122), --Toxic Spores
-				--Rohash <Lord of the East Wind>
-				SpellName(93058), --Slicing Gale
+			--Nezir <Lord of the North Wind>
+			SpellName(93131), --Ice Patch
+			--Anshal <Lord of the West Wind>
+			SpellName(86206), --Soothing Breeze
+			SpellName(93122), --Toxic Spores
+			--Rohash <Lord of the East Wind>
+			SpellName(93058), --Slicing Gale
 			--Al'Akir
 			SpellName(93260), -- Ice Storm
 			SpellName(93295), -- Lightning Rod
@@ -1243,7 +1243,8 @@ if C["unitframes"].raidunitdebuffwatch == true then
 			SpellName(99837),  -- Crystal Prison
 			SpellName(99937),  -- Jagged Tear
 			-- Baleroc
-			SpellName(99256),  -- Torment
+			SpellName(99256),  -- Torment (normal)
+			SpellName(100231), -- Torment (heroic)
 			SpellName(99252),  -- Blaze of Glory
 			SpellName(99516),  -- Countdown
 			-- Majordomo Staghelm
