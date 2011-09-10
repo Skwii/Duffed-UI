@@ -2,7 +2,7 @@
 -- Spec Helper, by EPIC
 -----------------------------------------------
 local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C - config; L - locales
-if not C["ses"].enable == true then return end
+if not C["misc"].sesenable == true then return end
 
 -- colors
 local hoverovercolor = {.4, .4, .4}
@@ -12,11 +12,11 @@ local dr, dg, db = unpack({ 0.4, 0.4, 0.4 })
 panelcolor = ("|cff%.2x%.2x%.2x"):format(dr * 255, dg * 255, db * 255)
 
 -- Gear Settings
-local Enablegear = C["ses"].enablegear -- herp
-local Autogearswap = C["ses"].gearswap -- derp
-local Specswitchcastbar = C["ses"].castbar -- show a castbar for spec switching
-local set1 = C["ses"].set1 -- this is the gear set that gets equiped with your primary spec. (must be the NUMBER from 1-10)
-local set2 = C["ses"].set2 -- this is the gear set that gets equiped with your secondary spec.(must be the NUMBER from 1-10)
+local Enablegear = C["misc"].sesenablegear -- herp
+local Autogearswap = C["misc"].sesgearswap -- derp
+local Specswitchcastbar = C["misc"].sescastbar -- show a castbar for spec switching
+local set1 = C["misc"].sesset1 -- this is the gear set that gets equiped with your primary spec. (must be the NUMBER from 1-10)
+local set2 = C["misc"].sesset2 -- this is the gear set that gets equiped with your secondary spec.(must be the NUMBER from 1-10)
 
 --functions
 local function HasDualSpec() if GetNumTalentGroups() > 1 then return true end end

@@ -1,5 +1,5 @@
 local T, C, L = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
-if C["rd"].bossicons == false then return end
+if C["misc"].bossicons == false then return end
 
 local deadBosses = {}
 local PopulateEncounterInfo = function()

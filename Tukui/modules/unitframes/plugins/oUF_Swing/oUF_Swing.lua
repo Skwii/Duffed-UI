@@ -37,7 +37,7 @@
 	 - :OverrideText(now)
 --]]
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
-if not C.swingtimer.enable then return end
+if not C.misc.swingtimerenable then return end
 
 local addon, ns = ...
 local oUF = oUF or ns.oUF

@@ -26,10 +26,7 @@ local ALLOWED_GROUPS = {
 	["skins"]=1,
 	["sCombo"]=1,
 	["auras"]=1,
-	["swingtimer"]=1,
-	["ses"]=1,
-	["tb"]=1,
-	["rd"]=1,
+	["misc"]=1,
 }
 
 --List of "Table Names" that we do not want to show in the config
@@ -138,42 +135,31 @@ local function Local(o)
 	if o == "TukuiConfigUIskinsDBM" then o = "Enable DBM Skin" end
 	if o == "TukuiConfigUIskinsbskins" then o = "Enable Skinning for Blizzardframes" end
 	if o == "TukuiConfigUIskinsitemborder" then o = "Enable Qualityborder for Items on Character / Inspectframe" end
-	
 	if o == "TukuiConfigUItooltipshowspellid" then o = "Show SpellID on Tooltip" end
 	
 	if o == "TukuiConfigUIsCombo" then o = "ComboBar (sCombo)" end
 	if o == "TukuiConfigUIsComboenable" then o = "Enable sCombo-Addon for combopoints instead of default cp-display" end
 	if o == "TukuiConfigUIsComboenergybar" then o = "Show Energy-Bar below Combopoints" end
-	
 	if o == "TukuiConfigUImerchantautoguildrepair" then o = "Autorepair from Guild Bank if possible." end
-	
 	if o == "TukuiConfigUInameplateclassicons" then o = "Display Classicon on nameplates for enemys" end
 	
-	if o == "TukuiConfigUIswingtimer" then o = "SwingTimer" end
-	if o == "TukuiConfigUIswingtimerenable" then o = "Enable SwingTimer" end
-	if o == "TukuiConfigUIswingtimerwidth" then o = "Width" end
-	if o == "TukuiConfigUIswingtimerheight" then o = "Height" end
-	if o == "TukuiConfigUIswingtimercolor" then o = "Bar-Color" end
-		
-	-- Specswitcher
-	if o == "TukuiConfigUIses" then o = "Specswitcher" end
-	if o == "TukuiConfigUIsesenable" then o = "Enable Specswitcher" end
-	if o == "TukuiConfigUIsesenablegear" then o = "Enable automatic gearswap" end
-	if o == "TukuiConfigUIsesset1" then o = "Equipset for first spec (must be a number between 1 - 10)" end
-	if o == "TukuiConfigUIsesset2" then o = "Equipset for second spec (must be a number between 1 - 10)" end
-	if o == "TukuiConfigUIsesgearswap" then o = "Enable automatic gearswap for respec" end
-	if o == "TukuiConfigUIsescastbar" then o = "Enable castbar for specswitcher" end
-	
-	-- Raid & Dungeon
-	if o == "TukuiConfigUIrd" then o = "Raid & Dungeon" end
-	if o == "TukuiConfigUIrdraid" then o = "Enable RaidBuff Reminder" end
-	if o == "TukuiConfigUIrdrbfmouseover" then o = "Enable mouseover for RaidBuff Reminder" end
-	if o == "TukuiConfigUIrddebuff" then o = "Enable Debuffdisplay on nameplates" end
-	if o == "TukuiConfigUIrdbossicons" then o = "Enable alternative Bossportraits on instancemaps" end
-	
-	-- Threatbar
-	if o == "TukuiConfigUItb" then o = "Threatbar" end
-	if o == "TukuiConfigUItbchattab" then o = "Set Threatbarpoint to ChatBG2Tab" end
+	-- misc
+	if o == "TukuiConfigUImisc" then o = "Misc Options" end
+	if o == "TukuiConfigUImiscswingtimerenable" then o = "Enable SwingTimer" end
+	if o == "TukuiConfigUImiscswingtimerwidth" then o = "Swingtimer Width" end
+	if o == "TukuiConfigUImiscswingtimerheight" then o = "Swingtimer Height" end
+	if o == "TukuiConfigUImiscswingtimercolor" then o = "Swingtimer Bar-Color" end
+	if o == "TukuiConfigUImiscsesenable" then o = "Enable Specswitcher" end
+	if o == "TukuiConfigUImiscsesenablegear" then o = "Enable automatic gearswap" end
+	if o == "TukuiConfigUImiscsesset1" then o = "Equipset for first spec (must be a number between 1 - 10)" end
+	if o == "TukuiConfigUImiscsesset2" then o = "Equipset for second spec (must be a number between 1 - 10)" end
+	if o == "TukuiConfigUImiscsesgearswap" then o = "Enable automatic gearswap for respec" end
+	if o == "TukuiConfigUImiscsescastbar" then o = "Enable castbar for specswitcher" end
+	if o == "TukuiConfigUImiscrbf" then o = "Enable RaidBuff Reminder" end
+	if o == "TukuiConfigUImiscrbfmouseover" then o = "Enable mouseover for RaidBuff Reminder" end
+	if o == "TukuiConfigUImiscnpdebuff" then o = "Enable Debuffdisplay on nameplates" end
+	if o == "TukuiConfigUImiscbossicons" then o = "Enable alternative Bossportraits on instancemaps" end
+	if o == "TukuiConfigUImisctbchattab" then o = "Set Threatbarpoint to ChatBG2Tab" end
 
 	-- general
 	if o == "TukuiConfigUIgeneral" then o = TukuiL.option_general end

@@ -340,9 +340,9 @@ local function Shared(self, unit)
 			end
 
 			-- SwingTimer
-			if C.swingtimer.enable then
+			if C.misc.swingtimerenable then
 				local sh = CreateFrame("Frame", "TukuiSwingtimerHolder", UIParent)
-				sh:CreatePanel("", C.swingtimer.width, 13, "CENTER", UIParent, "CENTER", 0, -50)
+				sh:CreatePanel("", C.misc.swingtimerwidth, 13, "CENTER", UIParent, "CENTER", 0, -50)
 				sh:SetMovable(true)
 				sh:Hide()
 				sh:SetBackdropBorderColor(1,0,0)
@@ -357,9 +357,9 @@ local function Shared(self, unit)
 				Swing = CreateFrame("Frame", "TukuiSwingtimer", self)
 				Swing:Point("TOPLEFT", sh, "BOTTOMLEFT", 0, -5)
 				Swing:Point("TOPRIGHT", sh, "BOTTOMRIGHT", 0, -5)
-				Swing:Height(C.swingtimer.height)
+				Swing:Height(C.misc.swingtimerheight)
 				Swing.texture = C["media"].normTex 
-				Swing.color = C.swingtimer.color
+				Swing.color = C.misc.swingtimercolor
 				Swing.textureBG = C["media"].blank
 				Swing.colorBG = {0, 0, 0, 0.8}
 				Swing.hideOoc = true

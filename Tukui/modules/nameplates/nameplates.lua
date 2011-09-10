@@ -63,7 +63,7 @@ end
 
 local NamePlates = CreateFrame("Frame", nil, T.UIParent)
 NamePlates:SetScript("OnEvent", function(self, event, ...) self[event](self, ...) end)
-if C["rd"].debuff == true then
+if C["misc"].npdebuff == true then
 	NamePlates:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 end
 

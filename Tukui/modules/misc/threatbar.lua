@@ -7,7 +7,7 @@ local aggroColors = {
 	[3] = {163/255,  24/255,  24/255},
 }
 
-if C["tb"].chattab == false or C["chat"].rightchatbackground == false then
+if C["misc"].tbchattab == false or C["chat"].rightchatbackground == false then
 	local TukuiThreatBar = CreateFrame("StatusBar", "TukuiThreatBar", TukuiInfoRight)
 	TukuiThreatBar:Point("TOPLEFT", 2, -2)
 	TukuiThreatBar:Point("BOTTOMRIGHT", -2, 2)

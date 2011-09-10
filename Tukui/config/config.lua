@@ -130,20 +130,21 @@ C["pvp"] = {
 	["arenaonly"] = true,								-- Aura and Interrupt announce in arena only
 }
 
-C["ses"] = {
-	["enable"] = true,									-- Enable Specswitcher
-	["enablegear"] = true,								-- Enable Gear
-	["set1"] = 1,										-- Gearset for Primary Spec
-	["set2"] = 2,										-- Gearset for Secondary Spec
-	["gearswap"] = true,								-- Enable automatic gearswap @respec
-	["castbar"] = true,									-- Enable castbar @specswitcher
-}
-
-C["rd"] = {
-	["debuff"] = true,									-- enable Debuffdisplay on nameplates
-	["raid"] = true,									-- enable raidbuffreminder
+C["misc"] = {
+	["sesenable"] = true,								-- Enable Specswitcher
+	["sesenablegear"] = true,							-- Enable Gear
+	["sesset1"] = 1,									-- Gearset for Primary Spec
+	["sesset2"] = 2,									-- Gearset for Secondary Spec
+	["sesgearswap"] = true,								-- Enable automatic gearswap @respec
+	["sescastbar"] = true,								-- Enable castbar @specswitcher
+	["npdebuff"] = true,								-- enable Debuffdisplay on nameplates
+	["rbf"] = true,										-- enable raidbuffreminder
 	["bossicons"] = true,								-- enable alternative Bossportraits
 	["rbfmouseover"] = true,							-- enable mouseover for RaidBuff Reminder
+	["swingtimerenable"] = false,						-- enable ouf_Swing Swingtimer Plugin (movable bar)
+	["swingtimerwidth"] = 210,							-- bar width
+	["swingtimerheight"] = 6,							-- bar height
+	["swingtimercolor"] = {1, 0, 0, 0.8},				-- bar color
 }
 
 C["skins"] = {
@@ -164,13 +165,6 @@ C["skins"] = {
 C["sCombo"] = {
 	["enable"] = true,									-- Enable sCombo-Addon for combopoints instead of default cp-display
 	["energybar"] = false,								-- show energy-Bar below cp bar
-}
-
-C["swingtimer"] = {
-	["enable"] = false,									-- enable ouf_Swing Swingtimer Plugin (movable bar)
-	["width"] = 210,									-- bar width
-	["height"] = 6,										-- bar height
-	["color"] = {1, 0, 0, 0.8},							-- bar color
 }
 
 C["classtimer"] = {
