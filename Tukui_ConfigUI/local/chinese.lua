@@ -13,7 +13,7 @@ if GetLocale() == "zhCN" then
 	TukuiL.option_general_backdropcolor = "设置为默认面板背景颜色"
 	TukuiL.option_general_bordercolor = "设置为默认边框颜色"
 	TukuiL.option_general_blizzardreskin = "改变暴雪样式的框体为Tukui风格"
-	 
+	
 	-- nameplate
 	TukuiL.option_nameplates = "姓名板"
 	TukuiL.option_nameplates_enable = "开启姓名版"
@@ -61,7 +61,6 @@ if GetLocale() == "zhCN" then
 	TukuiL.option_datatext_hit = "命中(输入0关闭)"
 	TukuiL.option_datatext_mastery = "精通 (输入0关闭)"
 
-	 
 	-- unit frames
 	TukuiL.option_unitframes_unitframes = "单位框体"
 	TukuiL.option_unitframes_combatfeedback = "在玩家和目标框体上显示战斗信息"

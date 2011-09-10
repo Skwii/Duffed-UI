@@ -3,7 +3,7 @@ local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, vari
 -- sCombo (Minimal Combo Bar Replacement)
 -- Author: Smelly
 
-if not C.sCombo.enable or not C.unitframes.enable then return end
+if not C.misc.sComboenable or not C.unitframes.enable then return end
 
 TukuiTarget:DisableElement('CPoints') 
 local Options = {
@@ -98,7 +98,7 @@ if InCombatLockdown() then print(ERR_NOT_IN_COMBAT) return end
 end
 
 -- energy bar
-if not C.sCombo.energybar or not C.unitframes.enable then return end
+if not C.misc.sComboenergybar or not C.unitframes.enable then return end
 local sPowerBG = CreateFrame("Frame", "sPowerBG", TukuiTarget)
 sPowerBG:CreatePanel(nil, (Options.comboWidth * 5) + (Options.spacing * 5) - Options.spacing, Options.comboHeight, "TOPLEFT", Anchor, "BOTTOMLEFT", 0, -(Options.comboHeight+6))
 sPowerBG:CreateShadow()

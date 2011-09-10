@@ -9,7 +9,7 @@
 	TukuiL.option_general_override = "Использовать раскладку для высокого разрешения при низком разрешении"
 	TukuiL.option_general_multisample = "Защищать конфигурацию мультисемплинга (ровные края шириной 1 пиксель)"
 	TukuiL.option_general_customuiscale = "Масштаб интерфейса (если автомасштабирование отключено)"
- 
+	
 	-- nameplate
 	TukuiL.option_nameplates = "Индикаторы здоровья"
 	TukuiL.option_nameplates_enable = "Включить индикаторы здоровья"

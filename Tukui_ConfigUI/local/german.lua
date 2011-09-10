@@ -9,7 +9,7 @@
 	TukuiL.option_general_override = "Nutze Layout für hohe auf niedriger Auflösung"
 	TukuiL.option_general_multisample = "Multisample Schutz (Saubere 1px Ränder)"
 	TukuiL.option_general_customuiscale = "Interface Skalierung (falls automatische Skalierung deaktiviert ist)"
- 
+	
 	-- nameplate
 	TukuiL.option_nameplates = "Namensplaketten"
 	TukuiL.option_nameplates_enable = "Aktiviere Namensplaketten"

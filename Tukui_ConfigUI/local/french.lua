@@ -9,7 +9,7 @@ if GetLocale() == "frFR" then
 	TukuiL.option_general_override = "Utiliser l'interface Haute Résolution sur une Basse Résolution"
 	TukuiL.option_general_multisample = "Protection Multisample (bordure de 1px clean)"
 	TukuiL.option_general_customuiscale = "Echelle de l'interface (si échelle auto désactivée)"
- 
+	
 	-- nameplate
 	TukuiL.option_nameplates = "Barres d'info"
 	TukuiL.option_nameplates_enable = "Activer les barres d'info"

@@ -9,7 +9,7 @@ TukuiL.option_general_uiscale = "Auto UI Scale"
 TukuiL.option_general_override = "Use High resolution  layout on a Lower resolution"
 TukuiL.option_general_multisample = "Multisampling protection (clean 1px border)"
 TukuiL.option_general_customuiscale = "UI Scale (if auto-scale is disabled)"
- 
+
 -- nameplate
 TukuiL.option_nameplates = "Nameplates"
 TukuiL.option_nameplates_enable = "Enable Nameplates"

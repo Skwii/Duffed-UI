@@ -12,7 +12,7 @@
 	TukuiL.option_general_backdropcolor = "設定面板背景顏色"
 	TukuiL.option_general_bordercolor = "設定面板邊框顏色"
 	TukuiL.option_general_blizzardreskin = "使用TUKUI風格代替暴雪默認界面"
- 
+	
 	-- nameplate
 	TukuiL.option_nameplates = "名條"
 	TukuiL.option_nameplates_enable = "啟用名條模組"

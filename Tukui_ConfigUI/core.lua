@@ -24,7 +24,6 @@ local ALLOWED_GROUPS = {
 	["castbar"]=1,
 	["classtimer"]=1,
 	["skins"]=1,
-	["sCombo"]=1,
 	["auras"]=1,
 	["misc"]=1,
 }
@@ -135,13 +134,6 @@ local function Local(o)
 	if o == "TukuiConfigUIskinsDBM" then o = "Enable DBM Skin" end
 	if o == "TukuiConfigUIskinsbskins" then o = "Enable Skinning for Blizzardframes" end
 	if o == "TukuiConfigUIskinsitemborder" then o = "Enable Qualityborder for Items on Character / Inspectframe" end
-	if o == "TukuiConfigUItooltipshowspellid" then o = "Show SpellID on Tooltip" end
-	
-	if o == "TukuiConfigUIsCombo" then o = "ComboBar (sCombo)" end
-	if o == "TukuiConfigUIsComboenable" then o = "Enable sCombo-Addon for combopoints instead of default cp-display" end
-	if o == "TukuiConfigUIsComboenergybar" then o = "Show Energy-Bar below Combopoints" end
-	if o == "TukuiConfigUImerchantautoguildrepair" then o = "Autorepair from Guild Bank if possible." end
-	if o == "TukuiConfigUInameplateclassicons" then o = "Display Classicon on nameplates for enemys" end
 	
 	-- misc
 	if o == "TukuiConfigUImisc" then o = "Misc Options" end
@@ -160,6 +152,8 @@ local function Local(o)
 	if o == "TukuiConfigUImiscnpdebuff" then o = "Enable Debuffdisplay on nameplates" end
 	if o == "TukuiConfigUImiscbossicons" then o = "Enable alternative Bossportraits on instancemaps" end
 	if o == "TukuiConfigUImisctbchattab" then o = "Set Threatbarpoint to ChatBG2Tab" end
+	if o == "TukuiConfigUImiscsComboenable" then o = "Enable sCombo-Addon for combopoints instead of default cp-display" end
+	if o == "TukuiConfigUImiscsComboenergybar" then o = "Show Energy-Bar below Combopoints" end
 
 	-- general
 	if o == "TukuiConfigUIgeneral" then o = TukuiL.option_general end
@@ -185,6 +179,7 @@ local function Local(o)
 	if o == "TukuiConfigUImerchantsellgrays" then o = TukuiL.option_merchant_autosell end
 	if o == "TukuiConfigUImerchantautorepair" then o = TukuiL.option_merchant_autorepair end
 	if o == "TukuiConfigUImerchantsellmisc" then o = TukuiL.option_merchant_sellmisc end
+	if o == "TukuiConfigUImerchantautoguildrepair" then o = "Autorepair from Guild Bank if possible." end
 	
 	-- bags
 	if o == "TukuiConfigUIbags" then o = TukuiL.option_bags end
@@ -295,6 +290,7 @@ local function Local(o)
 	if o == "TukuiConfigUItooltiphideuf" then o = TukuiL.option_tooltip_hideuf end
 	if o == "TukuiConfigUItooltipcursor" then o = TukuiL.option_tooltip_cursor end
 	if o == "TukuiConfigUItooltipilvl" then o = "Display average itemlevel on tooltip" end
+	if o == "TukuiConfigUItooltipshowspellid" then o = "Show SpellID on Tooltip" end
 	
 	-- others
 	if o == "TukuiConfigUIothers" then o = TukuiL.option_others end

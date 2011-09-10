@@ -9,7 +9,7 @@
 	TukuiL.option_general_override = "저해상도에서 고해상도 버전의 개체창을 사용"
 	TukuiL.option_general_multisample = "멀티샘플링을 항상 1배로 유지 (깨끗한 선)"
 	TukuiL.option_general_customuiscale = "UI크기 (autoscale이 꺼져 있을 때)"
- 
+	
 	-- nameplate
 	TukuiL.option_nameplates = "이름표"
 	TukuiL.option_nameplates_enable = "이름표를 사용"

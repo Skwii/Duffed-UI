@@ -9,7 +9,7 @@ if GetLocale() == "esES" then
 	TukuiL.option_general_override = "Usar reso Alta en monitor de reso Baja"
 	TukuiL.option_general_multisample = "Proteccion de Multisample (margen 1xp limpio)"
 	TukuiL.option_general_customuiscale = "Escala UI (solo si escala automatica esta apagado)"
- 
+	
 	-- nameplate
 	TukuiL.option_nameplates = "Placas de nombre"
 	TukuiL.option_nameplates_enable = "Activar placas de nombre"

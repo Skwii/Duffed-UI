@@ -145,6 +145,8 @@ C["misc"] = {
 	["swingtimerwidth"] = 210,							-- bar width
 	["swingtimerheight"] = 6,							-- bar height
 	["swingtimercolor"] = {1, 0, 0, 0.8},				-- bar color
+	["sComboenable"] = true,							-- Enable sCombo-Addon for combopoints instead of default cp-display
+	["sComboenergybar"] = false,						-- show energy-Bar below cp bar
 }
 
 C["skins"] = {
@@ -163,8 +165,7 @@ C["skins"] = {
 }
 
 C["sCombo"] = {
-	["enable"] = true,									-- Enable sCombo-Addon for combopoints instead of default cp-display
-	["energybar"] = false,								-- show energy-Bar below cp bar
+	
 }
 
 C["classtimer"] = {
