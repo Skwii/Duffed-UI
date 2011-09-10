@@ -163,7 +163,6 @@
 	<Script file="modules\misc\threatbar.lua"/>
 	<Script file="modules\misc\mage.lua"/>
 	<Script file="modules\misc\raidUtility.lua"/>
-	<Script file="modules\misc\controlpanel.lua"/>
 	
 	<Script file="modules\misc\addonmanager.lua"/>
 	<Script file="modules\blizzard\achievements.lua"/>
